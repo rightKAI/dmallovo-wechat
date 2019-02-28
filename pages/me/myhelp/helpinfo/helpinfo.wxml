@@ -1,0 +1,1 @@
+<web-view src="{{infoTxt}}" class="infone"></web-view>

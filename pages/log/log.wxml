@@ -1,0 +1,22 @@
+<view id="app">
+  <view id="topLine"></view>
+  <view class="header">
+    <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/%E7%99%BB%E5%BD%95LOGO.png"></image>
+  </view>
+  <view class="content">
+    <view class="inputArea clearBoth">
+      <text class="areaNum">0086</text>
+      <text class="icon"></text>
+      <input type="number" bindinput="changeInput" maxlength="11" placeholder="请输入手机号码" />
+    </view>
+    <view class="getVerifyCode clearBoth">
+      <input type="number" bindinput="changeCode" placeholder="请输入验证码" />
+      <text class="title" bindtap="getVerifyCode">{{verifyCodeText}}</text>
+    </view>
+    <view class="goLogin" bindtap="goLogin">登录</view>
+    <button class="wechatLogin" bindgetuserinfo="wechatLogin" open-type="getUserInfo" >微信登录</button>
+  </view>
+  <view class="userEnter">登录即同意《注册协议》和《隐私条款》</view>
+
+  
+</view>

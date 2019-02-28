@@ -1,0 +1,4 @@
+ <view class="imgBox">
+    <image src="{{imgSrc}}"></image>
+</view>
+<view class="baocun" bindtap='baocun'>保存地址</view>

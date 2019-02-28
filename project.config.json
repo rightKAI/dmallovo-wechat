@@ -1,0 +1,98 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx8209322da31160bf",
+	"projectname": "%E7%8E%9B%E4%B8%BD%E8%8E%B1%E9%92%BB%E7%9F%B3",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 9,
+			"list": [
+				{
+					"id": 0,
+					"name": "sa",
+					"pathName": "pages/activity/sakura/sakura",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/me/myCollect/collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/me/myoder/myoder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "晒单",
+					"pathName": "pages/me/unboxing/unboxing",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "晒单评价",
+					"pathName": "pages/me/unboxing/comment/comment",
+					"query": "shopid=1180409324301"
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/me/myoder/orderdetail/orderdetail",
+					"query": "id=118041019087"
+				},
+				{
+					"id": -1,
+					"name": "物流跟踪",
+					"pathName": "pages/me/logistics/logistics",
+					"query": "oid=118041019087"
+				},
+				{
+					"id": -1,
+					"name": "222",
+					"pathName": "pages/me/userInfo/userInfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "卖身契",
+					"pathName": "pages/loveOath/loveOath/loveOath",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "配送信息",
+					"pathName": "pages/order/order/order"
+				}
+			]
+		}
+	}
+}

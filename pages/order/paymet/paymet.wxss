@@ -1,0 +1,77 @@
+@import "/utils/step.wxss";
+page {
+  height: 100%;
+  background: #f5f5f5;
+}
+.clearBoth:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app {
+  height: auto;
+  font-weight: 300;
+  background: #f5f5f5;
+}
+#app .step {
+  margin-bottom: 20rpx;
+}
+#app .pay-area{
+  background: #fff;
+}
+#app .pay-area .item{
+    width: 100%;
+    padding:29rpx 20rpx;
+    box-sizing: border-box;
+    position: relative;
+    color: #333;
+    font-size: 32rpx;
+    overflow: hidden;
+}
+#app .pay-area .item .left{
+  width: 50%;
+  float: left;
+}
+#app .pay-area .item .right{
+  width: 50%;
+  float: right;
+}
+#app .pay-area .item .left image{
+    width: 70rpx;
+    height: 70rpx;
+    display: block;
+    float: left;
+    margin-right: 20rpx;
+    margin-left: 10rpx;
+}
+#app .pay-area .item .left text{
+    display: block;
+    float: left;
+    margin-top: 10rpx;
+}
+#app .pay-area .item .right .checkbox{
+    display:block;
+    float:right;
+    width:34rpx;
+    height:34rpx;
+    border-radius:50%;
+    margin-top:20rpx;
+    border:none;
+    background-image:url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/btn_xuanzhong.png);
+    background-size:100% 100%;
+}
+#app .fixBtn{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 32rpx;
+    color: #fff;
+    background: #001a88;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+}

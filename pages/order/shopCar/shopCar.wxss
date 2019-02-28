@@ -1,0 +1,413 @@
+/* 购物车css */
+@import "/utils/step.wxss";
+@import "/utils/goodsSelectModal.wxss";
+page {
+  width: 100%;
+  max-width: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+  height: 100%;
+  background: #f6f8fe;
+}
+
+.clearBoth:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app {
+  height: auto;
+  font-weight: 300;
+  background: #f6f8fe;
+}
+#app .kzyl .ylBack{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 2002;
+}
+#app .kzyl .ylxg{
+    position: fixed;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    transition: .2s ease-out;
+    z-index: 10001;
+}
+#app .kzyl .ylxg image{
+    position: absolute;
+    width: 500rpx;
+    height: 500rpx;
+    top: -350rpx;
+    right: -250rpx;
+}
+#app .kzyl .ylxg .close{
+    position: absolute;
+    width: 64rpx;
+    height: 64rpx;
+    background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/close.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: -300rpx;
+    right: -20rpx;
+}
+#app .kzyl .ylxg .wz{
+    position: absolute;
+    width: 390rpx;
+    font-size: 45rpx;
+    left: -200rpx;
+    top: -130rpx;
+    text-align: center;
+}
+#app .car-checklist {
+  background: initial;
+  padding-bottom: 108rpx;
+  position: relative;
+  z-index: 1;
+  margin-top: 1rpx;
+}
+
+#app .car-checklist .car-checklist-item {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 30rpx 50rpx 0rpx 50rpx;
+  margin-left: 0;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+#app .car-checklist .car-checklist-item:first-child {
+  margin-top: 0rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox {
+  float: left;
+  width: 100%;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-check {
+  float: left;
+  padding-top: 50rpx;
+  height: 100%;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item {
+  position: relative;
+  width: 100%;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-check .my-checkbox-off {
+  display: block;
+  float: left;
+  border: 1rpx solid #bdbdbd;
+  margin-top: 22rpx;
+  width: 34rpx;
+  height: 34rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-check .my-checkbox-on {
+  display: block;
+  float: left;
+  margin-top: 22rpx;
+  width: 34rpx;
+  height: 34rpx;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_pitch.png) no-repeat;
+  background-size: cover;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent {
+  height: 180rpx;
+  margin-bottom:40rpx;
+  float:left;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent image {
+  width: 180rpx;
+  height: 180rpx;
+  margin-right: 20rpx;
+  margin-left: 38rpx;
+  background: #f6f8fe;
+  float: left;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content {
+  position: relative;
+  float: left;
+  font-size: 30rpx;
+  color: #333;
+  width: 370rpx;
+  height: 180rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .goodsName {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  font-size: 30rpx;
+  margin-bottom: 16rpx;
+}
+.size {
+  display: block;
+  float: left;
+  color: #333;
+  font-size: 24rpx;
+  margin-right: 38rpx;
+}
+.letter{
+  display: block;
+  float: left;
+  color: #333;
+  font-size: 24rpx;
+  margin-top: 0;
+  width: 240rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .paramter {
+  margin-top: 5rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .paramter text {
+  display: inline;
+  margin-right: 10rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .paramter .classify {
+  margin-right: 29rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .paramter text:last-child {
+  margin-right: 0;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .footer-price {
+  height: 50rpx;
+  position: absolute;
+  bottom: -10rpx;
+  width: 417rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .car-flexbox-icontent .car-fcontent-content .footer-price .price {
+  display: block;
+  float: left;
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 300;
+}
+#app .car-checklist .car-checklist-item .car-flexbox .car-flexbox-item .list-cl {
+  border: solid 1px #e8e8e8;
+  padding: 0rpx 24rpx;
+  width: 580rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  color: #666;
+  letter-spacing: 3rpx;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .footer-shop {
+  border-top: 1rpx dotted #e8e8e8;
+  padding-right: 6rpx;
+  position: relative;
+  text-align: right;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #666;
+  width: 100%;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .footer-shop .collect:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 30rpx;
+  width: 2rpx;
+  position: absolute;
+  right: 80rpx;
+  top: 35rpx;
+  background: #e8e8e8;
+}
+
+#app .car-checklist .car-checklist-item .car-flexbox .footer-shop .icon-rome {
+  position: relative;
+  top: 5rpx;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/lajitong.png) no-repeat;
+  background-size: cover;
+  width: 30rpx;
+  height: 30rpx;
+  display: inline-block;
+  margin-left: 68rpx;
+  right: 17rpx;
+}
+
+#app .car-submit-bar {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  border-top: solid 1rpx #eee;
+  z-index: 100;
+  position: fixed;
+  background: #fff;
+}
+
+#app .car-submit-bar .my-checkbox-off {
+  display: block;
+  border: 1rpx solid #bdbdbd;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+#app .car-submit-bar .my-checkbox-on {
+  display: block;
+  width: 34rpx;
+  height: 34rpx;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_pitch.png) no-repeat;
+  background-size: cover;
+}
+
+#app .car-submit-bar .allText {
+  display: block;
+  float: left;
+  font-size: 26rpx;
+  line-height: 98rpx;
+  color: #333;
+}
+
+#app .car-submit-bar .footerPrice {
+  padding-top: 20rpx;
+  padding-right: 29rpx;
+  color: #333;
+  width: 335rpx; 
+  text-align: right;
+  float: left;
+}
+
+#app .car-submit-bar .footerPrice .footerPrice__price {
+  font-size: 26rpx;
+  color: #333;
+}
+
+#app .car-submit-bar .footerPrice .hide-text {
+  font-size: 22rpx;
+  color: #666;
+}
+
+#app .car-submit-bar .footerPrice .hide-text text {
+  font-size: 22rpx;
+  color: #666;
+  padding: 0 5rpx;
+}
+
+#app .car-submit-bar .buy-button {
+  float: right;
+  width: 220rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #001a88;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.noArea .tab {
+  padding: 170rpx 0 79rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 29rpx;
+}
+
+.noArea .tab text {
+  display: block;
+  font-size: 26rpx;
+  color:#333;
+  margin-top: 30rpx;
+}
+.noArea .tab .boldText {
+  display: block;
+  font-size: 42rpx;
+  font-weight: bold;
+  color:#333;
+  margin-top: 63rpx;
+}
+.noArea .tab image {
+  width: 98rpx;
+  height: 110rpx;
+  margin-top: 45rpx;
+}
+.noArea .tab .noIcon{
+  width: 200rpx;
+  height:200rpx;
+  border-radius: 50%;
+  background: #f6f8fe;
+  margin: 0 auto;
+  text-align: center;
+}
+.noArea .btnArea {
+  font-size: 32rpx;
+  color: #333;
+  padding-left: 194rpx;
+}
+
+.noArea .btnArea .btn {
+  width: 366rpx;
+  height: 76rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  background: #001a88;
+  color:#fff;
+  text-align: center;
+  line-height: 72rpx;
+}
+
+.noArea .btnArea .btn:nth-child(2) {
+  border: 2rpx solid #bdbdbd;
+  width: 362rpx;
+  height: 72rpx;
+  background: #fff;
+  color:#333;
+  margin-top: 30rpx;
+}
+
+.boxClickArea {
+  position: absolute;
+  width: 86rpx;
+  height: 80rpx;
+  left: 0rpx;
+}
+.delClickArea{
+  position: absolute;
+  width:65rpx;
+  height:65rpx;
+  top:23rpx;
+  right:8rpx
+}
+
+.selectModal .modalContent .goodsCon {
+  border-bottom:none;
+}
+
+.selectModal .goodsTittle{
+  position: fixed;
+  top: 206rpx;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+}

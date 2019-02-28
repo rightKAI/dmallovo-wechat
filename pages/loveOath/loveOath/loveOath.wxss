@@ -1,0 +1,72 @@
+.certificate_bg {
+  background: url("http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/template/promise/promise_mV2.jpg") no-repeat;
+  background-size: cover;
+  width: 750rpx;
+  height: 1048rpx;
+  margin: 30rpx auto 0;
+  position: relative;
+}
+.certificate_bg > .loveName_1 {
+  position:absolute;
+  bottom:364rpx;
+  left:436rpx;
+  font-size:24rpx;
+}
+
+.certificate_bg > .loveName_2 {
+  position:absolute;
+  bottom:313rpx;
+  left:290rpx;
+  font-size:24rpx;
+}
+.certificate_bg > .loveName_2 > view:first-child {
+  position: relative;
+  top: 0rpx;
+}
+.certificate_bg > .loveName_2 > view:last-child {
+  position: relative;
+  top: -6rpx;
+}
+.certificate_bg view text {
+  font-size: 24rpx;
+  color: #ff0000;
+  display: block;
+  margin-right: 5rpx;
+  float: left;
+  position: relative;
+  top: 10rpx;
+}
+.certificate_bg view input {
+  display: block;
+  width: 150rpx;
+  float: left;
+  height: 40rpx;
+}
+.date{
+  padding-left:80rpx;
+}
+.oath_checkbox {
+  margin-top: 30rpx;
+  text-align: center;
+  color: #666;
+  font-size: 24rpx;
+   padding-bottom: 160rpx;
+}
+.oath_checkbox image{
+  width: 34rpx;
+  height: 34rpx;
+  vertical-align: middle;
+}
+
+.oathBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  background: #001a88;
+  font-size: 32rpx;
+  color: #fff;
+}

@@ -1,0 +1,284 @@
+@import "/utils/fixMenu.wxss";
+page{
+  margin-bottom:100rpx;
+  background-color: #fff;
+}
+.main {
+  background-color: #fff;
+  margin-bottom: 100rpx;
+  padding-bottom: 120rpx;
+}
+.main .top {
+  position: relative;
+  height: 472rpx;
+  overflow: hidden;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-PC/v1.0.1/me.png) center center no-repeat;
+}
+.main .top .topPic {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin:-30rpx 0 0 30rpx; 
+}
+.main .top .topPic > image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.main .top .name {
+  position: absolute;
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+  top:48rpx;
+  left:190rpx;
+}
+.main .top .topContent{
+  width:650rpx;
+  height: 361rpx;
+  border-radius: 8rpx;
+  background: #fff;
+  margin: 0 50rpx; 
+  position: absolute;
+  bottom: 20rpx;
+}
+.main .top .topContent .topOther{
+  width: 100%;
+  display: -webkit-flex; /* Safari */  
+  -webkit-align-items: center; /* Safari 7.0+ */  
+  display: flex;  
+  align-items: center; 
+}
+.main .top .topContent .topOther > view{
+  -webkit-flex: 1; /* Safari 6.1+ */  
+   flex: 1;  
+   text-align: center;
+   color: #333;
+   font-size: 26rpx;
+   padding: 0rpx 50rpx;
+   border-right: 1px solid #e8e8e8;
+   margin-top:36rpx; 
+}
+.main .top .topContent .topOther > view:last-child{
+  border: none;
+}
+.main .top .topContent .topOther  .toItem .toiCon .count{
+  font-size: 42rpx;
+  color: #001a88;
+}
+.main .top .topContent .bookStoreBtn{
+  width: 360rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  background: #001a88;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  margin-top: 39rpx;
+}
+.main .myOrder {
+  width: 750rpx;
+  height: 274rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+.main .myOrder > .header {
+  margin: 0 30rpx;
+  height: 87rpx;
+  line-height: 87rpx;
+  border-bottom:1px solid #E8E8E8;
+}
+.main .myOrder > .header > text {
+  float: left;
+  font-size: 30rpx;
+  color: #333;
+}
+.main .myOrder > .header > .allOrder {
+  float: right;
+  margin-right: 12rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.main .myOrder > .header > .allOrder > image {
+  width: 26rpx;
+  height: 26rpx;
+}
+.main .myOrder > .body {
+  height: 185rpx;
+  overflow: hidden;
+  margin: 0 50rpx;
+}
+.main .myOrder > .body > .orderInfo {
+  float: left;
+  position: relative;
+  padding-top: 48rpx;
+  width: 25%;
+  height: 185rpx;
+  text-align: center;
+}
+.main .myOrder > .body > .orderInfo > image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.main .myOrder > .body > .orderInfo > .name {
+  font-size: 28rpx;
+  color: #666;
+}
+.main .myOrder > .body > .orderInfo .count{
+  width: 16rpx;
+  height:16rpx;
+  border-radius: 50%;
+  background: #ff4444;
+  color: #fff;
+  font-size: 16rpx;
+  position: absolute;
+  top:41rpx;
+  right:53rpx;
+  text-align: center;
+  line-height: 30rpx;
+}
+.main .myOrder > .logistics {
+  height: 126rpx;
+}
+.main .myOrder > .logistics .newDay {
+  display: inline-block;
+  margin: 20rpx 20rpx 30rpx 30rpx;
+  width: 150rpx;
+  font-size: 26rpx;
+  color: #999;
+  border-right: 1px solid #e8e8e8;
+}
+.main .myOrder > .logistics .newDay > text {
+  padding-top: 10rpx;
+  display: block;
+}
+.main .myOrder > .logistics .newCondition {
+  display: inline-block;
+  width: 421rpx;
+}
+.main .myOrder > .logistics .newCondition > .newInfo {
+  font-size: 26rpx;
+  color: #465dbb;
+}
+.main .myOrder > .logistics .newCondition > .newInfo > i {
+  display: inline-block;
+  width: 40rpx;
+  height: 32rpx;
+  background-image: url("http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/car.png");
+  background-size: cover;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.main .myOrder > .logistics .newCondition > .xinxi {
+  font-size: 26rpx;
+  color: #999;
+}
+.main .kefu {
+  width: 750rpx;
+  height: 22rpx;
+  background-color: #f6f8fe;
+}
+.main .kefu > view {
+  float: left;
+  margin: 32rpx 0 0 106rpx;
+  height: 32rpx;
+}
+.main .kefu > view.left {
+  width: 269rpx;
+  border-right: 1px solid #e8e8e8;
+}
+.main .kefu > view.right {
+  margin-left: 65rpx;
+  float: left;
+  width: 280rpx;
+}
+.main .kefu > view > image {
+  float: left;
+  margin-right: 8rpx;
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 5rpx;
+}
+.main .kefu > view > .name {
+  font-size: 32rpx;
+  color: #001A88;
+}
+.main .other {
+  width: 650rpx;
+  background-color: #fff;
+  margin: 0 50rpx;
+}
+.main .other:after{
+  content:".";
+    clear:both;
+    display:block;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+}
+.main .other > .otherInfo {
+  position: relative;
+  float: left;
+  width: 25%;
+  height: 185rpx;
+  text-align: center;
+}
+ .main .other > .otherInfo> image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 45rpx;
+}
+.main .other > .otherInfo > .name {
+  font-size: 28rpx;
+  color: #666;
+}
+ .main .otherHeader{
+  margin:0 50rpx;
+  height:89rpx;
+  line-height:89rpx;
+  border-bottom:1px solid #E8E8E8;
+  font-size:30rpx;
+  color:#333;
+} 
+
+.myOath {
+  height: 120rpx;
+  background: #fff;
+  padding-left: 30rpx;
+}
+.myOath > image {
+  width:36rpx;
+  height: 40rpx;
+  display: inline-block;
+  float: left;
+  margin-top: 40rpx;
+}
+.myOath > .a {
+  font-size: 26rpx;
+  color: #001a88;
+  float: left;
+  display: block;
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+  position: relative;
+}
+.myOath > .a:after {
+  content: "";
+  position: absolute;
+  left: -20rpx;
+  top: 2rpx;
+  width: 1px;
+  height: 36rpx;
+  background: rgba(0, 26, 136, 0.5);
+}

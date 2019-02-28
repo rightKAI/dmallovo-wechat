@@ -1,0 +1,34 @@
+<view id="app">
+    <view class='order_header'>
+        <view class='order_await'>运输中</view>
+        <view class='order_tem'>{{dataHeader.com}}单号：{{dataHeader.expressNo}}</view>
+        <view class='order_tem order_time'>官方电话：95338</view>
+    </view>
+    <view class="content">
+      <!-- <view class="info">
+        <view class="infoFirst">
+          <text>物流公司：</text>
+          <text>{{logisticsType}}</text>
+        </view>
+        <view class="inforSecond">
+          <text>物流单号：</text>
+          <text>{{logisticsNum}}</text>
+        </view>
+      </view> -->
+      <view class="logisticsFollow">
+        <!-- <view class="title">物流跟踪</view> -->
+        <view class="detail">
+          <view class="child clearBoth" wx:for="{{infoData}}" wx:key="{{index}}">
+            <view class="detailInfo">
+              <view>{{item.stateInfo}}</view>
+              <view>{{item.stateTime}}</view>
+            </view>
+            <view wx:if="{{index==0}}" class="first-circular"></view>
+            <view wx:elif="{{index!=0 && index==lastIndex}}" class="last-circular"></view>
+            <view wx:else class="circular"></view>
+            <view wx:if="{{index!=0 && index==lastIndex}}" class="last-line"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+</view>

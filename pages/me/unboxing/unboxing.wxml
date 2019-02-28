@@ -1,0 +1,93 @@
+<view class="body">
+  <view class="nav">
+    <view class="{{selected0?'active':'default'}}" bindtap="selected0">全部评价</view> 
+    <view class="{{selected?'active':'default'}}" bindtap="selected">待评价</view>
+    <view class="{{selected1?'active':'default'}}" bindtap="selected1">已评价</view>
+  </view>
+   <!--全部评价-->
+  <view class="{{selected0?'show':'hidden'}}" id="noMoney">
+    <view class="shopInfo" wx:if="{{evaluationQuanbu!=''}}" wx:for="{{evaluationQuanbu}}" wx:key="{{index}}">
+        <image src="{{item.imgurl}}"/>
+        <view class="right">
+            <view class="name"><text class='name_text'>{{item.goodsName}}</text><text class='price_text'>{{item.sumPrice}}</text></view>
+            <view class="fiveC">{{item.goldClassify}}<text>{{evalList}}</text></view>
+        </view>
+        <view class='btn_box'>
+           <view class="button" bindtap='indentClick' data-shopid="{{item.orderId}}">查看订单</view>
+           <view wx:if="{{item.isComment=='1'}}" class="button buttonNo" data-shopid="{{item.id}}">已评价</view>
+           <view wx:elif="{{item.isComment!='1'}}" class="button" data-shopid="{{item.id}}" bindtap="gotoPingJia">评价晒单</view> 
+        </view>
+    </view>
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{evaluationQuanbu==''}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_pingjia_ztk.png" />
+        <view class='tit'>您还没有晒单评价</view>
+        <view class="txt">暂无评价，已完成交易商品可以进行晒单评价哦</view>
+        <view class='alink xuanzhe' bindtap='ordeBtn'>我的订单</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+  <!--待评价-->
+  <view class="{{selected?'show':'hidden'}}" id="noMoney">
+    <view class="shopInfo" wx:if="{{evaluationHide!=''}}" wx:for="{{evaluationHide}}" wx:key="{{index}}">
+        <image src="{{item.imgurl}}"/>
+        <view class="right">
+            <view class="name"><text class='name_text'>{{item.goodsName}}</text><text class='price_text'>{{item.sumPrice}}</text></view>
+            <view class="fiveC">{{item.goldClassify}}<text>{{evalList}}</text></view>
+        </view>
+         <view class='btn_box'>
+           <view class="button" data-shopid="{{item.id}}">查看订单</view>
+           <view class="button" data-shopid="{{item.id}}" bindtap="gotoPingJia">评价晒单</view>
+        </view>
+    </view>
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{evaluationHide==''}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_pingjia_ztk.png" />
+        <view class='tit'>您还没有晒单评价</view>
+        <view class="txt">暂无评价，已完成交易商品可以进行晒单评价哦</view>
+        <view class='alink xuanzhe' bindtap='ordeBtn'>我的订单</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+  <!--已评价-->
+  <view class="{{selected1?'show':'hidden'}}" id="isMoney">
+    <view class="shopInfoUnbox" wx:if="{{evaluationQb!=''}}" wx:for="{{evaluationQb}}" wx:key="{{index}}">
+        <view class="shopHead">
+            <image src="{{item.imgurl}}" />
+            <view class="userStar">
+                <!-- <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/star.png" class="star" wx:for="{{item.commentList[0].score}}"/> -->
+                <view class='evaluate_name'>{{item.goodsName}}</view>
+                <view class='evaluate_ssify'>{{item.goldClassify}}<text>{{item.evalLParams}}</text></view>
+                <view class='evaluate_size'>尺寸{{item.size}}</view>
+                <view class='evaluate_price'>{{item.sumPrice}}</view>
+            </view>
+        </view>
+        <view class="userShopContxt">
+            <view class="userImg"><image src='{{item.commentList[0].avatar}}'></image></view>
+            <view class='username'>
+                {{item.commentList[0].nickName}}
+                 <view class="pingfen">
+                    <block wx:for="{{item.commentList[0].scoreList}}" wx:key="{{index}}">
+                        <image class="star-image" src="{{item=='1'?selectedSrc: normalSrc}}">
+                        </image>
+                    </block>
+                </view>   
+            </view>
+            <view class='ursrColor'>{{item.commentList[0].stoneWeight}}分 {{item.commentList[0].stoneColor}}色</view>
+            <view class="txt">{{item.commentList[0].context}}</view>
+            <view class="shopPic">
+                  <image  wx:for="{{item.commentList[0].imgs}}" wx:key="{{index}}" src="{{item}}"/>  
+            </view>
+        </view>
+        <view class="footer">{{item.createTime}}</view>
+    </view>
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{evaluationQb==''}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_pingjia_ztk.png" />
+        <view class='tit'>您还没有晒单评价</view>
+        <view class="txt">暂无评价，已完成交易商品可以进行晒单评价哦</view>
+        <view class='alink xuanzhe' bindtap='ordeBtn'>我的订单</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* pages/goods/evaluate/evaluate.wxss */
+@import "/utils/goodsDetailHeader.wxss";
+page{
+  height:100%;
+}
+#app{
+    height: 100%;
+    font-weight: 300;
+    background: #f5f5f5;
+}
+#app .content{
+    margin-top:80rpx;
+}
+#app .content .CSTemplate{
+    border-bottom: 1px solid #e8e8e8;
+}
+#app .content .CSTemplate .headName{
+  position: relative;
+}
+#app .content .CSTemplate .userPic{
+  display: inline-block;
+  margin: 30rpx 20rpx 0 29rpx;
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+#app .content .CSTemplate .userPic image{
+  width: 74rpx;
+  height: 74rpx;
+}
+#app .content .CSTemplate .userInfo{
+  position: absolute;
+  top: 40rpx;
+  left:122rpx;
+}
+#app .content .CSTemplate .userInfo .name{
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+}
+#app .content .CSTemplate .userInfo .userStar .star{
+  display: block;
+  float: left;
+  width: 28rpx;
+  height:28rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_star_yellow.png);
+  background-size: 100% 100%;
+  margin-right: 6rpx;
+}
+#app .content .CSTemplate .userInfo .userStar .nostar{
+  display: block;
+  float: left;
+  width: 28rpx;
+  height:28rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_star_purple.png);
+  background-size: 100% 100%;
+  margin-right: 6rpx;
+}
+#app .content .CSTemplate .CScontent .text{
+  padding: 30rpx 30rpx 26rpx 122rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+#app .content .CSTemplate .CScontent .userImagePic{
+  margin-left: 80rpx;
+  padding: 0 30rpx;
+}
+#app .content .CSTemplate .CScontent .userImagePic view{
+  margin: 0 0 12rpx 12rpx;
+  float: left;
+}
+#app .content .CSTemplate .CScontent .userImagePic view image{
+  width: 126rpx;
+  height: 126rpx;
+}
+#app .content .CSTemplate .CScontent .time{
+  font-size: 26rpx;
+  color:#999;
+  padding-left: 110rpx;
+  padding-bottom: 40rpx;
+}
+#app .noContent{
+  text-align: center;
+  padding-top: 160rpx;
+}
+#app .noContent image{
+  width: 118rpx;
+  height: 142rpx;
+}
+#app .noContent .notext{
+  padding-top: 60rpx;
+  font-size: 28rpx;
+  color: #999;
+}

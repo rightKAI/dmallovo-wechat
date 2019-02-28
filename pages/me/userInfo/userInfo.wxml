@@ -1,0 +1,105 @@
+<view id="app">
+  <view class="topLine"></view>
+  <view class="head">
+    <view class="userIcon" bindtap="updateShow">
+      <image src="{{userImgs}}"></image>
+    </view>
+  </view>
+  <view class="info">
+    <view class="content">
+      <view class="item">
+        <view class="label">会员昵称</view>
+        <input type="text" id="nickName" bindblur="inputBlur" placeholder="请输入你的昵称" value="{{nickName}}"/>
+      </view>
+      <view class="item">
+        <view class="label" style="margin-right:100rpx">性别</view>
+        <view class="set clearBoth">
+          <view class="radioLeft" id="man" bindtap="sexClick">
+            <text class="{{manRadio}}"></text>
+            <text>男</text>
+          </view>
+          <view class="radioRight" id="woman" bindtap="sexClick">
+            <text class="{{womanRadio}}"></text>
+            <text>女</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">情感状态</view>
+        <view class="set clearBoth">
+          <view class="radioLeft" id="single" bindtap="emotionClick">
+            <text class="{{single}}"></text>
+            <text>单身</text>
+          </view>
+           <view class="radioLeft" id="love" bindtap="emotionClick">
+            <text class="{{love}}"></text>
+            <text>恋爱中</text>
+          </view>
+          <view class="radioRight" id="married" bindtap="emotionClick">
+            <text class="{{married}}"></text>
+            <text>已婚</text>
+          </view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="label">个性签名</view>
+        <input type="text" id="signature" bindblur="inputBlur" placeholder="请输入你的个性签名" value="{{signature}}"/>
+      </view>
+    </view>
+  </view>
+  <view class="infoMore">
+    <view class="title clearBoth">
+      <view class="left">完善详细信息</view>
+      <view class="right" bindtap="hideOrShowClick">{{isHideText}}<text class="{{isHideClass}}"></text></view>
+    </view>
+    <view class="moreContent" hidden="{{isHide}}">
+      <view class="item">
+        <view class="label">姓名</view>
+        <input type="text" id="name" bindblur="inputBlur" placeholder="请输入你的姓名" value="{{name}}"/>
+      </view>
+      <view class="item">
+        <view class="label">出生日期</view>
+        <view class="icon-left"></view>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+       <view class="item">
+        <view class="label">星座</view>
+        <view class="icon-left"></view>
+        <picker bindchange="bindSignChange" value="{{sign}}" range="{{signArray}}">
+          <view class="picker">
+            {{sign}}
+          </view>
+        </picker>
+      </view>
+       <view class="item">
+        <view class="label">血型</view>
+        <view class="icon-left"></view>
+        <picker bindchange="bindBloodChange" value="{{blood}}" range="{{bloodList}}">
+          <view class="picker">
+            {{blood}}
+          </view>
+        </picker>
+      </view>
+      <view class="item">
+        <view class="label">职业</view>
+        <input type="text" id="job" bindblur="inputBlur" placeholder="请输入你的职业" value="{{job}}"/>
+      </view>
+       <view class="item">
+        <view class="label" style="margin-right:10rpx">结婚纪念日</view>
+        <view class="icon-left"></view>
+        <picker mode="date" value="{{marrDate}}" bindchange="bindMarrChange">
+          <view class="picker">
+            {{marrDate}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="saveButton">
+    <view class="buttonArea" bindtap="save">保存</view>
+  </view>
+</view>

@@ -1,0 +1,44 @@
+.makeBox {
+  text-align: center;
+  color: #333;
+  font-size: 32rpx;
+  padding-bottom: 60rpx;
+}
+.makeBox > image {
+  width: 110rpx;
+  height: 110rpx;
+  margin-top: 105rpx;
+  margin-bottom: 70rpx;
+}
+.makeBox > .title {
+  font-size: 48rpx;
+}
+.makeBox > .DataLi {
+  padding-bottom: 41rpx;
+  margin: 56rpx auto 0;
+  border-bottom: solid 1px #e8e8e8;
+  color: #ff4444;
+}
+.makeBox > .DataLi > .button {
+  padding-bottom: 20rpx;
+}
+.makeBox > .textP {
+  padding: 43rpx 0 99rpx;
+}
+.makeBox > .aUrl {
+  display: inline-block;
+}
+.makeBox > .aUrl > .btnS {
+  display: block;
+  font-size: 30rpx;
+  color: #465dbb;
+}
+.makeBox > .aUrl > .meBra {
+  width: 540rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: #001a88;
+  border-radius: 45px;
+  margin-bottom: 66rpx;
+}

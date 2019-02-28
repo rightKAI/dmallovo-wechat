@@ -1,0 +1,354 @@
+/* pages/store/list/list.wxss */
+@import "/utils/fixMenu.wxss";
+@import "/utils/footer.wxss";
+
+page {
+  margin-bottom: 100rpx;
+  overflow-y: hidden;
+}
+
+.listBox {
+  background: #f5f5f5;
+  position: relative;
+  /* margin-bottom: 100rpx; */
+}
+
+.listBox .list {
+  background: #fff;
+  padding: 40rpx 50rpx 40rpx 50rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.listBox .list .imgTitle {
+  position: relative;
+  width: 650rpx;
+  height: 420rpx;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 8rpx;
+}
+
+.listBox .list .imgTitle::after {
+  content: "";
+  display: block;
+  clear: both;
+  background: rgba(0, 0, 0, 0.5);
+  background: -webkit-gradient(linear, 0 0, 0 80%, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.listBox .list .imgTitle image {
+  width: 650rpx;
+  height: 420rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.listBox .list .imgTitle .shopName {
+  font-size: 42rpx;
+  color: #fff;
+  font-weight: bold;
+}
+
+.listBox .list .goYuyue {
+  margin: 0 auto;
+  width: 360rpx;
+  height: 70rpx;
+  background: #001a88;
+  font-size: 30rpx;
+  color: #fff;
+  line-height: 70rpx;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 30rpx;
+}
+
+.listBox .list .site {
+  /* height: 90rpx; *//* line-height: 90rpx; */
+  font-size: 26rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  padding: 14rpx 50rpx 0 50rpx;
+  /* border-top: solid 1px #e8e8e8; *//* border-bottom: solid 1px #e8e8e8; *//* margin-top: 25rpx; *//* text-align: left; */
+}
+
+.listBox .list .site image {
+  width: 34rpx;
+  height: 34rpx;
+  display: inline-block;
+  float: left;
+  margin-top: 29rpx;
+  margin-right: 5rpx;
+}
+
+.listBox .list .footer {
+  /* padding: 27rpx 0; */
+  overflow: hidden;
+}
+
+.listBox .list .footer .phomake {
+  font-size: 26rpx;
+  text-decoration: underline;
+  color: #fff;
+  margin-right: 0.6rem;
+  display: inline-block;
+}
+
+.listBox .list .footer .phomake image {
+  width: 25rpx;
+  height: 25rpx;
+  display: inline-block;
+  float: left;
+  margin-top: 7rpx;
+  margin-right: 6rpx;
+}
+
+.listBox .list .footer .openTime {
+  font-size: 26rpx;
+  margin-right: 0.6rem;
+  color: #fff;
+  display: inline-block;
+}
+
+.listBox .list .footer .openTime image {
+  width: 23rpx;
+  height: 23rpx;
+  display: inline-block;
+  float: left;
+  margin-top: 7rpx;
+  margin-right: 6rpx;
+}
+
+/***********到底样式****************/
+
+.footerOpen {
+  position: absolute;
+  bottom: 0;
+  height: 108rpx;
+  width: 750rpx;
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+}
+
+.footerOpen > .hexian {
+  margin-top: 54rpx;
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #e8e8e8;
+}
+
+.footerOpen > text {
+  position: absolute;
+  width: 122rpx;
+  top: 40rpx;
+  left: 330rpx;
+  z-index: 2;
+  background-color: #f5f5f5;
+}
+
+.nav {
+  width: 648rpx;
+  margin: 30rpx auto 0 auto;
+  border: solid 1px #bdbdbd;
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.default {
+  text-align: center;
+  flex: 1;
+  border-right: 1px solid #bdbdbd;
+  color: #000;
+  font-size: 26rpx;
+  padding: 0 52rpx;
+}
+
+.default:last-child {
+  border: none;
+}
+
+.red {
+  background: #001a88;
+  text-align: center;
+  color: #fff;
+  flex: 1;
+  border-right: 1px solid #bdbdbd;
+  font-weight: bold;
+  font-size: 26rpx;
+  padding: 0 52rpx;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.shopBox {
+  position: absolute;
+  left: 0;
+  bottom: 20rpx;
+  width: 100%;
+  z-index: 9;
+}
+
+.dianhua {
+  color: #fff;
+  font-size: 26rpx;
+  display: inline-block;
+}
+
+.modal-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 600rpx;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999999;
+}
+
+.modal-body {
+  position: relative;
+}
+
+.modal-content {
+  /* width: 60%; */
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+
+.modal-content {
+  width: 60%;
+  height: 150px;
+}
+
+.modal-content .fenxiang {
+  width: 100%;
+  height: 40%;
+}
+
+.btnBox {
+  overflow: hidden;
+  width: 650rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: rgba(0, 26, 136, 1);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 32rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 40rpx;
+  z-index: 999999;
+}
+
+.btnClose {
+  height: 108rpx;
+  text-align: right;
+  border-bottom: solid 1px #e8e8e8;
+}
+
+.btnClose image {
+  width: 26rpx;
+  height: 26rpx;
+  display: inline-block;
+  margin-top: 40rpx;
+}
+
+/*弹出层*/
+
+.pol_bg {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999999;
+}
+
+.cityListBox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 334rpx;
+  right: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999999;
+}
+
+.xian {
+  border-bottom: solid 1rpx #e8e8e8;
+  padding: 40rpx 0;
+}
+
+.cityStore {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.cityStore image {
+  width: 30rpx;
+}
+
+.cityStore text {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.cityconcen {
+  overflow: hidden;
+  padding-top: 24rpx;
+}
+
+.cityconcen:nth-child(2) {
+  padding-top: 0;
+}
+
+.pull_header {
+  font-size: 32rpx;
+  color: #333;
+  padding-top: 39rpx;
+}
+
+.pull_text text {
+  width: 195rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  display: block;
+  float: left;
+  margin-right: 27rpx;
+  border: solid 1rpx #bdbdbd;
+  margin-top: 40rpx;
+  font-size: 26rpx;
+  color: #333;
+  border-radius: 4rpx;
+}
+
+.pull_text text:nth-child(3n+3) {
+  margin-right: 0;
+}
+
+.cityText .on {
+  background: #001a88;
+  color: #fff;
+}

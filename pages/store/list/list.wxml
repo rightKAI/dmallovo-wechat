@@ -1,0 +1,131 @@
+<import src="/utils/fixMenu.wxml"/>
+<import src="/utils/fixKeFu.wxml"/>
+<import src="/utils/footer.wxml"/>
+<scroll-view scroll-y="{{isScroll}}" id="scrollView" bindscroll="pageScroll" scroll-y="true"   style='height:{{wheight}}'> 
+ <view class="nav bc_white">
+     <view class="{{selected?'red':'default'}}" bindtap="selected">全部门店</view>
+     <!-- <view class="{{selected1?'red':'default'}}" bindtap="selected1">距离最近</view> -->
+     <!-- <picker mode="selector" value='{{index}}' range-key="id" range='{{cityList}}' bindchange="showtabs">
+         <view class="default">城市筛选</view>
+     </picker> -->
+     <view  class="{{selected1?'red':'default'}}" bindtap='showtabs'>城市筛选</view>
+     <!-- <picker mode="selector" bindchange="showtabs" style='flex:1'>
+         <view  class='default'>城市筛选</view>
+     </picker> -->
+  </view>
+
+
+
+
+<!--全国门店-->
+ <view class="{{selected?'show':'hidden'}}">
+<view>
+  <view style="height:0;background:#e8e8e8;width: 100%;position: fixed;top: 0;z-index:9999"></view>
+      <!-- 店铺列表 -->
+      <view class="listBox">
+          <!-- <view wx:if="{{storeList.length == 0}}" class="no-data" style="background-color:#fff;">【暂无数据】</view> -->
+          <!-- 门店 -->
+          <view wx:for="{{storeList}}" wx:key="id" wx:for-item="item"  data-obj="{{item}}" class="list">
+              <!-- 图片 -->
+              <view class="imgTitle" bindtap="detailTap" data-obj="{{item}}">
+                  <image src="{{item.imgUrl}}"/>
+                  <view class='shopBox'>
+                  <text class="shopName">{{item.name}}</text>
+                  <view class="site">
+                  <!-- <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/make/dizhi.png"></image> -->
+                  {{item.address}}</view>
+              <view class="footer">
+                 
+                    <!-- 时间 -->
+                    <view class="openTime"><image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/store/store_time.png"></image>{{item.openTime}}-{{item.closeTime}} <em wx:if="{{item.holidayOpen==1}}">(节假日营业)</em><em wx:if="{{item.holidayOpen==2}}">(节假日暂不营业)</em></view>
+                     <!-- 电话 -->
+                  <view class="phomake">
+                      <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/store/store_phone.png"></image>
+                      <text class='dianhua' bindtap="onTel" data-tel="{{item.tel}}">电话咨询</text>
+                    </view>
+                </view>
+</view>
+              </view>
+              <view class="goYuyue"  bindtap="goBand" data-obj="{{item}}">预约进店</view>
+         
+          </view>
+          <!-- 尾巴 -->
+          <!-- <view class="footerOpen">
+              <view class="hexian"></view>
+              <text>到底啦～</text>
+          </view> -->
+      </view>
+</view>
+
+</view>
+<!--距离最近-->
+
+<view class="{{selected1?'show':'hidden'}}">
+    <view>
+      <view style="height:0;background:#e8e8e8;width: 100%;position: fixed;top: 0;z-index:9999"></view>
+          <view class="listBox">
+              <!-- 门店 -->
+              <view wx:for="{{juliStore}}" wx:key="id" wx:for-item="item"  data-obj="{{item}}" class="list">
+                  <view class="imgTitle" bindtap="detailTap" data-obj="{{item}}">
+                      <image src="{{item.imgUrl}}"/>
+                      <view class='shopBox'>
+                      <text class="shopName">{{item.name}}</text>
+                      <view class="site">
+                      {{item.address}}</view>
+                  <view class="footer">
+                        <view class="openTime"><image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/store/store_time.png"></image>{{item.openTime}}-{{item.closeTime}} <em wx:if="{{item.holidayOpen==1}}">(节假日营业)</em><em wx:if="{{item.holidayOpen==2}}">(节假日暂不营业)</em></view>
+                      <view class="phomake">
+                          <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/store/store_phone.png"></image>
+                          <text class='dianhua' bindtap="onTel" data-tel="{{item.tel}}">电话咨询</text>
+                        </view>
+                    </view>
+    </view>
+    </view>
+    <view class="goYuyue"  bindtap="goBand" data-obj="{{item}}">预约进店</view>
+</view>
+
+<!-- 尾巴 -->
+<!-- <view class="footerOpen">
+    <view class="hexian"></view>
+    <text>到底啦～</text>
+</view> -->
+      </view>
+</view>
+
+
+</view>
+
+<!--底部-->
+<template is="ditu"></template>
+<!--菜单-->
+<template is="menu" data="{{Mstores}}"></template>
+<!--客服-->
+<template is="KeFu"></template>
+
+
+
+  <!--城市筛选 -->
+  <view class='' hidden='{{hide}}'>
+      <view class='pol_bg'>
+        <view class='cityListBox'>
+          <view style='padding:0 50rpx;'>
+              <view class='btnClose' bindtap='closeShaixian'><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/goods/pay_clost.png'></image></view>
+              <view style='max-height:600rpx; overflow: auto;'> 
+                  <view class='cityStore xian'>当前位置：<text>{{city}}</text></view>
+                  <view class='cityconcen'>
+                      <view class='pull_header'>热门城市</view>
+                      <view class='pull_text cityText'>
+                          <text class="{{allSe?'on':''}}" bindtap='allBtn'>全部</text>
+                          <text wx:for='{{hotCity}}' data-id='{{item.id}}' class="{{currentItem==item.id?'on':''}}" bindtap='cityBtn'>{{item.name}}</text>
+                      </view>
+                  </view>
+              </view>
+
+              <view class='btnBox' bindtap='subit'>确定</view>
+           </view>
+        </view>
+      </view>
+  </view>
+</scroll-view> 
+
+

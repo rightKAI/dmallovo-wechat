@@ -1,0 +1,123 @@
+<!--pages/goods/list/list.wxml-->
+<import src="/dist/loadmore/index.wxml" />
+<import src="/utils/fixMenu.wxml"/>
+<import src="/utils/fixKeFu.wxml"/>
+<scroll-view scroll-y="{{isScroll}}" id="scrollView" bindscrolltolower="onReachBottom" bindscrolltoupper="refesh" bindscroll="pageScroll"  style='height:{{wheight}};padding-bottom:100rpx;'> 
+<!--求婚钻戒 '-->
+<view id="app" class="{{modaHide?'bodyclass':''}}" >
+    <!--头部-->
+    <view id="shop">
+        <view class="listTitle"  bindtap='qiuhun'>{{zjName}}</view>
+        <view class="listTitle"  bindtap='jiehun'>{{djName}}</view>
+        <view class="listTitle"  bindtap='shishang'>{{spName}}</view>
+        <view class="listTitleRed"  bindtap='xinpin'>{{xpName}}</view>
+    </view>
+    <!--轮播-->
+     <swiper circular="true" autoplay="false"  duration="500" class="shopSwipeBanner" indicator-color="rgba(189,189,189,.4)" indicator-active-color='#BDBDBD'>
+        <block >
+            <swiper-item class="shopLIst">
+                <image src="{{adImg}}"  class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-----------------筛选------------------->
+    <!--商品列表-->
+    <view class='shopList_box'>
+        <view class='forList' wx:for="{{jiehuiList}}" bindtap='goodsClick' data-type="{{item.type}}"  data-styleId="{{item.styleId}}" data-stoneId="{{item.stoneId}}">
+            <image src='{{item.img}}'></image>
+            <text>￥{{item.price}}</text>
+            <view class='nameAc'>{{item.showName}}</view>
+        </view>
+    </view>
+    <view class='notAvailable' wx:if='{{hasFooter}}'><text>已经到底部啦</text></view>
+
+
+
+  <!--
+  <view class="goods-list clearBoth">
+    <view class="item" wx:for="{{gdata}}" wx:key="id" data-index="{{index}}" bindtap="goodsClick">
+      <view class="text">
+        <view class="first">{{item.title}}</view>
+        <view class="second">{{item.subTitle}}</view>
+      </view>
+      <view class="item-images">
+        <image src="{{item.imgurl}}"></image>
+      </view>
+    </view>
+    <view class="footerOpen" hidden="{{hasFooter}}">
+        <view class="hexian"></view>
+        <text>到底啦～</text>
+    </view>
+  </view>
+  -->
+
+  <!-- <template is="zan-loadmore" data="{{loading}}"></template> -->
+ 
+</view>
+</scroll-view> 
+
+    <!--筛选弹出层-->
+     <view class='pol_box' wx:if='{{modaHide}}'>
+      <view class='pol_bg'>
+        <view class='pol_text'>
+          <view style='padding:0 50rpx;position: relative; height:100%; '>
+            <view class='btnClose' bindtap='closeShaixian'><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/goods/pay_clost.png'></image></view>
+            <view style='max-height:690rpx; overflow: auto;'>
+            <!--价格-->
+            <view class='jiage paddBot-40'>
+               <view class='header_pull'>价格（元）</view>
+               <view class='input_list'>
+                  <input type='number' bindinput='largeForm' value='{{largePrice}}' placeholder="最低价" /><text>-</text><input value='{{smallPrice}}' type='number' bindinput='smalForm' placeholder="最高价" />
+               </view>
+               <view class='pull_tweo'>
+                  <view wx:for='{{priceName}}' wx:key='{{priceName}}' data-id="{{index}}" data-price='{{item.price}}'  bindtap='subitJiage' class="pull_two_tex {{index==id?'currOn':''}}">{{item.price}}</view>
+               </view>
+            </view>
+            <!--系列-->
+             <view class='xilie paddBot-40'>
+                <view class='header_pull'>{{modalSerice}}</view>
+                <view class='pull_tweo'>
+                    <view class="pull_two_tex {{item.checked?'currOn':''}}" wx:for='{{seriesName}}' wx:key='{{seriesName}}' data-xid='{{index}}' wx:if="{{item.isShow==true}}"  data-isShow="{{item.isShow}}" bindtap='subxilie'>{{item.sort}}</view>
+                </view>
+            </view>
+            <!--钻石重量-->
+            <view class='zhongliang paddBot-40'>
+                <view class='header_pull'>钻石重量<text class='color99'>（单位：分, 1克拉=100分）</text></view>
+                <view class='zhongliang_get'>
+                    <view class='text_zl'>数字越大级别越大</view>
+                    <view class='input_list'>
+                        <input type='number' bindinput='largeWeight' value='{{largeWeight}}' placeholder="最低" /><text>-</text><input type='number' placeholder="最高" bindinput='smalWeight' value='{{smallWeight}}' />
+                    </view>
+                    <view class='pull_flx'>
+                        <view class="text_flx {{index==xid?'currOn':''}}" data-xid='{{index}}' wx:for='{{categoryName}}' bindtap='subzhongliang' data-num='{{item}}'>{{item}}</view>
+                    </view>
+                </view>
+            </view> 
+            </view>
+            <view class='btnBox' bindtap='subit'>确定</view>
+          </view>
+        </view> 
+      </view>
+    </view> 
+
+    <!--系列弹出层-->
+     <view class='pol_box' wx:if='{{xilieHide}}'>
+      <view class='pol_bg'>
+        <view class='pol_text'>
+          <view style='padding:0 50rpx;'>
+             <view class='btnClose' bindtap='xilieClose'><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/goods/pay_clost.png'></image></view>
+             <view class='xilie paddBot-40' style='max-height:600rpx; overflow: auto;height:{{mdheight}}px'>
+                <view class='header_pull'>{{modalSerice}}</view>
+                <view class='pull_tweo'>
+                    <view class="pull_two_tex {{item.checked?'currOn':''}}" wx:for='{{seriesName}}' wx:key='{{seriesName}}' data-xid='{{index}}' wx:if="{{item.isShow==true}}"  data-isShow="{{item.isShow}}" bindtap='subxilie'>{{item.sort}}</view>
+                </view>
+            </view> 
+            <view class='btnBox' bindtap='subit'>确定</view>
+          </view>
+        </view> 
+      </view>
+    </view> 
+ <!--菜单-->
+  <template is="menu" data="{{Mseriess}}"></template>
+  <!--客服-->
+  <template is="KeFu"></template>

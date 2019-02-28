@@ -1,0 +1,146 @@
+<!--pages/goods/list/list.wxml-->
+<import src="/dist/loadmore/index.wxml" />
+<import src="/utils/fixMenu.wxml"/>
+<import src="/utils/fixKeFu.wxml"/>
+<scroll-view scroll-y="{{isScroll}}" id="scrollView" bindscrolltolower="onReachBottom" bindscrolltoupper="refesh" bindscroll="pageScroll" scroll-y="true"   style='height:{{wheight}};'> 
+<!--求婚钻戒-->
+<view id="app" class="{{modaHide?'bodyclass':''}}" >
+    <!--头部-->
+    <view id="shop">
+        <view class="listTitle"  bindtap='qiuhun'>{{zjName}}</view>
+        <view class="listTitle"  bindtap='jiehun'>{{djName}}</view>
+        <view class="listTitleRed"  bindtap='shishang'>{{spName}}</view>
+        <view class="listTitle"  bindtap='xinpin'>{{xpName}}</view>
+    </view>
+    <!--轮播-->
+     <swiper circular="true" autoplay="false"  duration="500" class="shopSwipeBanner" indicator-color="rgba(189,189,189,.4)" indicator-active-color='#BDBDBD'>
+        <block>
+            <swiper-item class="shopLIst">
+                <image src="{{adImg}}"  class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-----------------筛选------------------->
+    <!--人气-->
+    <view class='shopScreen'>
+       <view class="{{eventColor1?'Cblue':'renqi'}}" wx:if="{{renqiBox}}" data-num="1" bindtap='renqiBnt'>人气<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou.png' wx:if='{{renqiImg}}'></image></view>
+       <view class="{{eventColor1?'Cblue':'renqi'}}" wx:else bindtap='renqiBnt' data-num="2">人气<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou02.png' wx:if='{{renqiImg}}'></image></view>
+
+    <!--系列-->
+    <view class="{{eventColor2?'Cblue':'xilie'}}"  bindtap='xilieBtn'>系列</view>
+
+    <!--新品-->
+    <view class="{{eventColor3?'Cblue':'xinpin'}}"  bindtap='xinpinBtn' wx:if='{{xinbox}}' data-num='1'>新品<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou.png' wx:if='{{xinImg}}'></image></view>
+    <view class="{{eventColor3?'Cblue':'xinpin'}}"  bindtap='xinpinBtn' wx:else data-num='2'>新品<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou02.png' wx:if='{{xinImg}}'></image></view>
+     
+    <!--价格-->
+    <view class="{{eventColor4?'Cblue':'jiage'}}" bindtap='jiageBtn' wx:if='{{jiagebox}}' data-num='1'>价格<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou.png' wx:if='{{jiageImg}}'></image></view>
+    <view class="{{eventColor4?'Cblue':'jiage'}}" bindtap='jiageBtn' wx:else data-num='2'>价格<image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_jiantou02.png' wx:if='{{jiageImg}}'></image></view>
+
+    <!--筛选-->
+    <view class="shaixian" bindtap='shaixianBtn'>筛选</view>
+
+
+    </view>
+    <!--商品列表-->
+    <view class='shopList_box'>
+        <view class='forList' wx:for="{{jiehuiList}}" wx:key="id" bindtap='goodsClick' data-type="{{item.type}}"  data-styleId="{{item.styleId}}" data-stoneId="{{item.stoneId}}">
+            <image src='{{item.img}}'></image>
+            <text>￥{{item.price}}</text>
+            <view class='nameAc'>{{item.showName}}</view>
+        </view>
+    </view>
+    <view class='notAvailable' wx:if='{{hasFooter}}'><text>已经到底部啦</text></view>
+
+   
+
+
+  <!--
+  <view class="goods-list clearBoth">
+    <view class="item" wx:for="{{gdata}}" wx:key="id" data-index="{{index}}" bindtap="goodsClick">
+      <view class="text">
+        <view class="first">{{item.title}}</view>
+        <view class="second">{{item.subTitle}}</view>
+      </view>
+      <view class="item-images">
+        <image src="{{item.imgurl}}"></image>
+      </view>
+    </view>
+    <view class="footerOpen" hidden="{{hasFooter}}">
+        <view class="hexian"></view>
+        <text>到底啦～</text>
+    </view>
+  </view>
+  -->
+
+  <!-- <template is="zan-loadmore" data="{{loading}}"></template> -->
+
+</view>
+
+</scroll-view>
+
+
+  <!--菜单-->
+  <template is="menu" data="{{Mseriess}}"></template>
+  <!--客服-->
+  <template is="KeFu"></template>
+
+
+ <!--筛选弹出层-->
+     <view class='pol_box' wx:if='{{modaHide}}'>
+      <view class='pol_bg'>
+        <view class='pol_text'>
+          <view style='padding:0 50rpx;position: relative; height:100%;'>
+            <view class='btnClose' bindtap='closeShaixian'><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/goods/pay_clost.png'></image></view>
+            <view style='max-height:660rpx;overflow-y: scroll;'>
+             <!--品类-->
+             <view class='pinglei paddBot-40'>
+                <view class='header_pull'>品类</view>
+                <view class='pull_tweo'>
+                    <view class="pull_two_tex {{item.checked||classification==item.id?'currOn':''}}" wx:for='{{PLName}}' wx:key='{{PLName}}' data-xid='{{index}}' wx:if="{{item.isShow==true}}" data-param='{{item.param}}' data-isShow="{{item.isShow}}" bindtap='subpinglei'>{{item.sort}}</view>
+                </view>
+            </view> 
+            <!--价格-->
+            <view class='jiage paddBot-40'>
+               <view class='header_pull'>价格（元）</view>
+               <view class='input_list'>
+                  <input type='number' bindinput='largeForm' value='{{largePrice}}' placeholder="最低价" /><text>-</text><input value='{{smallPrice}}' type='number' bindinput='smalForm' placeholder="最高价" />
+               </view>
+               <view class='pull_tweo'>
+                  <view wx:for='{{priceName}}' wx:key='{{priceName}}' data-id="{{index}}" data-price='{{item.price}}'  bindtap='subitJiage' class="pull_two_tex {{index==id?'currOn':''}}">{{item.price}}</view>
+               </view>
+            </view>
+            <!--系列-->
+             <view class='xilie paddBot-40'>
+                <view class='header_pull'>{{modalSerice}}</view>
+                <view class='pull_tweo'>
+                    <view class="pull_two_tex {{item.checked?'currOn':''}}" wx:for='{{seriesName}}' wx:key='{{seriesName}}' data-xid='{{index}}' wx:if="{{item.isShow==true}}"  data-isShow="{{item.isShow}}" bindtap='subxilie'>{{item.sort}}</view>
+                </view>
+            </view> 
+           </view>
+            <view class='btnBox' bindtap='subit'>确定</view>
+          </view>
+        </view> 
+      </view>
+    </view> 
+
+    <!--系列弹出层-->
+     <view class='pol_box' wx:if='{{xilieHide}}'>
+      <view class='pol_bg'>
+        <view class='pol_text' >
+          <view style='padding:0 50rpx;border-bottom:none'>
+             <view class='btnClose' bindtap='xilieClose'><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/goods/pay_clost.png'></image></view>
+             <view style='height:{{heightXilie}}; overflow: auto;'>
+             <view class='xilie paddBot-40'>
+                <view class='header_pull'>{{modalSerice}}</view>
+                <view class='pull_tweo'>
+                    <view class="pull_two_tex {{item.checked?'currOn':''}}" wx:for='{{seriesName}}' wx:key='{{seriesName}}' data-xid='{{index}}' wx:if="{{item.isShow==true}}"  data-isShow="{{item.isShow}}" bindtap='subxilie'>{{item.sort}}</view>
+                </view>
+            </view> 
+            </view>
+            <view class='btnBox' bindtap='subit'>确定</view>
+          </view>
+        </view> 
+      </view>
+    </view> 
+ 

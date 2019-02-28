@@ -1,0 +1,72 @@
+#app .step {
+  font-size: 26rpx;
+  background: #fff;
+  height: 140rpx;
+  padding: 38rpx 0 38rpx 100rpx;
+  position: relative;
+  border-top: 1px solid #e8e8e8;
+}
+
+#app .step .line:first-child {
+  position: absolute;
+  width: 162rpx;
+  height: 1px;
+  background-color: #001a88;
+  z-index: 2000;
+  top: 72rpx;
+  left: 173rpx;
+}
+
+#app .step .line:nth-child(2) {
+  position: absolute;
+  width: 188rpx;
+  height: 1px;
+  background-color: #001a88;
+  z-index: 2000;
+  top: 72rpx;
+  left: 399rpx;
+}
+
+#app .step .step-content .step-item:first-child {
+  float: left;
+  margin-right: 115rpx;
+}
+
+#app .step .step-content .step-item:nth-child(2) {
+  float: left;
+  margin-right: 95rpx;
+}
+
+#app .step .step-content .step-item:last-child {
+  float: left;
+  margin-right: 0;
+}
+
+#app .step .step-content .step-item .step-item-top {
+  display: block;
+  height: 64rpx;
+  width: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size: 36rpx;
+  z-index: 2005;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #f2f3f9;
+  border: 1rpx solid #001a88;
+  margin-bottom: 20rpx;
+}
+
+#app .step .step-content .step-item .step-item-bottom {
+  color: #666;
+  display: block;
+}
+
+#app .step .step-content .active-step .step-item-top {
+  color: #fff;
+  background: #001a88;
+}
+
+#app .step .step-content .active-step .step-item-bottom {
+  color: #001a88;
+}

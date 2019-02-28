@@ -1,0 +1,30 @@
+<!--pages/goods/parameter/parameter.wxml-->
+<view id="app">
+  <view>
+    <view class="header">
+      <view class="tab">
+        <text id="goods" class="{{goods}}" bindtap="clickTab">商品</text>
+        <text id="detail" class="{{detail}}" bindtap="clickTab">详情</text>
+        <text id="eva" class="{{eva}}" bindtap="clickTab">评论</text>
+      </view>
+    </view>
+    <view class="content">
+      <view class="nav">
+        <text id="imgDetail" class="nav-item {{imgDetail}}" bindtap="navClick">商品详情</text>
+        <text id="parameter" class="nav-item {{parameter}}" bindtap="navClick">商品参数</text>
+      </view>
+      <view class="nav-panel">
+        <view class="imgList" hidden="{{detailHide}}">
+          <block wx:for="{{imgDetails}}">
+             <image src="{{item.imgUrl}}"></image>
+          </block>
+        </view>
+        <view class="paramList" hidden="{{paramHide}}">
+          <block wx:for="{{paramList}}">
+            <text>{{item.name}}:{{item.val}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

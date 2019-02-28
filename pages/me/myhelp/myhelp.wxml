@@ -1,0 +1,11 @@
+<view class="main">
+    <view class="helpList" wx:for="{{menuList}}" wx:key="{{index}}">
+        <view class="infull" bindtap="tapname" data-id="{{item.id}}">
+            <text>{{item.classifyName}}</text>
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/myhelp/next.png" />
+        </view>
+        <view class="donwn" wx:for="{{item.subList}}" wx:for-item="itemName" wx:key="{{index}}" wx:if="{{item.show}}">
+            <view class="userTxt" data-helpid="{{itemName.id}}" bindtap="gohelptxt">{{itemName.title}}</view>
+        </view>
+    </view>
+</view>

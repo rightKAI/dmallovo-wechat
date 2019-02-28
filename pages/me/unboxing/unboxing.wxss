@@ -1,0 +1,318 @@
+page {
+  background-color: #fff;
+}
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 20rpx;
+  width: 648rpx;
+  height: 60rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+   border-top: 1px solid #cdcdcd; 
+  /* border-bottom: 1px solid #cdcdcd; */
+  z-index: 2;
+   padding: 30rpx 51rpx 40rpx 51rpx;
+}
+.nav > .active {
+  line-height: 60rpx;
+  text-align: center;
+  flex: 1;
+  background: #001a88;
+  color: #fff;
+}
+.nav > .default {
+ line-height: 60rpx;
+  text-align: center;
+  flex: 1;
+  color: #333;
+  border: solid 1px #e8e8e8;
+}
+.show {
+  display: block;
+  background-color: #fff;
+}
+.hidden {
+  display: none;
+  background-color: #f5f5f5;
+}
+#noMoney {
+  margin-top: 125rpx;
+  width: 750rpx;
+  height: 100%;
+}
+#noMoney > .shopInfo {
+  position: relative;
+  margin-top: 20rpx;
+  background: #fff;
+  overflow: hidden;
+  height: 261rpx;
+}
+#noMoney > .shopInfo::after{
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  left: 50rpx;
+  bottom: 0;
+  background: #E8E8E8;
+  width: 650rpx;
+  height: 2rpx;
+}
+#noMoney > .shopInfo > image {
+  float: left;
+  margin: 30rpx 0rpx 30rpx 50rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background: #f5f5f5;
+}
+#noMoney > .shopInfo > .right {
+  margin: 30rpx 20rpx 30rpx 260rpx;
+  position: relative;
+}
+#noMoney > .shopInfo > .right > .name {
+  font-size: 30rpx;
+  color: #333;
+  width: 100%;
+  position: relative;
+}
+#noMoney > .shopInfo > .right > .name name_text{
+  display: block;
+  width: 329rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#noMoney > .shopInfo > .right > .name .price_text{
+  position: absolute;
+  right: 50rpx;
+  top: 0;
+  font-size:26rpx;
+  color: #333;
+}
+#noMoney > .shopInfo > .right > .fiveC {
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+#noMoney > .shopInfo > .right > .fiveC text{
+  display: inline-block;
+  padding-left: 29rpx;
+}
+#noMoney > .shopInfo > .btn_box {
+  position: absolute;
+  bottom: 50rpx;
+  right: 54rpx;
+}
+#noMoney > .shopInfo > .btn_box .button{
+  width: 158rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  font-size: 26rpx;
+  color: #999;
+  text-align: center;
+  border: 1rpx solid #BDBDBD;
+  border-radius: 4rpx;
+  float: left;
+}
+#noMoney > .shopInfo > .btn_box .button:last-child{
+  background: #001A88;
+  color: #fff;
+  border: 1rpx solid #001A88;
+  margin-left: 20rpx;
+}
+#noMoney > .noOrder {
+  padding-top: 100rpx;
+  height: 100%;
+  text-align: center;
+}
+#noMoney > .noOrder > image {
+  width: 200rpx;
+  height: 200rpx;
+}
+#noMoney > .noOrder > .txt {
+  padding-top: 30rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+#isMoney {
+  margin-top: 125rpx;
+  width: 750rpx;
+  height: 100%;
+}
+#isMoney > .shopInfoUnbox {
+  margin-top: 20rpx;
+  padding: 30rpx 50rpx;
+  background-color: #fff;
+  position: relative;
+}
+#isMoney > .shopInfoUnbox::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #f5f5f5;
+  height: 20rpx;
+  width: 100%;
+}
+#isMoney > .shopInfoUnbox > .shopHead {
+  /* height: 150rpx; */
+  /* padding: 0 50rpx; */
+  overflow: hidden;
+}
+#isMoney > .shopInfoUnbox > .shopHead > image {
+  float: left;
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #f5f5f5;
+}
+#isMoney > .shopInfoUnbox > .shopHead > .userStar {
+  float: left;
+  margin: 0 0 40rpx 31rpx;
+}
+#isMoney > .shopInfoUnbox > .shopHead > .userStar .star {
+  width: 28rpx;
+  height: 28rpx;
+}
+#isMoney > .shopInfoUnbox > .userShopContxt {
+  font-size: 28rpx;
+  clear: both;
+  overflow: hidden;
+  border-top: solid 1px #E8E8E8;
+  padding-top: 50rpx;
+}
+#isMoney > .shopInfoUnbox > .userShopContxt > .txt {
+  /* margin-bottom: 9rpx; */
+  clear: both;
+  overflow: hidden;
+  padding: 20rpx 0 30rpx 0;
+  color: #333;
+  line-height: 40rpx;
+}
+#isMoney > .shopInfoUnbox > .userShopContxt > .shopPic > image {
+  margin-right: 10rpx;
+  width: 130rpx;
+  height: 130rpx;
+}
+#isMoney > .shopInfoUnbox > .footer {
+   margin-top: 20rpx; 
+  color: #999;
+  font-size: 26rpx;
+  padding-bottom: 30rpx;
+}
+#isMoney > .noOrder {
+  padding-top: 100rpx;
+  height: 100%;
+  text-align: center;
+}
+#isMoney > .noOrder > image {
+  width: 200rpx;
+  height: 200rpx;
+}
+#isMoney > .noOrder > .txt {
+  padding-top: 30rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.tit{
+ font-size:42rpx;
+  font-weight: bold;
+  margin-top: 63rpx;
+  color: #333;
+}
+.alink{
+  width:362rpx;
+  height:72rpx; 
+  line-height: 72rpx;
+  color: #333;
+  font-size: 32rpx;
+  border: solid 1px #BDBDBD;
+  border-radius: 10rpx;
+  margin: 0 auto;
+}
+.xuanzhe{
+  background: #001A88;
+  color: #fff;
+  margin-top: 75rpx;
+  margin-bottom: 30rpx;
+  border: solid 1px #001A88;
+}
+
+.evaluate_name{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 20rpx;
+  width: 336rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.evaluate_ssify{
+  padding-bottom: 8rpx;
+}
+.evaluate_ssify text{
+  display: inline-block;
+  margin-left: 27rpx;
+}
+.evaluate_ssify,
+.evaluate_size{
+  font-size:24rpx;
+  color: #666;
+}
+.evaluate_price{
+  font-size: 24rpx;
+  color: #333;
+  padding-top: 40rpx;
+}
+.userImg{
+  width: 72rpx;
+  height: 72rpx;
+  overflow: hidden;
+  float: left;
+  margin-right: 20rpx;
+}
+.userImg image{
+  width: 100%;
+  height: inherit;
+}
+.username{
+  float:left;
+  font-size:26rpx;
+  color: #333;
+}
+.ursrColor{
+  float: right;
+  color: #001A88;
+  border: solid 1px #001A88;
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 4rpx 
+}
+.buttonNo{
+  margin-left:20rpx;
+  background: #fff !important;
+  color: #999 !important;
+  border: 1px solid #BDBDBD !important;
+}
+/*星星*/
+.pingfen .star-image {
+  position:relative;
+  width:26rpx;
+  height:24rpx;
+  /* margin-right:5px; */
+  margin-top:0rpx;
+}

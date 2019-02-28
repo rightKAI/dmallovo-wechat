@@ -1,0 +1,612 @@
+@import "/utils/fixMenu.wxss";
+@import "/utils/footer.wxss";
+page{
+  margin-bottom:100rpx;
+    overflow-x: hidden;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}
+.shopSwipe {
+  width: 750rpx;
+  height: 900rpx;
+}
+.shopSwipe .shopSwipeInfo {
+  width: 750rpx;
+  height: 900rpx;
+}
+.shopSwipe .shopSwipeInfo > image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.shopListInfo {
+  margin: 10rpx;
+  height: 236rpx;
+}
+.shopListInfo > view {
+  float: left;
+  position: relative;
+  margin-right: 11rpx;
+  width: 236rpx;
+  height: 236rpx;
+  color: #333333;
+}
+.shopListInfo > view:nth-child(2) > .one {
+  top: 153rpx;
+  left: 56rpx;
+}
+.shopListInfo > view:nth-child(2) > .two {
+  top: 188rpx;
+  left: 70rpx;
+}
+.shopListInfo > view:last-child {
+  margin-right: 0;
+}
+.shopListInfo > view:last-child > .one {
+  top: 153rpx;
+  left: 56rpx;
+}
+.shopListInfo > view:last-child > .two {
+  top: 188rpx;
+  left: 70rpx;
+}
+.shopListInfo > view > image {
+  width: 236rpx;
+  height: 236rpx;
+}
+.shopListInfo > view > .one {
+  position: absolute;
+  font-size: 30rpx;
+  top: 147rpx;
+  left: 32rpx;
+}
+.shopListInfo > view > .two {
+  position: absolute;
+  font-size: 24rpx;
+  top: 188rpx;
+  left: 72rpx;
+}
+.shopStore {
+  width: 750rpx;
+  height: 420rpx;
+  background-image: url('http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopStore.png');
+  background-size: cover;
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+.shopStore .storeBackgroun {
+  margin: 50rpx 60rpx;
+  width: 630rpx;
+  height: 320rpx;
+  background-image: url('http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopStoreBackg.png');
+  background-size: cover;
+  text-align: center;
+}
+.shopStore .storeBackgroun > .title {
+  padding-top: 48rpx;
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #333;
+}
+.shopStore .storeBackgroun > .shopName > image {
+  margin-right: 9rpx;
+  width: 20rpx;
+  height: 25rpx;
+}
+.shopStore .storeBackgroun > .shopName > text {
+  font-size: 26rpx;
+  color: #666;
+}
+.shopStore .storeBackgroun > .goYuyue {
+  margin: 45rpx 0 0 168rpx;
+  width: 300rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #001A88;
+  border-radius: 35rpx;
+}
+.weiDay > .iconXian {
+  width: 750rpx;
+  height: 8rpx;
+  vertical-align:bottom;
+}
+.weiDay > .title {
+  margin-top:40rpx;
+  font-size: 42rpx;
+  font-weight: 800;
+  text-align: center;
+}
+.weiDay  .ShopInfo {
+  margin: 129rpx 30rpx 0;
+}
+.weiDay > .ShopInfo > image {
+  width: 690rpx;
+  height: 388rpx;
+}
+.weiDay > .ShopInfo > .textInfo {
+  margin-top: 60rpx;
+}
+.weiDay > .ShopInfo > .textInfo > .headTxT {
+  font-size: 42rpx;
+  margin-left:-16rpx;
+
+}
+.weiDay > .ShopInfo > .textInfo > .headTxT > text {
+  color: #001A88;
+}
+.weiDay > .ShopInfo > .textInfo > .textInfo {
+  margin-top: 38rpx;
+  font-size: 28rpx;
+  color: #666;
+  padding-left: 32rpx;
+}
+
+.weiDay .firstShopInfo{
+  margin: 45rpx 30rpx 0;
+}
+.weiDay > .firstShopInfo > image {
+  width: 690rpx;
+  height: 388rpx;
+}
+.weiDay > .firstShopInfo > .textInfo {
+  margin-top: 60rpx;
+}
+.weiDay > .firstShopInfo > .textInfo > .headTxT {
+  font-size: 42rpx;
+  margin-left:-16rpx;
+
+}
+.weiDay > .firstShopInfo > .textInfo > .headTxT > text {
+  color: #001A88;
+}
+.weiDay > .firstShopInfo > .textInfo > .textInfo {
+  margin-top: 38rpx;
+  font-size: 28rpx;
+  color: #666;
+  padding-left: 32rpx;
+}
+
+.weiDay > .iconXianDown {
+  margin-top: 80rpx;
+  width: 750rpx;
+  height: 8rpx;
+  vertical-align:top;
+}
+
+.textEng {
+  text-align: center;
+  background: #f6f8fe;
+  /* padding: 60rpx 0; */
+}
+.textEng > view > .liInfo {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #001A88;
+  padding: 0 20rpx;
+  position: relative;
+}
+.textEng > view > .liInfo > i {
+  display: inline-block;
+  width: 1rpx;
+  height: 24rpx;
+  background-color: #001A88;
+  position: absolute;
+  right: 0rpx;
+  top: 5rpx;
+}
+.textEng > view > .liInfo:nth-child(5) i{
+  display: none;
+}
+.footerOpen {
+  position: relative;
+  height: 108rpx;
+  background-color: #f5f5f5;
+  font-size: 24rpx;
+  color: #999;
+  overflow: hidden;
+  text-align: center;
+}
+.footerOpen > .hexian {
+  margin-top: 54rpx;
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #e8e8e8;
+}
+.footerOpen > text {
+  position: absolute;
+  width: 122rpx;
+  top: 40rpx;
+  left: 330rpx;
+  z-index: 2;
+  background-color: #f5f5f5;
+}
+
+
+.shopList{
+  width: 100%;
+  /* padding: 10rpx; */
+  background: #f6f8fe;
+  margin-top: 10rpx;
+}
+.shopList > .imga{
+  width: 360rpx;
+  height: 370rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+  overflow: hidden;
+  position: relative;
+}
+.shopList > .imga:first-child{
+  width: 730rpx;
+}
+.shopList > .imga > image{
+  width: 100%;
+  display: initial;
+  height: inherit;
+  overflow: inherit;
+}
+.advrTitle{
+  position: absolute;
+  left: 0;
+  top: 30rpx;
+  text-align: center;
+  width: 100%;
+}
+.advrTitle > view{
+  font-size: 34rpx;
+  color: #333;
+}
+.advrTitle > text{
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+  padding-top: 10rpx;
+}
+
+.indexStore{
+  text-align: center;
+  padding: 60rpx 0;
+}
+.store_title{
+  color: #333333;
+}
+.store_title_top{
+  font-size: 46rpx;
+}
+.store_title_span{
+  font-size: 26rpx;
+  padding: 20rpx 0 2rpx 0;
+}
+.store_title_text{
+  font-size: 26rpx;
+  color: #001A88;
+}
+.indexStore image{
+  width: 750rpx;
+  height: 300rpx;
+  display: block;
+  margin: 25rpx 0 20rpx 0;
+}
+
+.store_form > input{
+  color: #666666;
+  font-size: 32rpx;
+  display: inline-block;
+  width: 650rpx;
+  border-bottom: solid 1rpx #BDBDBD;
+  padding: 20rpx 0;
+
+}
+.store_form > view{
+  width:360rpx;
+  height:70rpx;
+  margin: 0 auto;
+  line-height: 70rpx;
+  background:rgba(0,26,136,1);
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+
+.bgindex{
+  background: #f6f8fe;
+  height: 20rpx;
+  width: 100%;
+}
+
+.adverBox{
+  background: #fff;
+  padding: 0 50rpx;
+}
+.adver_header{
+  text-align: center;
+}
+.adver_header > view{
+  font-size: 46rpx;
+  color: #333;
+  padding-top: 55rpx;
+  font-weight: bold;
+}
+.adver_header > text{
+  font-size: 26rpx;
+  color: #333;
+  padding-top: 20rpx;
+  padding-bottom: 39rpx;
+  display: block;
+}
+.advertisementList{
+  padding-bottom: 79rpx;
+}
+.advertisementList > image{
+  width: 650rpx;
+  height: 420rpx;
+}
+.advertisementList > .adv_title{
+   font-size:36rpx;
+   padding-top: 30rpx;
+   padding-bottom: 14rpx;
+   font-weight: bold;
+   position: relative;
+   text-indent: 20rpx;
+}
+.advertisementList > .adv_title::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 38rpx;
+  width: 4rpx;
+  height: 36rpx;
+  background: #001A88;
+}
+.advertisementList > .adv_text{
+   font-size:26rpx;
+   padding-left: 20rpx;
+}
+
+
+.hot_title{
+  height: 140rpx;
+  line-height: 140rpx;
+  font-size: 46rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.host_box_list{
+   width: 100%;
+   background: #f6f8fe;
+   overflow: hidden;
+   text-align: center;
+}
+.host_box_list2 image{
+  width:750rpx;
+  height:452rpx;
+  display: block;
+}
+.hotList{
+  width: 49%;
+  height: 480rpx;
+  float: left;
+   margin-right: 2%; 
+   margin-bottom: 12rpx;
+   overflow: hidden;
+   position: relative;
+}
+.hotList:nth-child(2n+2){
+ margin-right: 0; 
+}
+.hotList image{
+  height: 360rpx;
+  width: 360rpx;
+}
+.moneyText{
+  font-size: 30rpx;
+  position: relative;
+  color: #666;
+  z-index: 99;
+  margin-bottom:10rpx;
+}
+.nameText{
+  font-size: 28rpx;
+  position: relative;
+  z-index: 99;
+  color: #999;
+}
+.adbanner{
+  width: 100%;
+  height: 420rpx;
+  overflow: hidden;
+  margin-bottom:20rpx;
+}
+.adbanner image {
+  width: 100% !important;
+  height: inherit !important;
+}
+.shopList > .imga:first-child > .advrTitle{
+  text-align: left;
+  left:0;
+  top:120rpx;
+}
+.shopList > .imga:first-child > .advrTitle > view{
+  text-align: center;
+  width: 380rpx;
+}
+.shopList > .imga:first-child > .advrTitle > text{
+  text-align: center;
+  width: 380rpx;
+}
+
+
+/*弹窗*/
+.pop_box > .pop_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  background: rgba(0, 0, 0, 0.5);
+}
+.pop_box > .pop_con {
+  background: #1a2b7a;
+  width: 650rpx;
+  height: 900rpx;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 10000000;
+  margin-left: -325rpx;
+  margin-top: -500rpx;
+  color: #fff;
+}
+.pop_box > .pop_con > .popborder {
+  width: 606rpx;
+  height: 851rpx;
+  background: #fff;
+  margin: 25rpx 22rpx 24rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text {
+  background: url("https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/bor.png") no-repeat;
+  background-size: cover;
+  width: 540rpx;
+  height: 786rpx;
+  text-align: center;
+  position: relative;
+  top: 32rpx;
+  margin: 0 auto;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .closeBtn {
+  position: absolute;
+  top: -70rpx;
+  right: -70rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > view {
+  text-align: center;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .logo {
+  padding-top: 64rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .logo image {
+  width: 203rpx;
+  height: 106rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .title {
+  padding-top: 50rpx;
+  position: relative;
+  z-index: 3;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .title image {
+  width: 335rpx;
+  height: 91rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .shop {
+  position: absolute;
+  top: 300rpx;
+  left: 165rpx;
+  z-index: 2;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .shop  {
+  display: block;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .shop > image {
+  width: 218rpx;
+  height: 218rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .cs {
+  margin-top: 120rpx;
+  position: relative;
+  z-index: 3;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .cs image {
+  width: 48rpx;
+  height: 4rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .tex {
+  margin-top: 20rpx;
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  width: 300rpx;
+  color: #1a2b7a;
+  font-size: 22rpx;
+  line-height: 35rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .btn {
+  margin-top: 25rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .btn > text {
+  display: inline-block;
+  width: 135rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  border: solid 1px #b3855d;
+  border-radius: 8rpx;
+  color: #595757;
+  font-size: 31rpx;
+}
+.pop_box > .pop_con > .popborder > .pop_text > .btn > text:first-child {
+  margin-right: 34rpx;
+}
+
+
+.two_pop_text {
+  position: absolute;
+  left: 80rpx;
+  top: 80rpx;
+  width: 490rpx;
+  height: 742rpx;
+  background: rgba(8, 26, 106, 0.9);
+  z-index: 66;
+  color: #fff;
+  text-align: center;
+}
+.two_pop_text .tipH {
+  font-weight: normal;
+  font-size: 42rpx;
+  padding-top: 200rpx;
+  padding-bottom: 40rpx;
+  position: relative;
+}
+.two_pop_text .tipH:after,
+.two_pop_text .tipH:before {
+      content: "";
+      width: 50rpx;
+      height: 2rpx;
+      position: absolute;
+      background: #fff;
+      top: 230rpx;
+    }
+.two_pop_text .tipH:after {
+      left: 80rpx;
+    }
+.two_pop_text .tipH:before {
+      right: 80rpx;
+    }
+.two_pop_text .tipP {
+  font-size: 28rpx;
+  padding-bottom: 80rpx;
+}
+.two_pop_text .two_back {
+  width: 308rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 6rpx;
+  background: #fff;
+  text-align: center;
+  color: #001a88;
+  display: inline-block;
+  font-size: 28rpx;
+}
+.two_pop_text .two_close {
+  font-size: 28rpx;
+  padding-top: 30rpx;
+}

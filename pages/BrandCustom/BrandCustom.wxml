@@ -1,0 +1,4 @@
+<!-- pages/BrandCustom/BrandCustom.wxml -->
+<view class="branBox">
+  <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/activity/applet/qdz.jpg"></image>
+</view>

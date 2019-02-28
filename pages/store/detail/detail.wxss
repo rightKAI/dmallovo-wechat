@@ -1,0 +1,93 @@
+/* pages/store/detail/detail.wxss */
+
+.mainWith {
+    padding-bottom: 0.4rem;
+    text-align: center;
+}
+.mainWith .banner{
+    position: relative;
+    height: 300rpx;
+}
+.mainWith .banner .img{
+    width: 750rpx;
+    height: 300rpx;
+}
+.mainWith .banner text{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.65);
+}
+.listBox .list{
+    padding: 0 30rpx;
+}
+.listBox .list .goYuyue{
+    margin: 0 auto;
+    width: 300rpx;
+    height: 64rpx;
+    background: #001a88;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 64rpx;
+    text-align: center;
+    border-radius: 50px;
+    margin-top: 28rpx;
+}
+.listBox .list .site{
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666;
+    border-top: solid 1px #e8e8e8;
+    border-bottom: solid 1px #e8e8e8;
+    margin-top: 25rpx;
+    text-align: left;
+}
+.listBox .list .site image{
+    width: 34rpx;
+    height: 34rpx;
+    display: inline-block;
+    float: left;
+    margin-top: 29rpx;
+    margin-right: 5rpx;
+}
+.listBox .list .footer{
+    padding: 27rpx 0;
+    overflow: hidden;
+}
+.listBox .list .footer .phomake{
+    float: left;
+    font-size: 28rpx;
+    text-decoration: underline;
+    color: #001a88;
+    margin-right: 0.6rem;
+}
+.listBox .list .footer .phomake image{
+    width: 26rpx;
+    height: 26rpx;
+    display: inline-block;
+    float: left;
+    margin-top: 10rpx;
+    margin-right: 6rpx;
+}
+.listBox .list .footer .openTime{
+    float: left;
+    font-size: 28rpx;
+    margin-right: 0.6rem;
+}
+.listBox .list .footer .openTime image{
+    width: 26rpx;
+    height: 26rpx;
+    display: inline-block;
+    float: left;
+    margin-top: 10rpx;
+    margin-right: 6rpx;
+}

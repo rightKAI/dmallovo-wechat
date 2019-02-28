@@ -1,0 +1,219 @@
+/* pages/me/userInfo/userInfo.wxss */
+#app .topLine{
+  width: 100%;
+  height:1rpx;
+  background: #e8e8e8;
+  position: fixed;
+  top:0;
+  left:0;
+}
+page {
+  background: #f6f8fe;
+  width: 100%;
+  overflow-x: hidden;
+}
+.clearBoth:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app {
+  height: auto;
+  font-weight: 300;
+  background: #f6f8fe;
+}
+#app .head{
+  width: 750rpx;
+  height: 304rpx;
+  background-color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+#app .head .userIcon{
+    margin: 0 auto;
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    width: 160rpx;
+    height: 160rpx;
+    border: 10rpx solid #ededed;
+    border-radius: 50%;
+}
+#app .head .userIcon image{
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 50%;
+}
+#app .info{
+    margin: 20rpx 0;
+    background-color: #fff;
+}
+#app .info .content{
+  margin: 0 50rpx;
+}
+#app .info .content .item{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  height: 99rpx;
+  line-height: 99rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  color: #333;
+}
+#app .info .content .item:last-child{
+  border-bottom: none;
+}
+#app .info .content .item .label{
+    margin-right: 40rpx;
+    font-size: 30rpx;
+    color: #333;
+    display: inline-block;
+}
+#app .info .content .item input{
+    font-size: 30rpx;
+    color: #333;
+    width: 70%;
+    height:99rpx;
+    line-height: 99rpx;
+    display: inline-block;
+}
+#app .info .content .item .set{
+  float: right;
+  height:99rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+#app .info .content .item .set .radioLeft{
+  float: left;
+  margin-right: 20rpx;
+}
+#app .info .content .item .set .radioRight{
+  float: left;
+}
+#app .info .content .item .set .radio{
+  display: block;
+  float: left;
+  width: 34rpx;
+  height:34rpx;
+  margin-top: 34rpx;
+  border:1px solid #999;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+#app .info .content .item .set .radios{
+  display: block;
+  float: left;
+  width: 34rpx;
+  height:34rpx;
+  margin-top: 34rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/btn_xuanzhong.png);
+  background-size: 100% 100%;
+  margin-right: 10rpx;
+}
+#app .infoMore{
+  background-color: #fff;
+}
+#app .infoMore .title{
+    height: 87rpx;
+    line-height: 87rpx;
+    border-bottom: 1rpx solid #e8e8e8;
+    font-size: 30rpx;
+    color: #999;
+    margin:0 50rpx;
+}
+#app .infoMore .title .left{
+  float:left;
+}
+#app .infoMore .title .right{
+  float:right;
+}
+#app .infoMore .title .right .icon{
+  float: right;
+  display: block;
+  width: 24rpx;
+  height: 12rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/down.png);
+  background-size: 100% 100%;
+  margin-top: 39rpx;
+  margin-left: 10rpx;
+}
+#app .infoMore .title .right .showIcon{
+  float: right;
+  display: block;
+  width: 12rpx;
+  height: 24rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_next2.png);
+  background-size: 100% 100%;
+  margin-top: 32rpx;
+  margin-left: 10rpx;
+}
+#app .infoMore .moreContent{
+  margin: 0 50rpx;   
+}
+#app .infoMore .moreContent .item{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  height: 99rpx;
+  line-height: 99rpx;
+  border-bottom: 1rpx solid #e8e8e8;
+  position: relative;
+}
+#app .infoMore .moreContent .item:last-child{
+  border-bottom: none;
+}
+#app .infoMore .moreContent .item .label{
+    font-size: 30rpx;
+    color: #333;
+    display: inline-block;
+    margin-right: 100rpx;
+}
+#app .infoMore .moreContent .item:nth-child(2) .label{
+    margin-right: 45rpx;
+}
+#app .infoMore .moreContent .item:nth-child(6) .label{
+    margin-right: 50rpx;
+}
+#app .infoMore .moreContent .item:nth-child(6)  picker{
+    width: 70%;
+}
+#app .infoMore .moreContent .item input{
+    font-size: 30rpx;
+    color: #333;
+    width: 70%;
+    height:99rpx;
+    line-height: 99rpx;
+    display: inline-block;
+}
+#app .infoMore .moreContent .item picker{
+  color:#333;
+  font-size: 26rpx;
+  width: 74%;
+}
+#app .infoMore .moreContent .item .icon-left{
+  width: 12rpx;
+  height: 24rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_next2.png);
+  background-size: 100% 100%;
+  position: absolute;
+  right:30rpx;
+  top:38rpx;
+}
+#app .saveButton{
+  padding:91rpx 30rpx 121rpx 30rpx;
+  background-color: #f6f8fe;
+}
+#app .buttonArea{
+  width: 100%;
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #333;
+}

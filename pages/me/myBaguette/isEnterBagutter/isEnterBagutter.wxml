@@ -1,0 +1,34 @@
+<view class="IsHasYuyue">
+    <view class="yuyueList"> 
+        <view wx:for="{{ArrayList}}" wx:key="{{item.index}}" class='myYuYue {{item.isTimeOut==1?"":"make-past"}}'>
+            <view class="header">
+                <image src='{{item.img_url}}'></image>
+                <text>{{item.name}}</text>
+             </view>
+            <view class="body">
+                <view class='store_time'>预约时间：<text>{{item.appointDate}}</text></view>
+                <view class='store_name'>联系人：{{item.userName}}  {{item.phone}}</view>
+                <view>门店电话：{{item.tel}}</view>
+                <view>营业时间：{{item.openTime}}-{{item.closeTime}}<text wx:if='{{item.isTimeOut==1}}'>(节假日营业)</text><text wx:if='{{item.isTimeOut==2}}'>(节假日暂不营业)</text></view>
+                  <view wx:if='{{item.isTimeOut==1}}' class="sendPho" bindtap="goUserPho" data-id="{{item.storeId}}" data-phone="{{item.phone}}">
+                    <text>地址发送到手机</text>
+                 </view>
+                 <view wx:if='{{item.isTimeOut==2}}' bindtap='makeBtn' class="sendPho" data-id="{{item.storeId}}" >
+                    <text>重新预约</text>
+                    <text style='position: relative;z-index:999; top:-120rpx; opacity: 0;'>重新预约</text>
+                 </view>
+            </view>
+        </view>
+    </view>
+
+<!--暂无记录-->
+  <view class="noOrder" wx:if="{{ArrayList==''}}">
+    <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_dingdan_ztk.png"></image> 
+    <view class="tit">您还没有预约</view> 
+    <view class="txt">暂无预约，可以对喜欢的商品预约进店体验哦</view>
+    <view bindtap='goStoreList' class="alink xuanzhe">预约进店</view>
+    <view class='alink' bindtap='gouwuche'>购物车</view>
+  </view>
+
+
+</view>

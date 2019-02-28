@@ -1,0 +1,18 @@
+<!--pages/order/paymet/paymet.wxml-->
+<import src="/utils/step.wxml" />
+<view id="app">
+  <!-- <template is="step" data="{{paymet}}"></template> -->
+  <view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+  <view class="pay-area">
+    <view class="item clearBoth">
+      <view class="left clearBoth">
+        <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_weixinzf.png" />
+        <text>微信支付</text>
+      </view>
+      <view class="right">
+        <text class="checkbox"></text>
+      </view>
+    </view>
+  </view>
+  <view class="fixBtn" bindtap="pay">确定支付</view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/BrandCustom/BrandCustom.wxss */
+image{
+  width:100%;
+  height:115rem;
+}

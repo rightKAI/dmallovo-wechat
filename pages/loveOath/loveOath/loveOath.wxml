@@ -1,0 +1,17 @@
+<view class="certificate_bg">
+    <view class="loveName_1">
+      <text>*</text><input bindinput="sheName" type="text" placeholder="她的姓名"></input>
+    </view>
+    <view class="loveName_2">
+      <view><text>*</text><input bindinput='meName' type="text" placeholder="您的姓名"></input></view>
+      <view><input class='date' type="text" value='{{DateHot}}' disabled></input></view>
+    </view>
+</view>
+
+<view class="oath_checkbox" bindtap='checkboxBtn'>
+   <image  wx:if="{{indexCheckbox == false}}" src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/mycenter/sex_n.png'></image>
+   <image  wx:if="{{indexCheckbox == true}}" src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/mycenter/sex_o.png'></image>
+   <text> 我已经仔细阅读并接受「爱的卖身契」</text> 
+</view> 
+
+<view class="oathBtn" bindtap='oathBtn'>提交爱的卖身契 下一步 ></view>

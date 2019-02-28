@@ -1,0 +1,303 @@
+<view class="body">
+  <view class="nav">
+    <view class="{{selected1?'active':'default'}}" bindtap="selected1">全部订单({{numText}})</view>
+    <view class="{{selected?'active':'default'}}" bindtap="selected">待付款({{obliNumText}})</view>
+    <view class="{{selected2?'active':'default'}}" bindtap="selected2">已完成({{OKnumText}})</view>
+  </view>
+  <!--全部订单-->
+  <view class="{{selected1?'show':'hidden'}}" id="noMoney">
+    <view class="oderInfo" wx:for="{{orderShop}}" wx:key="{{index}}">
+        <view class="header">
+            订单编号：{{item.id}}
+            <text>{{item.status}}</text>
+        </view>
+        <view class="body">
+            <view class="shopList" wx:for="{{item.goodsList}}" wx:for-item="itemName" wx:key="{{index}}">
+                <image src="{{itemName.imgurl}}" data-obj="{{itemName}}" bindtap="goGoods"/>
+                <view class="shopInfo">
+                    <view class="titleLittle">{{itemName.goodsName}}
+                        <!-- <view class="shopNum">x{{itemName.count}}</view> -->
+                    </view>
+                    <view class="bodyLittle" wx:if="{{itemName.type!=4}}"><text class='jin'>{{itemName.goldClassify}}</text> {{itemName.params}}</view>
+                    <text class='chicun' wx:if="{{itemName.size}}">尺寸：{{itemName.size}}</text>
+                    <view class="kezi" wx:if="{{itemName.lettering!=''}}">刻字：{{itemName.lettering}}</view>
+                    <view class="money">￥{{itemName.sumPrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="shoplastInfo">共{{item.goodsList.length}}件 应付总额：￥<text>{{item.sumPrice}}</text></view>
+         <!--待付款-->
+        <view class="shopButtom" wx:if="{{item.status=='待付款'}}">
+            <view class="justQX" bindtap="qxOrder" data-id="{{item.id}}">取消订单</view>
+            <view class="inbom" bindtap="goKefu" style="position:relative">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+            <view class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}">订单详情</view>
+            <view class="inbom zhifu" bindtap="buyMoney" data-id="{{item.id}}">支付</view>
+        </view>
+        <!--已取消-->
+        <view class="shopButtom" wx:if="{{item.status=='已取消'}}">
+            <!--<text class="justQX">重新购买</text>-->
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}" style="float:right">订单详情</text>
+            <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+        </view>
+        <!--已付款-->
+        <view class="shopButtom" wx:if="{{item.status=='已付款'}}">
+          <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}" style="float:right">订单详情</text>
+             <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+            <text class="justQX" bindtap="goLogistics" data-oid="{{item.id}}" style="float:right">物流跟踪</text>
+        </view>
+        <!--待发货-->
+        <view class="shopButtom" wx:if="{{item.status=='待发货'}}">
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}" style="float:right">订单详情</text>
+             <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+        </view>
+        <!--已发货-->
+        <view class="shopButtom" wx:if="{{item.status=='已发货'}}">
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}"  style="float:right">订单详情</text>
+             <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+               联系客服 
+            </view>
+            <text class='justQX' bindtap="goLogistics" data-oid="{{item.id}}" style="float:right">物流跟踪</text>
+        </view>
+        <!--待自提-->
+        <view class="shopButtom" wx:if="{{item.status=='待自提'}}">
+        <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}" style="float:right">订单详情</text>
+              <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+            <text class="justQX"  style="float:right">确定提取</text>
+        </view>
+        <!--确定收货-->
+        <view class="shopButtom" wx:if="{{item.status=='已提取'}}">
+            <!-- <text data-oid="{{item.id}}" bindtap='goPingJia' class="justQX">评论</text> -->
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}"  style="float:right">订单详情</text>
+            <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+        </view>
+        <!--已评价-->
+        <view class="shopButtom" wx:if="{{item.status=='已评价'}}">
+            <view class="inbom" bindtap="goKefu" style="position:relative;float:right">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}" style="float:right">订单详情</text>
+        </view>
+        <!--已完成-->
+        <view class="shopButtom" wx:if="{{item.status=='已完成'}}">
+            <view class="inbom" bindtap="goKefu" style="position:relative">
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+              联系客服
+            </view>
+            <text class="inbom">查看评论</text>
+            <text class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}">订单详情</text>
+        </view>
+        
+    </view>
+
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{orderShop==''}}">
+         <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_dingdan_ztk.png" />
+        <view class='tit'>您还没有订单哦</view>
+        <view class="txt">暂无订单，可以去系列里选购钻戒购买哦</view>
+        <view class='alink xuanzhe' bindtap='xuangou'>选购钻戒</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+  <!--待付款-->
+  <view class="{{selected?'show':'hidden'}}" id="noMoney">
+    <view class="oderInfo" wx:for="{{obligation}}" wx:key="{{index}}" data-id="{{item.id}}" wx:if="{{obligation!=0}}">
+        <view class="header">
+            订单编号：{{item.id}}
+            <text>{{item.status}}</text>
+        </view>
+        <view class="body">
+            <view class="shopList" wx:for="{{item.goodsList}}" wx:for-item="shopIn" wx:key="{{index}}">
+                <image src="{{shopIn.imgurl}}" data-obj="{{shopIn}}" bindtap="goGoods"/>
+                <view class="shopInfo">
+                    <view class="titleLittle">{{shopIn.goodsName}}
+                        <!-- <view class="shopNum">x{{shopIn.count}}</view> -->
+                    </view>
+                    <view class="bodyLittle">{{shopIn.goldClassify}} {{shopIn.params}}  <text wx:if="{{shopIn.size}}">尺寸：{{shopIn.size}}</text></view>
+                    <view class="kezi" wx:if="{{shopIn.lettering!=''}}">刻字：{{shopIn.lettering}}</view>
+                    <view class="money">￥{{shopIn.sumPrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="shoplastInfo">共{{item.goodsList.length}}件 应付总额：￥<text>{{item.sumPrice}}</text></view>
+        <view class="shopButtom">
+            <view class="justQX" bindtap="qxOrder" data-id="{{item.id}}" data-num="{{index}}">取消订单</view>
+             <view class="inbom" bindtap="goKefu" style="position:relative">
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+                联系客服
+              </view>
+            <view class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}">订单详情</view>
+            <view class="inbom zhifu" bindtap="buyMoney" data-id="{{item.id}}">支付</view>
+        </view>
+    </view>
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{obligation==''}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_dingdan_ztk.png" />
+        <view class='tit'>您还没有订单哦</view>
+        <view class="txt">暂无订单，可以去系列里选购钻戒购买哦</view>
+        <view class='alink xuanzhe' bindtap='xuangou'>选购钻戒</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+  <!--已完成-->
+ <view class="{{selected2?'show':'hidden'}}" id="noMoney">
+    <view class="oderInfo" wx:for="{{OKtion}}" wx:key="{{index}}" data-id="{{item.id}}" wx:if="{{OKtion!=0}}">
+        <view class="header">
+            订单编号：{{item.id}}
+            <text>{{item.status}}</text>
+        </view>
+        <view class="body">
+            <view class="shopList" wx:for="{{item.goodsList}}" wx:for-item="shopIn" wx:key="{{index}}">
+                <image src="{{shopIn.imgurl}}" data-obj="{{shopIn}}" bindtap="goGoods"/>
+                <view class="shopInfo">
+                    <view class="titleLittle">{{shopIn.goodsName}}
+                        <!-- <view class="shopNum">x{{shopIn.count}}</view> -->
+                    </view>
+                    <view class="bodyLittle">{{shopIn.goldClassify}} {{shopIn.params}}  <text wx:if="{{shopIn.size}}">尺寸：{{shopIn.size}}</text></view>
+                    <view class="kezi" wx:if="{{shopIn.lettering!=''}}">刻字：{{shopIn.lettering}}</view>
+                    <view class="money">￥{{shopIn.sumPrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="shoplastInfo">共{{item.goodsList.length}}件 应付总额：￥<text>{{item.sumPrice}}</text></view>
+        <view class="shopButtom">
+            <view class="justQX" bindtap="qxOrder" data-id="{{item.id}}" data-num="{{index}}">取消订单</view>
+           <view class="inbom" bindtap="goKefu" style="position:relative">
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:140rpx;opacity: 0;"></contact-button>             
+               <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:0;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:40rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:60rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:100rpx;opacity: 0;"></contact-button>
+              <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:30rpx;left:140rpx;opacity: 0;"></contact-button>
+                联系客服
+              </view> 
+            <view class="inbom" bindtap="orderDetailGo" data-id="{{item.id}}">订单详情</view>
+            <view class="inbom zhifu" bindtap="buyMoney" data-id="{{item.id}}">支付</view>
+        </view>
+    </view>
+    <!--无订单显示-->
+    <view class="noOrder" wx:if="{{OKtion==''}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_dingdan_ztk.png" />
+        <view class='tit'>您还没有订单哦</view>
+        <view class="txt">暂无订单，可以去系列里选购钻戒购买哦</view>
+        <view class='alink xuanzhe' bindtap='xuangou'>选购钻戒</view>
+        <view class='alink' bindtap='gouwuche'>购物车</view>
+    </view>
+  </view>
+
+      
+  </view>
+

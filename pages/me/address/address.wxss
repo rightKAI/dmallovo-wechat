@@ -1,0 +1,157 @@
+/*地址管理 */
+page {
+  height: 100%;
+  background: #fff;
+}
+.clearBoth:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app {
+  height: auto;
+  font-weight: 300;
+  background: #fff;
+}
+#app .addressTab{
+    color: red;
+    text-align: left;
+    background-color: #fff;
+    position: relative;
+    padding-left: 24rpx;
+    overflow: hidden;
+    min-height: 99rpx;
+    line-height: 99rpx;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #e8e8e8;
+}
+#app .shopNameList{
+    margin:0rpx 0 90rpx 0;
+    padding-bottom: 130rpx;
+}
+#app .shopNameList .shopItem{
+    background-color: #fff;
+    padding: 34rpx 0 0 0;
+    overflow: hidden;
+    font-size: 30rpx;
+    color: #333;
+}
+#app .shopNameList .shopItem .shopItems{
+    margin: 0 50rpx;
+    border-bottom: 1px solid #e8e8e8;
+}
+#app .shopNameList .shopItem .userInfo{
+  margin-bottom: 30rpx;
+}
+#app .shopNameList .shopItem .userInfo .name{
+  margin-right:26rpx;
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+#app .shopNameList .shopItem .userInfo .phone{
+  float: right;
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+#app .shopNameList .shopItem .address{
+  margin-bottom: 10rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+#app .shopNameList .shopItem .check{
+  color: #999;
+  font-size:28rpx;
+  padding-bottom: 36rpx;
+}
+#app .shopNameList .shopItem .check .left{
+  width: 50%;
+  float:left;
+}
+#app .shopNameList .shopItem .check .left .checkBox{
+  display: block;
+  float: left;
+  width: 32rpx;
+  height:32rpx;
+  border:1rpx solid #ccc;
+  margin-top: 20rpx;
+}
+#app .shopNameList .shopItem .check .left .checked{
+  border:none;
+  width: 34rpx;
+  height:34rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_pitch.png);
+  background-size: 100% 100%;
+}
+#app .shopNameList .shopItem .check .left text:last-child{
+  display: block;
+  float: left;
+}
+#app .shopNameList .shopItem .check .right{
+  width: 50%;
+  float:right;
+}
+#app .shopNameList .shopItem .check .right .edit{
+  float: right;
+}
+#app .shopNameList .shopItem .check .right .edit text{
+  display: block;
+  padding: 20rpx 37rpx 20rpx 20rpx;
+  position: relative;
+}
+#app .shopNameList .shopItem .check .right .edit text::after{
+  content: "";
+  position: absolute;
+  background: #e8e8e8;
+  width: 1px;
+  height:28rpx;
+  top:27rpx;
+  right:0vh;
+}
+#app .shopNameList .shopItem .check .right .delete text:first-child{
+  display: block;
+  float: left;
+  width: 30rpx;
+  height:30rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/lajitong.png);
+  background-size: 100% 100%;
+  margin: 5rpx 0rpx 0 0;
+}
+#app .shopNameList .shopItem .check .right .delete{
+  float: right;
+  padding: 20rpx 0 20rpx 37rpx;
+}
+#app .shopNameList .shopItem .check .default{
+  display: block;
+  float: right;
+  color: #001a88;
+  margin: 20rpx 34rpx 0 0;
+}
+#app .fixShopInfo {
+  position: fixed;
+  bottom: 0rpx;
+  left:0;
+  background: #fff;
+  z-index: 99;
+  height:130rpx;
+  width: 100%;
+  line-height: 130rpx;
+  text-align: center;
+}
+#app .fixShopInfo text{
+  display: inline-block;
+  background: #001a88;
+  color: #fff;
+  height:90rpx;
+  width: 650rpx;
+  border-radius: 10rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  letter-spacing:2rpx;
+  margin: 0 50rpx;
+}

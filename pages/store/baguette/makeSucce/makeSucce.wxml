@@ -1,0 +1,16 @@
+<!--pages/store/baguette/makeSucce/makeSucce.wxml-->
+<view class="makeBox">
+<view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+    <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/make/gg.png" />
+    <view class="title">恭喜您预约成功</view>
+    <view class="DataLi">
+        <view class="button">{{userName}}</view> 
+        <view class="top">{{shopName}}</view>
+    </view>
+
+    <view class="textP">请查收短信,期待您的光临!</view>
+    <view class="aUrl">
+        <view class="meBra" bindtap="goShop">随便逛逛</view>
+        <view class="btnS" bindtap="myBaguette">查看我的预约</view>
+    </view>
+</view>

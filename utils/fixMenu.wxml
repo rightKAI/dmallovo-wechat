@@ -1,0 +1,24 @@
+ <template name="menu">
+    <view id="fixMenu">
+          <view bindtap="bottomMenuTap" data-url="/pages/index/index" class="item {{Mindexs?'items':''}}">
+            <text class="index"></text>
+            <text class="bottom">首页</text>
+          </view>
+          <view bindtap="bottomMenuTap" data-url="/pages/goods/list/list" class="item {{Mseriess?'items':''}}">
+            <text class="series"></text>
+            <text class="bottom">分类</text>
+          </view>
+          <view bindtap="bottomMenuTap" data-url="/pages/store/list/list" class="item {{Mstores?'items':''}}">
+            <text class="store"></text>
+            <text class="bottom">店铺</text>
+          </view>
+          <view bindtap="bottomMenuTap" data-url="/pages/order/shopCar/shopCar" class="item {{MshopCars?'items':''}}">
+            <text class="shopCar"></text>
+            <text class="bottom">购物车</text>
+          </view>
+          <view bindtap="bottomMenuTap" data-url="/pages/me/me" class="item {{Mmys?'items':''}}">
+            <text class="my"></text>
+            <text class="bottom">我的</text>
+          </view>
+        </view>
+      </template>

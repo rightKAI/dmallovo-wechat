@@ -1,0 +1,35 @@
+<view style=' border-top: solid 1px #e8e8e8;'></view>
+<view class="sdpj">
+    <view class="shopInfo">
+        <image src="{{shopInfoList.imgurl}}" />
+        <view class="right">
+            <view class="name">{{shopInfoList.goodsName}}</view>
+            <view bindtap="tabsIndex" class="fiveC">{{shopInfoList.goldClassify}}  {{shopInfoList.params}}</view>
+        </view>
+    </view>
+    <view class="pingfen">
+        <text>评分: </text>
+        <block wx:for="{{stars}}" wx:key="{{index}}">
+            <image class="star-image" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                <view class="tag">
+                    <view class="item" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                    <view class="item" data-key="{{item+1}}" bindtap="selectRight"></view>
+                </view>
+            </image>
+        </block>
+        <!-- <text>商品满意度</text> -->
+    </view>
+    <view class="pjContxt">
+        <textarea placeholder="欢迎夸奖和吐槽我们的商品！" bindblur="bindTextAreaBlur"  value="{{userContxt}}"/>
+    </view>
+    <view class="uploadPic">
+        <view class="shopImg" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+            <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+            <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+                <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/close.png" />
+            </view>
+        </view>
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/btn_tianjiazhaopian.png" bindtap="chooseImg"  wx:if="{{userin}}"/>
+    </view>
+    <view class="fbpj" bindtap="goPingjia">发表评价</view>
+</view>

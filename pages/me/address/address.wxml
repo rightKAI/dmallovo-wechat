@@ -1,0 +1,32 @@
+<!--pages/address/list/list.wxml-->
+<view id="app">
+  <!-- <view class="addressTab"><text>邮寄地址</text></view> -->
+  <view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+  <view class="shopNameList">
+    <view class="shopItem" wx:for="{{adrList}}" wx:key="id" data-index="{{index}}"  data-index="{{index}}">
+      <view class="shopItems">
+          <view class="userInfo">
+            <text class="name">{{item.userName}}</text>
+            <text class="phone">{{item.phone}}</text>
+          </view>
+          <view class="address">{{item.provinceName}}{{item.cityName}}{{item.address}}</view>
+          <view class="check clearBoth">
+            <view class="right clearBoth">
+                <view class="delete"  catchtap="deleteClick" data-index="{{index}}">
+                  <text catchtap="deleteClick" data-index="{{index}}"></text>
+                </view>
+                <view class="edit">
+                  <text catchtap="editClick" data-index="{{index}}">编辑</text>
+                </view>
+                <view class="default" wx:if="{{item.isDefault == 1}}">
+                  <text>默认</text>
+                </view>
+            </view>
+        </view>
+      </view>      
+    </view>
+  </view>
+  <view class="fixShopInfo" bindtap="addNewUser">
+    <text>添加地址</text>
+  </view>
+</view>

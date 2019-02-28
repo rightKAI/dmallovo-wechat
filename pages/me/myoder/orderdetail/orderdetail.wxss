@@ -1,0 +1,247 @@
+.orderInfo {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #f6f8fe;
+}
+.placeInfo {
+  width: 750rpx;
+  height: 150rpx;
+  /* border-top: 1px solid #cdcdcd; */
+  background-color: #fff;
+}
+.placeInfo > image {
+  float: left;
+  margin: 81rpx 20rpx 67rpx 30rpx;
+  width: 20rpx;
+  height: 25rpx;
+}
+.placeInfo > .right {
+   /* margin-right: 35rpx;  */
+  color: #333;
+  height: 150rpx;
+  padding: 0 50rpx;
+}
+.placeInfo > .right > view {
+  /* margin-top: 32rpx;  */
+  padding-top: 32rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.placeInfo > .right > view:last-child {
+  padding-top: 0;
+   margin-top: 10rpx; 
+  font-size: 26rpx;
+  color: #666;
+}
+.shopAllInfo {
+  margin: 20rpx 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+.shopAllInfo > .shopList {
+  padding: 30rpx 0;
+  margin: 30rpx 50rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+.shopAllInfo > .shopList:first-child {
+  padding-top: 0;
+}
+.shopAllInfo > .shopList:last-child {
+  border-bottom: none;
+}
+.shopAllInfo > .shopList > image {
+  float: left;
+  width: 180rpx;
+  height: 180rpx;
+  background-color: #f5f5f5;
+}
+.shopAllInfo > .shopList > .shopInfo {
+  float: left;
+  position: relative;
+  margin-left: 30rpx;
+  width: 430rpx;
+  height: 180rpx;
+ font-size: 24rpx;
+ color: #666;
+}
+.shopAllInfo > .shopList > .shopInfo > .titleLittle {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  padding-bottom: 14rpx;
+}
+.shopAllInfo > .shopList > .shopInfo > .titleLittle > .shopNum {
+  float: right;
+  font-size: 28rpx;
+  color: #666;
+}
+.shopAllInfo > .shopList > .shopInfo > .bodyLittle {
+  font-size: 26rpx;
+  color: #666;
+  padding-bottom: 3rpx;
+}
+.shopAllInfo > .shopList > .shopInfo > .bodyLittle text,
+.shopAllInfo > .shopList > .shopInfo > .kezi text{
+  display: inline-block;
+  padding-left: 20rpx;
+}
+.shopAllInfo > .shopList > .shopInfo > .kezi {
+  font-size: 26rpx;
+  color: #666;
+}
+.shopAllInfo > .shopList > .shopInfo > .money {
+  position: absolute;
+  font-size: 26rpx;
+  color: #333;
+  bottom: 0;
+  left: 0;
+}
+.oderInfoList {
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+}
+.oderInfoList > .title {
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #999;
+  border-bottom: 1px solid #e8e8e8;
+}
+.oderInfoList > .title > text {
+  float: right;
+  color: #001a88;
+}
+.oderInfoList > .oderTime {
+  color: #666;
+  border-bottom: 1px solid #e8e8e8;
+}
+.oderInfoList > .oderTime > view {
+  margin: 30rpx 0;
+}
+.oderInfoList > .oderTime > view:last-child {
+  margin-top: 28rpx;
+}
+.oderInfoList > .zhifu {
+  color: #666;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+.oderInfoList > .beizhu {
+  color: #666;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+.oderInfoList > .wenxintishi {
+  color: #666;
+  padding: 30rpx 0;
+}
+.money {
+  margin-top: 20rpx;
+  /* margin-bottom: 20rpx; */
+  background-color: #fff;
+  overflow: hidden;
+}
+.money .titleOn {
+  font-size: 30rpx;
+  /* border-bottom: 1px solid #e8e8e8; */
+  padding: 0rpx 50rpx;
+}
+.moneylist{
+  border-bottom: solid 1rpx #E8E8E8;
+  height: 99rpx;
+  line-height: 99rpx;
+  color: #999999;
+  font-size: 26rpx;
+}
+.myText{
+  color:#333;
+}
+.moneylist:last-child{
+  border-bottom: none;
+}
+.moneylist text{
+  float: right;
+}
+.money .titleOn > .zonge {
+  font-size: 30rpx;
+  color: #333;
+}
+.money .titleOn > .zonge:last-child {
+  margin-bottom: 0;
+}
+.money .titleOn > .zonge > text {
+  float: right;
+  color: #FF4444;
+  font-size: 24rpx;
+}
+.money .shifu {
+  float: right;
+  padding: 0 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.money .shifu > text {
+  font-size: 34rpx;
+  color: #ff4444;
+}
+.shopButtom {
+  padding: 0rpx 50rpx 38rpx 50rpx;
+  text-align: right;
+  font-size: 30rpx;
+  color: #666;
+  background-color: #fff;
+}
+.shopButtom > .inbom {
+  margin-left: 20rpx;
+  display: inline-block;
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  color: #666;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+.shopButtom > .inbom:first-child {
+  margin-left: 0;
+}
+.shopButtom > .zhifu {
+  background-color: #001a88;
+  color: #fff;
+  border: 1px solid #001a88;
+  width: 650rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+}
+
+
+.order_header{
+  width: 750rpx;
+  height: 270rpx;
+  background: url("https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/img_dingdanzhuangtai.png") no-repeat;
+  background-size: cover;
+  /* padding: 0 50rpx; */
+}
+.order_await{
+  font-size:38rpx;
+  color: #fff;
+  padding-top: 54rpx;
+  padding-bottom: 40rpx;
+  margin-left: 50rpx;
+}
+.order_tem{
+  font-size: 24rpx;
+  color: #fff;
+  margin-left: 50rpx;
+}
+.order_time{
+  padding-top: 16rpx;
+}

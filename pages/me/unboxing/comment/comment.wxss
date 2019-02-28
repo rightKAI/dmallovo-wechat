@@ -1,0 +1,144 @@
+page {
+  height: 100%;
+  background-color: #f6f8fe;
+}
+.sdpj {
+  background-color: #fff;
+  padding: 0 50rpx;
+}
+.shopInfo {
+  position: relative;
+  padding-top: 20rpx; 
+  background: #fff;
+  overflow: hidden;
+}
+.shopInfo > image {
+  float: left;
+  margin: 30rpx 0rpx 30rpx 0rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background: #f5f5f5;
+  top: 30rpx;
+  left: 30rpx;
+}
+.shopInfo > .right {
+  float: left;
+  margin: 30rpx 20rpx 30rpx 30rpx;
+}
+.shopInfo > .right > .name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+.shopInfo > .right > .fiveC {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 24rpx;
+}
+.pingfen {
+  position: relative;
+  font-size: 26rpx;
+  left: 218rpx;
+  top: -77rpx;
+}
+.pingfen > text {
+  color: #333;
+}
+.pingfen > text:last-child {
+  position: absolute;
+  font-size: 28rpx;
+  color: #999;
+  right: 0;
+  bottom: 0;
+}
+.pingfen .star-image {
+  position: relative;
+  width: 45rpx;
+  height: 42rpx;
+  margin-left: 10rpx;
+  top: 9rpx;
+}
+.pjContxt {
+  /* margin-left: 24rpx; */
+  /* border-top: 1px solid #e8e8e8; */
+  min-height: 360rpx;
+  background: #F5F5F5;
+  position: relative;
+  top: -20rpx;
+  padding-right: 30rpx;
+}
+.pjContxt > textarea {
+  padding-top: 30rpx;
+  padding-right: 30rpx;
+  width: 100%;
+  height: 100rpx;
+  min-height: 180rpx;
+  max-height: 180rpx;
+  font-size: 26rpx;
+  background: #F5F5F5;
+  text-indent: 20rpx;
+}
+.uploadPic {
+  /* padding: 10rpx 30rpx 30rpx 30rpx; */
+  min-height: 156rpx;
+  max-height: 340rpx;
+  /* border-bottom: 1px solid #e8e8e8; */
+  overflow: hidden;
+  position: relative;
+  top: -165rpx;
+  left: 30rpx;
+}
+.uploadPic .shopImg {
+  position: relative;
+  float: left;
+  margin: 0 12rpx 20rpx 0;
+  width: 126rpx;
+  height: 126rpx;
+}
+.uploadPic .shopImg > image {
+  width: 100%;
+  height: 100%;
+}
+.uploadPic .shopImg > .delete-btn {
+  width: 30rpx;
+  height: 30rpx;
+}
+.uploadPic .shopImg > .delete-btn > image {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  top: 0;
+  right: 7rpx;
+}
+.uploadPic > image {
+  float: left;
+  width: 124rpx;
+  height: 124rpx;
+}
+.fbpj {
+  width: 360rpx;
+  height: 70rpx;
+  margin: 0 auto;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #001A88;
+  border: 1px solid #001A88;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  top: -120rpx;
+}
+.item {
+  float: left;
+  width: 16px;
+  height: 16px;
+}
+.tag {
+  display: inline-block;
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  top: 0;
+  left: 0;
+}

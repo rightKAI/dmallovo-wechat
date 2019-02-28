@@ -1,0 +1,84 @@
+/* pages/goods/parameter/parameter.wxss */
+@import "/utils/goodsDetailHeader.wxss";
+#app{
+    height: 100%;
+    font-weight: 300;
+}
+#app .content{
+  margin-top: 80rpx;
+}
+#app .content .nav{
+    display: flex;
+    position: relative;
+    z-index: 0;
+    color: rgb(0, 26, 136);
+}
+#app .content .nav:after{
+    content: "";
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #b2b2b2;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+#app .content .nav .nav-item{
+    width: 1%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 85rpx;
+    display: block;
+    color: #585858;
+    background-color: #fff;
+}
+#app .content .nav .nav-item:first-child:after{
+    position: absolute;
+    top: 35%;
+    right: 0;
+    content: "";
+    width: 1px;
+    height: 30%;
+    -webkit-transform: scaleX(.5);
+    transform: scaleX(.5);
+    border-right: 1px solid #d9d9d9;
+}
+#app .content .nav .nav-active{
+    color: currentColor;
+}
+#app .content .nav .nav-active:before{
+    content: "";
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -35%;
+    z-index: 4;
+    background-color: currentColor;
+}
+#app .content .nav-panel{
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+}
+#app .content .nav-panel .imgList image{
+  width: 750rpx;
+}
+#app .content .nav-panel .paramList text{
+    padding: 0 30rpx 0 30rpx;
+    display: block;
+    height:80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+}
+#app .content .nav-panel .paramList text:nth-child(4n+0){
+  border-bottom: solid 1px #e8e8e8;
+}

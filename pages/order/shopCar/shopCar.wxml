@@ -1,0 +1,215 @@
+<import src="/utils/step.wxml" />
+<scroll-view id="scrollView"  scroll-y="{{isScroll}}" style="height:{{wheight}}">
+<view id="app" style="{{noAppStyle}}">
+<view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+  <!-- <template is="step" data="{{shopCar}}"></template> -->
+  <view class="car-checklist">
+    <view class="car-checklist-item" wx:for="{{carList}}" wx:key="id" data-index="{{index}}">
+      <view class="car-flexbox clearBoth">
+        
+        <view class="car-flexbox-item clearBoth">
+          <view class="car-flexbox-check clearBoth">
+            <view class="boxClickArea" data-index="{{index}}" bindtap="checkBoxClick"></view>
+            <text wx:if="{{item.isChoose == 1}}"  data-index="{{index}}" bindtap="checkBoxClick" class="my-checkbox-on"></text>
+            <text wx:elif="{{item.isChoose == 0}}" data-index="{{index}}" bindtap="checkBoxClick" class="my-checkbox-off"></text>
+          </view>
+          <view class="clearBoth car-flexbox-icontent">
+            <image data-index="{{index}}" bindtap="goGoodsDetail" src="{{item.imgurl}}"></image>
+            <view class="car-fcontent-content">
+              <text class="goodsName">{{item.goodsName}}</text>
+              <view class="paramter">
+                  <text class="classify" wx:if="{{item.type != '4'}}">{{item.goldClassify}}</text>
+                   <text wx:for="{{item.params}}" wx:if="{{item != '--' && item!=null}}" wx:key="id">{{item}}</text> 
+              </view>
+              <view class="sizeOrLett clearBoth">
+                <text class="size"  wx:if="{{item.size&&item.size!=' '}}">尺寸：{{item.size}}</text>
+                <text class="letter"  wx:if="{{item.lettering&&item.lettering!=' '}}">刻字：{{item.lettering}}</text>
+              </view>
+              <view class="footer-price clearBoth">
+                <text class="price">￥{{item.sumPrice}}</text>
+              </view>
+            </view>
+          </view> 
+        </view>
+          <view class="footer-shop" wx:if="{{item.type != 4}}">
+            <text class="collect" data-id="{{item.styleId}}" data-index="{{index}}" bindtap="editGoodsBtn">编辑</text>
+            <text class="icon-rome" data-index="{{index}}" bindtap="delGoods"></text>
+          </view>
+          <view class="footer-shop" wx:elif="{{item.type == 4}}">
+            <text class="collect" wx:if="{{item.isCollect == 0}}" data-index="{{index}}" bindtap="collectBtn">收藏</text>
+            <text class="collect" wx:elif="{{item.isCollect == 1}}" data-index="{{index}}">已收藏</text>
+            <text class="icon-rome" data-index="{{index}}" bindtap="delGoods"></text>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="noArea" hidden="{{isNoArea}}">
+    <view class="tab">
+      <view class="noIcon">
+        <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_empty.png"></image>
+      </view>
+      <text class="boldText">购物车为空</text>
+      <text>您的购物车内暂无商品，可以去系列里选购哦</text>
+    </view>
+    <view class="btnArea">
+      <view class="goCollect btn" bindtap="goShop">选购钻戒</view>
+      <view class="goShop btn" bindtap="goCollect">收藏夹</view>
+    </view>
+  </view>
+  <view class="car-submit-bar clearBoth" hidden="{{isNoData}}" >
+    <view style="float:left;height:100%;padding:32rpx 30rpx 0rpx 50rpx;" bindtap="allCheckbox">
+      <text  class="{{isAllChoose}}"></text>
+    </view>
+    <text class="allText" bindtap="allCheckbox">全选</text>
+    <view class="footerPrice">
+      <view class="footerPrice__price">总价: ￥{{totalPrice}}</view>
+      <view class="hide-text">已选择<text>{{totalCount}}</text>件商品 免运费</view>
+    </view>
+    <view class="buy-button" bindtap="save">立即结算</view>
+  </view>
+
+   <!--参数选择弹窗-->
+      <view class="selectModal" hidden="{{selectModal}}">
+        <view class="modalContent">
+            <view class="mcItem goodsTittle"  style="height:240rpx;margin: 0;">
+                 <view class="closeBtn" bindtap='closeModal'><text class="mcclose"></text></view>
+                   <view class="mcItem goodsCon">
+                      <view class="mciImg">
+                        <image src="{{pselectImg.imgUrl}}"></image>
+                      </view>
+                      <view class="mciInfo">
+                        <view class="mciiName">{{name}}</view>
+                        <view class="mcii4C" hidden="{{stoneParms}}">
+                          <text>重量:<text class="bold">{{weight}}</text></text>
+                          <text>颜色:<text class="bold">{{color}}</text></text> 
+                          <text>净度:<text class="bold">{{neat}}</text></text> 
+                          <text>切工:<text class="bold">{{cut}}</text></text>
+                        </view>
+                        <view class="mciiPrice"> <text class="price">￥{{modalPrice}}</text></view>
+                      </view>
+                    </view>
+            </view>
+            <view class="modalInfo" style="height:{{mdheught}}px">
+              <view style='padding-top: 130rpx;'></view> 
+              <!--男女单戒规格选择-->
+              <view class="Collocation" hidden="{{hasDouble}}">
+                <text class="tittle">规格</text>
+                  <view class="shopClass clearBoth">
+                    <block wx:for="{{sexList}}" wx:key="{{index}}">
+                      <text wx:if="{{item.backColor == '#001a88'}}" style="border-color:#001a88;background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="sexClick">{{item.name}}</text>
+                    </block>
+                  </view>
+              </view>
+              <!--搭配主钻选择-->
+              <view class="Collocation" hidden="{{hasRing}}">
+                <text class="tittle">搭配主钻</text>
+                <view class="shopClass clearBoth">
+                  <block wx:for="{{stoneList}}" wx:key="{{index}}">
+                    <text style="border-color:{{item.borcolor}};background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="stoneClick">{{item.name}}</text>
+                  </block>
+                </view>
+              </view>
+              <!--戒托材质选择-->
+              <view class="material">
+                <text class="tittle">戒托材质</text>
+                <view class="shopClass clearBoth">
+                  <block wx:for="{{styleList}}" wx:key="{{index}}">
+                    <text style="border-color:{{item.borcolor}};background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="styleClick">{{item.name}}</text>
+                  </block>
+                </view>
+              </view>
+              <!--钻戒/饰品手寸选择-->
+              <view class="chooseHand" hidden="{{sizeHide}}">
+                <text class="title">选择手寸</text>
+                <view class="seleHand">
+                  <picker bindchange="bindPickerSizeChange" indicator-style="color:#001a88" value="{{sizeIndex}}" range="{{hindSize}}">
+                    <view class="picker">
+                      当前选择：{{hindSize[sizeIndex]}}
+                    </view>
+                  </picker>
+                  <text class="go"></text>
+                </view>
+              </view>
+              <!--对戒手寸选择-->
+              <view class="doubleChooseHand" hidden="{{doubleSizeHide}}">
+                <text class="title">选择手寸</text>
+                <view class="sizeSelect clearBoth" hidden="{{manSizeHas}}">
+                  <text class="title">男：</text>
+                  <view class="seleHand">
+                    <picker bindchange="bindPickerMSizeChange" value="{{mSizeIndex}}" range="{{manHindSize}}">
+                      <view class="picker">
+                        当前选择：{{manHindSize[mSizeIndex]}}
+                      </view>
+                    </picker>
+                    <text class="go"></text>
+                  </view>
+                </view>
+                <view class="sizeSelect clearBoth" hidden="{{womanSizeHas}}">
+                  <text class="title">女：</text>
+                  <view class="seleHand">
+                    <picker bindchange="bindPickerWSizeChange" value="{{wSizeIndex}}" range="{{womanHindSize}}">
+                      <view class="picker">
+                        当前选择：{{womanHindSize[wSizeIndex]}}
+                      </view>
+                    </picker>
+                    <text class="go"></text>
+                  </view>
+                </view>
+              </view>
+              <!--钻戒刻字-->
+              <view class="FreeLettering clearBoth" hidden="{{letterHide}}">
+                <text class="title">免费刻字</text>
+                <view class="clearBoth txtFree">
+                  <input cursor-spacing="5px" value="{{letter}}" maxlength="8" focus="{{focus}}" bindinput="inputBlur"  placeholder="限4个汉字/8个字符" />
+                  <view class="diy clearBoth">
+                    <view class="heart" bindtap="clickheart"><text></text></view>
+                    <text class="symbol" bindtap="clicksymbol">&</text>
+                  </view>
+                </view>
+                <text class="preview" bindtap="ringPreviewClick">预览</text>
+              </view>
+              <!--对戒刻字-->
+              <view class="doubleFreeLettering clearBoth" hidden="{{doubleLetterHide}}">
+                <text class="title">免费刻字</text>
+                <view class="sexFree clearBoth" hidden="{{manLetter}}">
+                  <text class="sexTitle">男：</text>
+                  <view class="clearBoth txtFree">
+                    <input value="{{manText}}" focus="{{focus}}" bindinput="manInputBlur" maxlength="8" placeholder="限4个汉字/8个字符" />
+                    <view class="diy clearBoth">
+                      <view class="heart" bindtap="clickManHeart"><text></text></view>
+                      <text class="symbol" bindtap="clickManSymbol">&</text>
+                    </view>
+                  </view>
+                  <text class="preview" bindtap="manPreviewClick">预览</text>
+                </view>
+                <view class="sexFree clearBoth" hidden="{{womanLetter}}">
+                  <text class="sexTitle">女：</text>
+                  <view class="clearBoth txtFree">
+                    <input value="{{womanText}}" focus="{{focus}}" bindinput="womanInputBlur" maxlength="8" placeholder="限4个汉字/8个字符" />
+                    <view class="diy clearBoth">
+                      <view class="heart" bindtap="clickWomanHeart"><text></text></view>
+                      <text class="symbol" bindtap="clickWomanSymbol">&</text>
+                    </view>
+                  </view>
+                  <text class="preview" bindtap="womanPreviewClick">预览</text>
+                </view>
+              </view> 
+        </view>
+         <!--弹出层确定按钮-->
+              <view class="modalSave">
+                <view class="modalSaveBtn" bindtap="modalSaveOk">确定</view>
+              </view>
+        </view>
+        <!--刻字预览-->
+        <view class="kzyl" hidden="{{kzylHide}}">
+          <view class="ylxg">
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/preview.png"></image>
+            <view class="close" bindtap="previewClose"></view>
+            <view class="wz">{{previewText}}</view>
+          </view>
+          <view class="ylBack"></view>
+        </view>
+      </view>
+      <!--参数选择弹窗END-->
+</view>
+</scroll-view>

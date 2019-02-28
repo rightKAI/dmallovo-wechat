@@ -1,0 +1,278 @@
+<!--pages/goods/detail/detail.wxml-->
+<import src="/dist/loadmore/index.wxml" />
+<scroll-view id="scrollView" bindscroll="pageScroll" scroll-y="{{isScroll}}" style="height:{{wheight}}">
+<view id="app">
+  <view>
+    <view style="height:1px;width: 100%;background:#e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+    <view id="goodsDetail">
+      <view class="banner">
+        <swiper  class="bannerTool" indicator-dots="true" circular="true" autoplay="false"  duration="500">
+          <block wx:for="{{imgUrls}}">
+            <swiper-item>
+              <image src="{{item.imgUrl}}" class="slide-image" width="auto" height="auto" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class="goodsInfo">
+        <text class="name">{{name}}</text>
+        <view class="parameter" hidden="{{stoneParms}}">
+          <text>重量:{{weight}}</text>
+          <text>颜色:{{color}}</text> 
+          <text>净度:{{neat}}</text> 
+          <text hidden="{{cutParms}}">切工:<text wx:if='{{cut!=null}}'>{{cut}}</text></text>  
+        </view>
+        <view class="priceArea clearBoth">
+          <text class="price">￥{{price}}</text>
+          <!-- <text class="gostore" bindtap="goBaguette">预约进店 ></text> -->
+        </view>
+      </view>
+      <view class="detailArea">
+        <view class="paramSelBtn  clearBoth" bindtap='showModal'>
+          <view class="text">规格选择</view>
+          <view class="paraText">已选{{styText}} {{stoText}} {{sizeText}}</view>
+          <view class="nextIcon"></view>
+        </view>
+        <view class="storeSelBtn  clearBoth" bindtap='goBaguette'>
+          <view class="text">预约进店</view>
+          <view class="nextIcon"></view>
+        </view>
+        <view class="explainSelBtn  clearBoth" bindtap='goBaguette'>
+          <view class="text">配送说明</view>
+          <view class="explain">预计30个工作日送达（限大陆地区）,其它地区请咨询客服。</view>
+        </view>
+        <view class="slogan clearBoth">
+          <view class="text">服务承诺</view>
+          <view class="item firstItem"><text class="icon"></text><text class="title">30天退换</text></view>
+          <view class="item"><text class="icon"></text><text class="title">全国包邮</text></view>
+          <view class="item"><text class="icon"></text><text class="title">终身保养</text></view>
+        </view>
+        <view class="detailsTab {{hasFixed}}">
+          <view class="header">
+            <view class="tab clearBoth">
+              <text id="goods" class="{{goods}}" bindtap="detailTab">详情</text>
+              <text id="detail" class="{{detail}}" bindtap="detailTab">参数</text>
+              <text id="eva" class="{{eva}}" bindtap="detailTab">评论</text>
+            </view>
+          </view>
+        </view>
+        <view class="nav-panel">
+          <view class="imgList" hidden="{{detailHide}}">
+            <block wx:for="{{imgDetails}}">
+              <image mode="widthFix" data-index="{{index}}" bindtap="detailImgClick"  src="{{item.imgUrl}}"></image>
+            </block>
+          </view>
+          <view class="paramList" hidden="{{paramHide}}">
+            <block wx:for="{{paramList}}">
+              <text>{{item.name}}:{{item.val}}</text>
+            </block>
+          </view>
+          <view class="evaluate" hidden="{{evaluateHide}}">
+            <view class="content" hidden="{{hideContent}}">
+              <view class="CSTemplate" wx:for="{{edata}}" wx:key="id">
+                  <view class="headName">
+                    <view class="userPic">
+                      <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="userInfo">
+                      <text class="name">{{item.nickName}}</text>
+                      <view class="userStar clearBoth">
+                        <text wx:for="{{item.starList}}" wx:key="id" class="{{item}}"></text>
+                      </view>
+                    </view>
+                  </view>
+                  <view class="CScontent">
+                    <view class="CSData">
+                      <view class="text">{{item.context}}</view>
+                        <view class="userImagePic clearBoth">
+                          <view wx:for="{{item.imgsList}}" wx:key="id">
+                            <image bindtap="previewImg" data-index="{{index}}" src="{{item}}"></image>
+                          </view>
+                        </view>
+                        <view class="time">{{item.createTime}}</view>
+                    </view>
+                  </view>
+              </view>
+            </view>
+            <view class="noContent" hidden="{{noContent}}">
+                  <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_wushoucang.png"></image>
+                  <view class="notext">空空如也~</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      </view>
+  </view>
+      <!--参数选择弹窗-->
+      <view class="selectModal" hidden="{{selectModal}}">
+        <view bindtap='closeModal' style="position:absolute;top:-206rpx;width:100%;height:100%;z-index:1998;background:#333;opacity:0.8"></view>
+        <view class="modalContent">
+            <view class="mcItem goodsTittle" style="margin: 0;height:240rpx;">
+                 <view class="mcItem goodsCon">
+                    <view class="mciImg">
+                      <image src="{{pselectImg.imgUrl}}"></image>
+                    </view>
+                    <view class="mciInfo">
+                      <view class="mciiName">{{name}}</view>
+                      <view class="mcii4C" hidden="{{stoneParms}}">
+                        <text>重量:<text class="bold">{{weight}}</text></text>
+                        <text>颜色:<text class="bold">{{color}}</text></text> 
+                        <text>净度:<text class="bold">{{neat}}</text></text> 
+                        <text>切工:<text class="bold"  wx:if='{{cut!=null}}'>{{cut}}</text></text>
+                      </view>
+                      <view class="mciiPrice"> <text class="price">￥{{price}}</text></view>
+                    </view>
+                </view>
+                <view class="closeBtn" bindtap='closeModal'><text class="mcclose"></text></view>
+            </view>
+            <view class="modalInfo" style="height:{{mdheught}}px">
+              <view style='padding-top: 130rpx;'></view> 
+              <!--男女单戒规格选择-->
+              <view class="Collocation" hidden="{{hasDouble}}">
+                <text class="tittle">规格</text>
+                  <view class="shopClass clearBoth">
+                    <block wx:for="{{sexList}}" wx:key="{{index}}">
+                      <text class="{{item.hasBanClass}}" wx:if="{{item.backColor == '#001a88'}}"  style="border-color:#001a88;background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="sexClick">{{item.name}}</text>
+                      <text class="{{item.hasBanClass}}"  wx:elif="{{item.backColor != '#001a88'}}"  style="background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="sexClick">{{item.name}}</text>
+                    </block>
+                  </view>
+              </view>
+              <!--搭配主钻选择-->
+              <view class="Collocation" hidden="{{hasRing}}">
+                <text class="tittle">搭配主钻</text>
+                <view class="shopClass clearBoth">
+                  <block wx:for="{{stoneList}}" wx:key="{{index}}">
+                    <text class="{{item.hasBanClass}}" wx:if="{{item.backColor == '#001a88'&&item.hasShow}}"  style="border-color:#001a88;background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="stoneClick">{{item.name}}</text>
+                    <text class="{{item.hasBanClass}}" wx:elif="{{item.backColor != '#001a88'&&item.hasShow}}"  style="background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="stoneClick">{{item.name}}</text>
+                  </block>
+                </view>
+              </view>
+              <!--戒托材质选择-->
+              <view class="material">
+                <text class="tittle">戒托材质</text>
+                <view class="shopClass clearBoth">
+                  <block wx:for="{{styleList}}" wx:key="{{index}}">
+                    <text class="{{item.hasBanClass}}" wx:if="{{item.backColor == '#001a88'&&item.hasShow}}" style="border-color:#001a88;background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="styleClick">{{item.name}}</text>
+                    <text class="{{item.hasBanClass}}" wx:if="{{item.backColor != '#001a88'&&item.hasShow}}" style="background:{{item.backColor}};color:{{item.color}}" data-index="{{index}}" bindtap="styleClick">{{item.name}}</text>
+                  </block>
+                </view>
+              </view>
+              <!--钻戒/饰品手寸选择-->
+              <view class="chooseHand" hidden="{{sizeHide}}">
+                <text class="title">选择手寸</text>
+                <view class="seleHand">
+                  <picker bindchange="bindPickerSizeChange" indicator-style="color:#001a88" value="{{sizeIndex}}" range="{{hindSize}}">
+                    <view class="picker">
+                      当前选择：{{hindSize[sizeIndex]}}
+                    </view>
+                  </picker>
+                  <text class="go"></text>
+                </view>
+              </view>
+              <!--对戒手寸选择-->
+              <view class="doubleChooseHand" hidden="{{doubleSizeHide}}">
+                <text class="title">选择手寸</text>
+                <view class="sizeSelect clearBoth" hidden="{{manSizeHas}}">
+                  <text class="title">男：</text>
+                  <view class="seleHand">
+                    <picker bindchange="bindPickerMSizeChange" value="{{mSizeIndex}}" range="{{manHindSize}}">
+                      <view class="picker">
+                        当前选择：{{manHindSize[mSizeIndex]}}
+                      </view>
+                    </picker>
+                    <text class="go"></text>
+                  </view>
+                </view>
+                <view class="sizeSelect clearBoth" hidden="{{womanSizeHas}}">
+                  <text class="title">女：</text>
+                  <view class="seleHand">
+                    <picker bindchange="bindPickerWSizeChange" value="{{wSizeIndex}}" range="{{womanHindSize}}">
+                      <view class="picker">
+                        当前选择：{{womanHindSize[wSizeIndex]}}
+                      </view>
+                    </picker>
+                    <text class="go"></text>
+                  </view>
+                </view>
+              </view>
+              <!--钻戒刻字-->
+              <view class="FreeLettering clearBoth" hidden="{{letterHide}}">
+                <text class="title">免费刻字</text>
+                <view class="clearBoth txtFree">
+                  <input cursor-spacing="5px" value="{{letter}}" maxlength="8" focus="{{focus}}" bindinput="inputBlur" placeholder="限4个汉字/8个符号" />
+                  <view class="diy clearBoth">
+                    <view class="heart" bindtap="clickheart"><text></text></view>
+                    <text class="symbol" bindtap="clicksymbol">&</text>
+                  </view>
+                </view>
+                <text class="preview" bindtap="ringPreviewClick">预览</text>
+              </view>
+              <!--对戒刻字-->
+              <view class="doubleFreeLettering clearBoth" hidden="{{doubleLetterHide}}">
+                <text class="title">免费刻字</text>
+                <view class="sexFree clearBoth" hidden="{{manLetter}}">
+                  <text class="sexTitle">男：</text>
+                  <view class="clearBoth txtFree">
+                    <input value="{{manText}}" focus="{{focus}}" bindinput="manInputBlur" maxlength="8" placeholder="限4个汉字/8个字符" />
+                    <view class="diy clearBoth">
+                      <view class="heart" bindtap="clickManHeart"><text></text></view>
+                      <text class="symbol" bindtap="clickManSymbol">&</text>
+                    </view>
+                  </view>
+                  <text class="preview" bindtap="manPreviewClick">预览</text>
+                </view>
+                <view class="sexFree clearBoth" hidden="{{womanLetter}}">
+                  <text class="sexTitle">女：</text>
+                  <view class="clearBoth txtFree">
+                    <input value="{{womanText}}" focus="{{focus}}" bindinput="womanInputBlur" maxlength="8" placeholder="限4个汉字/8个字符" />
+                    <view class="diy clearBoth">
+                      <view class="heart" bindtap="clickWomanHeart"><text></text></view>
+                      <text class="symbol" bindtap="clickWomanSymbol">&</text>
+                    </view>
+                  </view>
+                  <text class="preview" bindtap="womanPreviewClick">预览</text>
+                </view>
+              </view> 
+              </view>
+              <!--弹出层确定按钮:点击购物车或立即购买入口-->
+               <view class="modalSave" style="height:167rpx;" hidden='{{isShopSave}}'>
+                <view class="modalSaveBtn" bindtap="modalSaveOk">确定</view>
+              </view>   
+              <!--弹出层按钮:点击规格选择为入口-->
+               <view class="modalSave" style="height:167rpx;" hidden='{{!isShopSave}}'>
+                <view class="modalSaveCart {{hasBanShop}}" bindtap="addShopCar">加入购物车</view>
+                <view class="modalSaveShop {{hasBanShop}}" bindtap="nowShop">立即购买</view>
+              </view> 
+        </view>
+        <!--刻字预览-->
+        <view class="kzyl" hidden="{{kzylHide}}">
+          <view class="ylxg">
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/preview.png"></image>
+            <view class="close" bindtap="previewClose"></view>
+            <view class="wz">{{previewText}}</view>
+          </view>
+          <view class="ylBack"></view>
+        </view>
+      </view>
+      <!--参数选择弹窗END-->
+      </view>
+  </scroll-view>
+<view class="footerIng">
+        <view>
+          <contact-button style="position: absolute;opacity: 0;top: 20rpx;" type="default-light" size="20"session-from="weapp"></contact-button>
+          <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_kefu.png"></image>
+          <text>客服</text>
+        </view>
+        <view bindtap="collectGoods">
+          <image wx:if="{{isCollect!=1}}" src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_shoucang.png"></image>
+          <image wx:if="{{isCollect==1}}" src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_shoucang_blue.png"></image>
+          <text wx:if="{{isCollect!=1}}">收藏</text>
+          <text wx:if="{{isCollect==1}}">已收藏</text>
+        </view>
+        <view bindtap="goShopCar">
+          <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_gouwuche.png"></image>
+          <text>购物车</text>
+        </view>
+        <view bindtap="addShopCar" class="{{hasBanShop}}">加入购物车</view>
+        <view bindtap="nowShop" class="{{hasBanShop}}">立即购买</view>
+      </view>

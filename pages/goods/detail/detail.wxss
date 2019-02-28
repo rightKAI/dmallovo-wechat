@@ -1,0 +1,521 @@
+               /* pages/goods/detail/detail.wxss */
+@import "/dist/index.wxss";
+@import "/utils/goodsSelectModal.wxss";
+page{
+  margin-bottom: 50rpx;
+    overflow-y: hidden; 
+      padding-bottom: 97rpx;
+}
+.fixline{
+  height:1rpx;
+  width: 100%;
+  border-bottom:1rpx solid #e8e8e8;
+  position: fixed;
+  top: 0;
+}
+#app{
+    height: 100%;
+    font-weight: 300;
+}
+#app .detailsTab{
+  padding-top: 64rpx;
+}
+#app .setFixed{
+  position: fixed;
+  top:1px;
+  padding-top: 0;
+  width: 100%;
+} 
+#app .detailsTab .header{
+  position: static;
+  width:100%;
+  height:62rpx;
+  text-align:center;
+  z-index:99;
+  border: none;
+  margin-bottom: 39rpx;
+  background-color:rgba(255,255,255,0.8);
+  padding-top:20rpx;
+padding-bottom:20rpx;
+
+}
+#app .detailsTab .header .tab{
+  width: 654rpx;
+  border: none;
+  margin: 0 auto;
+  font-size: 26rpx;
+  color: #333;
+}
+#app .detailsTab .header .tab .active{
+  color: #fff;
+  background: #001a88;
+  margin-left: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-color:#001a88;
+}
+#app .detailsTab .header .tab text{
+  display: block;
+  float: left;
+  width: 215rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border:1rpx solid #bdbdbd;
+  background: #fff;
+}
+#app .detailsTab .header .tab text:nth-child(1){
+  margin-left: 0
+}
+#app .detailsTab .header .tab text:nth-child(2){
+  margin: 0;
+  border-left: none;
+  border-right:none;
+}
+#app .kzyl .ylBack{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 2002;
+}
+#app .kzyl .ylxg{
+    position: fixed;
+    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    transition: .2s ease-out;
+    z-index: 10001;
+}
+#app .kzyl .ylxg image{
+    position: absolute;
+    width: 500rpx;
+    height: 500rpx;
+    top: -350rpx;
+    right: -250rpx;
+}
+#app .kzyl .ylxg .close{
+    position: absolute;
+    width: 64rpx;
+    height: 64rpx;
+    background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/close.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: -300rpx;
+    right: -20rpx;
+}
+#app .kzyl .ylxg .wz{
+    position: absolute;
+    width: 390rpx;
+    font-size: 45rpx;
+    left: -200rpx;
+    top: -130rpx;
+    text-align: center;
+}
+.clearBoth:after{
+    content:".";
+    clear:both;
+    display:block;
+    height:0;
+    overflow:hidden;
+    visibility:hidden;
+}
+#app #goodsDetail{
+  /* margin-top: 80rpx; */
+  margin-bottom:92rpx;
+  background: #f6f8fe;
+}
+#app .banner{
+  width: 750rpx;
+  height:750rpx;
+  background:#f5f5f5;
+}
+#app .banner image{
+  width:100%;
+  height:100%;
+}
+#app .banner .bannerTool{
+  width: 100%;
+  height:100%;
+}
+#app .goodsInfo{
+    padding: 60rpx 0;
+    text-align:center;
+    background: #fff;
+    margin-bottom: 21rpx;
+}
+#app .goodsInfo .name{
+    font-size: 42rpx;
+    color: #333;
+    font-weight: 600;
+}
+#app .goodsInfo .parameter{
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  margin-bottom: 29rpx;
+}
+#app .goodsInfo .parameter text{
+  color: #666;
+  margin-right: 12rpx;
+}
+#app .goodsInfo .priceArea{
+  text-align: center;
+}
+#app .goodsInfo .priceArea .price{
+   display: block;
+  float: left;
+  font-size: 36rpx;
+  color: #001a88;
+  width:100%;
+}
+#app .goodsInfo .priceArea .gostore{
+  display: block;
+  float: right;
+  font-size: 28rpx;
+  color: #001a88;
+  margin: 50rpx 29rpx 50rpx 0;
+}
+
+
+#app .AdvancedDC{
+  display: none;
+    margin: 0 30rpx;
+    border-bottom: 1rpx solid #e8e8e8;
+}
+#app .AdvancedDC .atitle{
+  display: block;
+  float:left;
+  line-height: 98rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+#app .AdvancedDC .icon{
+  display: block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAYAAAA6RwvCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQjJDMkNBNkM4NEQxMUU3QTBFRUVDMTM2Qjc3RjFCNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQjJDMkNBN0M4NEQxMUU3QTBFRUVDMTM2Qjc3RjFCNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkFCMkMyQ0E0Qzg0RDExRTdBMEVFRUMxMzZCNzdGMUI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFCMkMyQ0E1Qzg0RDExRTdBMEVFRUMxMzZCNzdGMUI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+OtQvKwAAAXxJREFUeNrU2MtKw1AQxvG0XlB8m7yA4NIrQjdWaEEQtHWvOxeC4FpoRUEleEPqRkFx4yPkVVwWFY3/wAhD0ZLkJNN64GPSgbY/zmmSnpSjKPKGIWVvSEYiSBiGAemSrYFCGCtkghyC2RwkZF8dt4rAJIL4vr9LOSgSk/jHCmbnF0zdHKIwbdU6BbNqDpHRJEfq/UEemNQQZiWiNPLGZLqgKcyJ+pxzMIumEIWJz5wraY2STlaM0yUezCelpjBjWTHO95o+mFlTSA/mrgczYwpRmCp5kNYkeQJTMYUI5p0Sf/GjtMbJjTlEnT1T6nVkDmEZfmZgWlpvZC6pPk9EhyxIq0vmWa4XsxlxReQCATFCuXVBOEMEEZAlaX2Q5bQIJ4hCVBWiAuLZ7F7TB3FvdvcFUaIc54lIDRFEi6xJ64vUXRGpIAqxoRA1ENeWO72/EJfW/+L3FMKT5cgNkQayrY4bIC4GteU8I69kHUS7iL1vKX428W8eS1iMbwEGAB7bBByU9OpXAAAAAElFTkSuQmCC);
+      float: right;
+    margin-top: 32rpx;
+    width: 34rpx;
+    height: 31rpx;
+    background-size: cover;
+}
+
+
+#app .slogan{
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  color: #333;
+  font-size: 30rpx;
+  margin: 0 50rpx;
+}
+#app .detailArea  .slogan .text{
+  padding: 0;
+}
+#app .slogan .item{
+  float: left;
+  margin-left: 30rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+#app .slogan .firstItem{
+  margin-left:18rpx;
+}
+#app .slogan .icon{
+  display:block;
+  width:33rpx;
+  height:37rpx;
+  background:url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/detail_30.png)  no-repeat center center;
+  background-size:100% auto;
+   margin-top:32rpx; 
+  float:left;
+
+}
+#app .slogan .item:nth-child(3) .icon{
+  display:block;
+  width:33rpx;
+  height:37rpx;
+  background:url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/detail_free.png)  no-repeat center center;
+  background-size:100% auto;
+   margin-top:32rpx; 
+  float:left;
+}
+#app .slogan .item:nth-child(4) .icon{
+  display:block;
+  width:33rpx;
+  height:37rpx;
+  background:url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/detail_baoyang.png)  no-repeat center center;
+  background-size:100% auto;
+   margin-top:32rpx; 
+  float:left;
+}
+#app .slogan .title{
+  margin-left: 10rpx;
+}
+#app .textEng{
+    margin: 50rpx 70rpx;
+    text-align: center;
+}
+#app .textEng .clearfix{
+    margin-bottom: 28rpx;
+    padding-left:30rpx;
+}
+#app .textEng .clearfix view{
+  float: left;
+  font-size: 25rpx;
+  margin-right: 30rpx;
+  color: #4c5eab;
+}
+#app .textEng .clearfix view text{
+    display: inline-block;
+    width: 12rpx;
+    height: 12rpx;
+    background-color: #a5aed5;
+    border-radius: 50%;
+    margin-bottom: 3rpx;
+    margin-right: 6rpx
+}
+#app .textEng .clearfix:last-child view:first-child{
+      margin-left: 60rpx;
+}
+#app .load{
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 50rpx;
+}
+#app .load text{
+  position: absolute;
+  font-size: 24rpx;
+  color: #bdbdbd;
+  top: -17rpx;
+  background-color: #fff;
+  left: 40%;
+}
+ .footerIng{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 97rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #cdcdcd;
+  z-index: 9999;
+}
+ .footerIng view{
+    position: relative;
+    float: left;
+    width: 103rpx;
+    text-align: center;
+    line-height: 98rpx;
+}
+ .footerIng view:nth-child(4){
+    width: 220rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #7f8cc3;
+}
+ .footerIng view:nth-child(5){
+    width: 221rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #001a88;
+}
+.footerIng view.banShopClass{
+  background: #f6f8fe;
+  color: #cdcdcd;
+  border: 1px dashed #cdcdcd;
+  box-sizing: border-box;
+}
+ .footerIng view image{
+    position: absolute;
+    width: 32rpx;
+    height: 32rpx;
+    top: 20rpx;
+    left:38rpx;
+}
+ .footerIng view image:first-child{
+  left: 36rpx;
+}
+ .footerIng view text{
+  display: inline-block;
+  font-size: 22rpx;
+  margin-top: 20rpx;
+}
+#app .nav-panel .imgList image{
+  width: 750rpx;
+}
+#app  .nav-panel .paramList text{
+    padding: 0 50rpx 0 50rpx;
+    display: block;
+    height:80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+}
+#app  .nav-panel .paramList text:nth-child(4n+0){
+  border-bottom: solid 1px #e8e8e8;
+}
+/**评论区域**/
+#app .evaluate .content{
+    margin-top:30rpx;
+}
+#app .evaluate .content .CSTemplate{
+    border-bottom: 1px solid #e8e8e8;
+    margin: 0 50rpx;
+}
+#app .evaluate .content .CSTemplate .headName{
+  position: relative;
+}
+#app .evaluate .content .CSTemplate .userPic{
+  display: inline-block;
+  margin: 30rpx 20rpx 0 0rpx;
+  width: 74rpx;
+  height: 74rpx;
+  border-radius: 50%;
+}
+#app .evaluate .content .CSTemplate .userPic image{
+  width: 74rpx;
+  height: 74rpx;
+}
+#app .evaluate .content .CSTemplate .userInfo{
+  position: absolute;
+  top: 40rpx;
+  left:94rpx;
+}
+#app .evaluate .content .CSTemplate .userInfo .name{
+  font-size: 26rpx;
+  color: #666;
+  display: block;
+}
+#app .evaluate .content .CSTemplate .userInfo .userStar .star{
+  display: block;
+  float: left;
+  width: 28rpx;
+  height:28rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_star_yellow.png);
+  background-size: 100% 100%;
+  margin-right: 6rpx;
+}
+#app .evaluate .content .CSTemplate .userInfo .userStar .nostar{
+  display: block;
+  float: left;
+  width: 28rpx;
+  height:28rpx;
+  background-image: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_star_purple.png);
+  background-size: 100% 100%;
+  margin-right: 6rpx;
+}
+#app .detailArea  .evaluate .content .CSTemplate .CScontent .text{
+  padding: 30rpx 0 26rpx 0rpx;
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+}
+#app .evaluate .content .CSTemplate .CScontent .userImagePic{
+  margin-left: 0rpx;
+  padding: 0 30rpx 0 0rpx;
+}
+#app .content .CSTemplate .CScontent .userImagePic view{
+  margin: 0 0 12rpx 12rpx;
+  float: left;
+}
+#app .evaluate .content .CSTemplate .CScontent .userImagePic view image{
+  width: 126rpx;
+  height: 126rpx;
+}
+#app .evaluate .content .CSTemplate .CScontent .time{
+  font-size: 26rpx;
+  color:#999;
+  padding-left: 0rpx;
+  padding-bottom: 40rpx;
+}
+#app .evaluate .noContent{
+  text-align: center;
+  padding-top: 100rpx;
+  padding-bottom: 100rpx;
+}
+#app .evaluate .noContent image{
+  width: 118rpx;
+  height: 142rpx;
+}
+#app .evaluate .noContent .notext{
+  font-size: 28rpx;
+  color: #999;
+}
+#app .detailArea{
+  background: #fff;
+}
+#app .detailArea .paramSelBtn{
+  margin:0 50rpx;
+  color: #333;
+  font-size: 30rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+#app .detailArea .paramSelBtn .paraText{
+  float:left;
+  color:#333;
+  font-size:26rpx;
+  padding:36rpx 0;
+  padding-left:20rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 397rpx;
+}
+#app .detailArea .storeSelBtn{
+  margin:0 50rpx;
+  color: #333;
+  font-size: 30rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+#app .detailArea .explainSelBtn{
+  margin:0 50rpx;
+  color: #333;
+  font-size: 30rpx;
+  border-bottom: 1px solid #e8e8e8;
+}
+#app .detailArea .explainSelBtn .explain{
+  float:left;
+  padding-left: 20rpx;
+  color: #333;
+  font-size: 26rpx;
+  margin-top: 36rpx;
+  margin-bottom: 41rpx;
+  width: 500rpx;
+}
+#app .detailArea  .text{
+  padding: 36rpx 0;
+  float: left;
+  width: 125rpx;
+}
+#app .detailArea .nextIcon{
+  width: 14rpx;
+  height: 26rpx;
+  margin-top: 42rpx;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/detail_next.png) 100% 100% no-repeat;
+  background-size: cover;
+  float: right;
+}
+.nav-panel{
+  margin-bottom: 97rpx;
+}
+/*规格弹窗样式覆盖公用部分*/
+.closeBtn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+}
+/* .selectModal .Collocation{
+  padding-top: 190rpx;
+} */
+.selectModal .modalContent .goodsCon{
+  border-bottom: none!important;
+}
+.selectModal .goodsTittle{
+  position: fixed;
+  top: 206rpx;
+  width: 100%;
+  background: #fff;
+  z-index: 99;
+}

@@ -1,0 +1,81 @@
+
+<view id="app">
+  <!-- <view class="tab">
+    <view id="all" class="item {{isActive=='all'?'items':''}}" bindtap="tabClick">全部收藏（{{allNum}}）</view>
+    <view id="ring" class="item {{isActive=='ring'?'items':''}}" bindtap="tabClick">求婚收藏（{{ringNum}}）</view>
+    <view id="doubleOrJewelry" class="item {{isActive=='doubleOrJewelry'?'items':''}}" bindtap="tabClick">对戒/饰品（{{qitaNum}}）</view>
+  </view> -->
+  <view class="content">
+  <!--全部收藏-->
+     <view class="all" hidden="{{all}}">
+      <!--无订单显示-->
+        <view class="noOrder" wx:if="{{allNum=='0'}}">
+            <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/iconNull/icon_shoucang_ztk.png" />
+            <view class='tit'>收藏夹为空</view>
+            <view class="txt">您的收藏夹内暂无商品，可以去系列里选购收藏哦</view>
+            <view class='alink xuanzhe' bindtap='xuangou'>选购钻戒</view>
+            <view class='alink' bindtap='gouwuche'>购物车</view>
+        </view>
+        <view class="gItem" wx:for="{{allList}}" wx:key="id" data-index="{{index}}" bindtap="goodsClick">
+        <!-- <view class="clickArea" ></view> -->
+          <view class="img">
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="icontent">
+            <view class="name">{{item.goodsName}}</view>
+            <view class="price">¥ {{item.price}}</view>
+            <view class="footer">
+              
+              <view class="cancelCollect" data-index="{{index}}" catchtap="cancelClick">取消收藏</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+<!--求婚收藏-->
+<!--
+      <view class="ring" hidden="{{ring}}">
+        <view class="noOrder" wx:if="{{ringNum=='0'}}">
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/order/icon_wushaidan.png" />
+            <view>收藏夹为空</view>
+            <view class="txt">您的收藏夹内暂无商品，可以去系列里选购收藏哦</view>
+        </view>
+         <view class="gItem" wx:for="{{allList}}" wx:key="id" wx:if="{{item.type=='1'}}" data-index="{{index}}" bindtap="goodsClick">
+          <view class="img">
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="icontent">
+            <view class="name">{{item.goodsName}}</view>
+            <view class="footer">
+              <view class="price">¥ {{item.price}}</view>
+              <view class="cancelCollect" data-index="{{index}}" catchtap="cancelClick">取消收藏</view>
+            </view>
+          </view>
+        </view>
+      </view>
+-->
+     <!--对戒/饰品-->
+     <!--
+      <view class="doubleOrJewelry" hidden="{{doubleOrJewelry}}">
+        <view class="noOrder" wx:if="{{qitaNum=='0'}}">
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/order/icon_wushaidan.png" />
+            <view class="txt">暂无收藏任何商品</view>
+        </view>
+         <view class="gItem" wx:for="{{allList}}" wx:key="id" wx:if="{{item.type=='2'||item.type=='3'}}" data-index="{{index}}" bindtap="goodsClick">
+          <view class="img">
+            <image src="{{item.imgUrl}}"></image>
+          </view>
+          <view class="icontent">
+            <view class="name">{{item.goodsName}}</view>
+            <view class="footer">
+              <view class="price">¥ {{item.price}}</view>
+              <view class="cancelCollect" data-index="{{index}}" catchtap="cancelClick">取消收藏</view>
+            </view>
+          </view>
+        </view>
+      </view>
+     -->
+
+  </view>
+</view>
+

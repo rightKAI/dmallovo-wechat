@@ -1,0 +1,641 @@
+/*订单结算页css */
+@import "/utils/step.wxss";
+#app{
+  padding-bottom: 10rpx;
+}
+page {
+  width:100%;
+  max-width:100%;
+  -webkit-user-select:none;
+  user-select:none;
+  height: 100%;
+  background: #f6f8fe;
+}
+.clearBoth:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app {
+  height: auto;
+  font-weight: 300;
+  max-width:100%;
+  -webkit-user-select:none;
+  user-select:none;
+  background: #f6f8fe;
+}
+
+#app .step {
+  margin-bottom: 20rpx;
+}
+#app .msnOrRemarkArea{
+  padding: 0 50rpx;
+  background: #fff;
+}
+#app .msnOrRemark{
+  padding: 42rpx 0rpx 80rpx 0rpx;
+  border-top:1px solid #e8e8e8;
+  background: #fff;
+}
+#app .msnOrRemark .msnArea{
+  color: #333;
+  font-size: 26rpx;
+}
+#app .msnOrRemark .remark{
+  color: #333;
+  font-size: 26rpx;
+  padding-left: 55rpx;
+  margin-top: 10rpx;
+}
+#app .msnOrRemark text,input{
+  display: block;
+  float:left;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+#app .msnOrRemark  input{
+  /* margin-top: -6rpx; */
+  margin-left: 19rpx;
+  width:460rpx;
+}
+#app .msnOrRemark .msnArea .mcheckbox-off{
+  width: 32rpx;
+  height:32rpx;
+  border: 1px solid #bdbdbd;
+  margin-right: 21rpx;
+}
+.order_phone{
+  margin-top: -5rpx;
+}
+#app .msnOrRemark .msnArea .mcheckbox-on{
+  width: 34rpx;
+  height:34rpx;
+  min-height: 34rpx;
+  border: none;
+  margin-right: 21rpx;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_pitch.png) no-repeat;
+  background-size: cover;
+}
+#app .addressArea {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  padding: 39rpx 0 39rpx 0;
+  line-height: initial;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  font-size: 14rpx;
+  overflow: hidden;
+}
+#app .noAddressArea {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 0 42rpx 0;
+  line-height: initial;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  font-size: 14rpx;
+  overflow: hidden;
+}
+#app .noAddressArea .noAAItem{
+  margin: 0 50rpx;
+}
+#app .noAddressArea .noAAItem .noText{
+  color: #333;
+  font-size: 30rpx;
+}
+#app .noAddressArea .noAAItem .nextIcon{
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/next.png);
+  background-size: 100% 100%;
+  width: 16rpx;
+  height:30rpx;
+  display: block;
+  float:right;
+  margin-top:6rpx;
+}
+#app .addressArea .address-tittle .addr-icon{
+    background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/dizhi.png);
+    background-size: 100% 100%;
+    width: 32rpx;
+    height:32rpx;
+    display: block;
+    float: left;
+    position: relative;
+    top: 52rpx;
+    margin-right: 20rpx;
+    left:47rpx;
+}
+#app .addressArea .address-tittle .addr-text{
+    font-size: 30rpx;
+    font-weight: bold;
+    display: block;
+    float: left;
+    max-width: 436rpx;
+    position: relative;
+    margin-left:49rpx;
+}
+#app .addressArea .address-tittle .addr-info{
+    display: block;
+    float: left;
+    font-size: 26rpx;
+    margin-left: 49rpx;
+    margin-right: 65rpx;
+    padding-top: 5rpx;
+    width: 500rpx;
+    padding-right: 30rpx;
+    word-wrap: break-word;
+}
+#app .addressArea .nextIcon{
+    background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/next.png);
+    background-size: 100% 100%;
+    width: 16rpx;
+    height:30rpx;
+    position: absolute;
+    top: 50%;
+    right: 50rpx;
+    margin-top: -15rpx;
+}
+#app  .collText{
+    background: #fff;
+    overflow: hidden;
+    margin-top: 20rpx;
+}
+#app  .collText .card{
+    height: 180rpx;
+    background: #fff;
+    padding: 30rpx 0 40rpx 180rpx;
+    margin: 0 50rpx;
+    border-bottom:1rpx dashed #e8e8e8;
+    position: relative;
+}
+#app  .collText .card:last-child{
+  border: none;
+}
+#app  .collText .card .card-thumb{
+    background: #f5f5f5;
+    width: 180rpx;
+    height: 180rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 0rpx;
+    overflow: hidden;
+}
+#app .blockPrice{
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+#app  .collText .card .card-thumb image{
+  width: 180rpx;
+  height: 180rpx;
+  background: #f6f8fe;
+}
+#app  .collText .card .card-content{
+  position: relative;
+    padding-left: 33rpx;
+    width: 100%;
+    height:100%;
+}
+#app  .collText .card .card-content .name{
+  font-size: 30rpx;
+  font-weight: bold;
+  color:#333;
+}
+#app  .collText .card .card-content .sizeOrparam{
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color:#666;
+  padding-right:30rpx;
+}
+#app  .collText .card .card-content .sizeOrparam .left{
+  width: 70%;
+  float: left;
+}
+#app  .collText .card .card-content .sizeOrparam text{
+  font-size: 24rpx;
+}
+#app  .collText .card .card-content .sizeOrparam .classify{
+  margin-right: 24rpx;
+}
+#app  .collText .card .card-content .sizeOrparam .right{
+  width: 30%;
+  float: right;
+  text-align: right;
+}
+#app  .collText .card .card-content .letter{
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color:#666;
+  padding-right: 30rpx;
+}
+#app  .collText .card .card-content .letter .letterText{
+  margin-right: 38rpx;
+}
+#app  .collText .card .card-content .footer {
+  position: absolute;
+  bottom: 0;
+  width: 480rpx;
+  padding-right: 30rpx;
+}
+#app  .collText .card .card-content .footer .price{
+  width: 70%;
+  float: left;
+  font-size: 34rpx;
+  color:#ff4444;
+}
+#app  .collText .card .card-content .footer  .count{
+  width: 30%;
+  float: right;
+  font-size: 28rpx;
+  color:#333;
+  text-align: right;
+}
+#app  .totalArea{
+  margin: 20rpx 0rpx 133rpx 0rpx;
+  background: #fff;
+}
+#app  .total-goods{
+    font-size: 30rpx;
+    color: #666;
+    margin: 0 50rpx;
+}
+#app  .total-goods .tgItem:after{
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#app  .total-goods .tgItem{
+  border-bottom: 1px solid #e8e8e8;
+}
+#app  .total-goods .tgItem:first-child{
+  padding: 34rpx 0 36rpx 0;
+}
+#app  .total-goods .tgItem:nth-child(2){
+  padding: 37rpx 0 37rpx 0;
+}
+#app  .total-goods .tgItem:last-child{
+  border:none;
+  padding: 39rpx 0 72rpx 0;
+}
+#app  .total-goods .tgItem .price{
+  font-size:26rpx;
+}
+#app  .total-goods .tgItem text:nth-child(1){
+  display: block;
+  float: left;
+  font-size: 26rpx;
+  color: #999;
+}
+#app  .total-goods .tgItem:first-child text:first-child{
+  font-size: 30rpx;
+  color: #333;
+}
+#app  .total-goods .tgItem text:nth-child(2){
+  display: block;
+  float: right;
+}
+#app  .total-goods .total{
+  margin-right: 20rpx;
+}
+#app  .total-goods .price{
+    font-size: 34rpx;
+    color: #ff4444;
+}
+#app .cell-box{
+  margin-bottom: 133rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  font-size: 28rpx;
+  color: #333;
+}
+#app .cell-box .item{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    overflow: hidden;
+}
+#app .cell-box .item:last-child{
+    border-top:1rpx solid #e8e8e8;
+}
+#app .cell-box .item text{
+    white-space: nowrap;
+    -ms-flex-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+#app .cell-box .item input{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+    height: 100rpx;
+    color: #555;
+    text-align: left;
+    padding-right: 24rpx;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    font-size: 30rpx;
+}
+#app .pay-bottom{
+  height:98rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #fff;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-top:1rpx solid #cdcdcd;
+}
+#app .pay-bottom .text{
+  float:left;
+  text-align: left;
+  padding-left: 50rpx;
+  padding-top: 34rpx;
+}
+#app .pay-bottom .text .payPrice{
+  font-size: 30rpx;
+  color: #333;
+}
+#app .pay-bottom .pay{
+  float: right;
+  width: 220rpx;
+  background: #001a88;
+  color: #fff;
+  border: solid 1px #001a88;
+  font-size: 30rpx;
+  height:100%;
+  text-align: center;
+  line-height: 98rpx;
+}
+#app .collText .card .card-content .sizeOrparam .fcParam{
+  font-size:26rpx;
+  margin-right: 10rpx;
+}
+#app .collText .card .card-content .sizeOrparam .fcParam:last-child{
+  margin-right: 0;
+}
+.noArea .tab{
+  padding:170rpx 0 170rpx 0;
+  text-align: center;
+  color: #999;
+  font-size: 29rpx;
+}
+.noArea .tab text{
+  display: block;
+  margin-top: 37rpx;
+}
+.noArea .tab image{
+  width: 98rpx;
+  height: 110rpx;
+}
+.noArea .btnArea{
+  font-size: 32rpx;
+  color: #333;
+  padding-left: 86rpx;
+}
+.noArea .btnArea .btn{
+  float: left;
+  width: 280rpx;
+  height: 70rpx;
+  border-radius: 50rpx;
+  border: 2rpx solid #999; 
+  text-align: center;
+  line-height: 70rpx;
+}
+.noArea .btnArea .btn:nth-child(2){
+  margin-left: 30rpx;
+  border: 2rpx solid #001a88;
+  color: #001a88;
+}
+.payModal{
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+}
+.payModal .payContent{
+  width: 100%;
+  background: #fff;
+  height: auto;
+  padding-bottom: 42rpx;
+  position: absolute;
+  bottom: 0;
+}
+.payModal .payContent .payHead{
+  padding: 39rpx 50rpx 39rpx 50rpx;
+  width: 650rpx;
+}
+.payModal .payContent .close{
+  display: block;
+  width: 26rpx;
+  height: 26rpx;
+  background:url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/parameter_clost.png) no-repeat center center;
+  background-size:100% auto;
+  float: right;
+}
+.payModal .payContent .payType{
+  margin-bottom: 22rpx;
+}
+.payModal .payContent .payType .payItem{
+  color: #333;
+  font-size: 30rpx;
+  border-top: 1px solid #e8e8e8;
+  margin: 0 auto;
+  width: 650rpx;
+  padding: 19rpx 0;
+}
+.payModal .payContent .payType .payItem image{
+  width: 60rpx;
+  height:60rpx;
+  display: block;
+  float: left;
+  margin-right: 20rpx;
+}
+.payModal .payContent .payType .payItem  .typeName{
+  line-height: 60rpx;
+  display: block;
+  float: left;
+}
+.payModal .payContent .payType .payItem .check{
+  width: 32rpx;
+  height:32rpx;
+  border: 1rpx solid #bdbdbd;
+  float: right;
+  margin-top: 14rpx;
+  display: block;
+}
+.payModal .payContent .payType .payItem .checked{
+  width: 34rpx;
+  height:34rpx;
+  border: none;
+  background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/shopCar/shopping_pitch.png) no-repeat;
+  background-size: cover;
+}
+.payModal .payContent .paySave text{
+  width: 650rpx;
+  height: 90rpx;
+  color: #fff;
+  font-size: 32rpx;
+  background: #001a88;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  display: block;
+  line-height: 90rpx;
+  text-align: center;
+}
+.tabType{
+  padding:30rpx 0 23rpx 0;
+  background:#fff;
+}
+.tabType > .content{
+  width: 432rpx;
+  height:60rpx;
+  color: #333;
+  font-size:30rpx;
+  font-weight: bold;
+  margin:0 auto;
+}
+.tabType > .content > text{
+  width: 50%;
+  display: block;
+  float: left;
+  height:100%;
+  line-height: 60rpx;
+  text-align:center;
+  border:1px solid #cdcdcd;
+  box-sizing: border-box;
+}
+.tabType > .content > .active{
+  border:none;
+  color:#fff;
+  background: #001a88;
+}
+.storeInfo{
+  position: relative;
+  padding: 39rpx 0 39rpx 0;
+  background:#fff;
+}
+.storeInfo:after{
+  margin: 0 50rpx;
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  width: 650rpx;
+  height: 1px;
+  background: #e8e8e8;
+}
+.stgPhone{
+  padding:35rpx 50rpx;
+  background: #fff;
+  position: relative;
+}
+.stgPhone text{
+  float:left;
+  color:#333;
+  font-size:30rpx;
+}
+.stgMsnArea input{
+  color:#333;
+  font-size:30rpx;
+}
+.stgMsnArea{
+  padding:35rpx 50rpx;
+  background: #fff;
+  position: relative;
+}
+.stgMsnArea:before{
+  margin: 0 50rpx;
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  width: 650rpx;
+  height: 1px;
+  background: #e8e8e8;
+}
+.stgMsnArea text{
+  float:left;
+  color:#333;
+  font-size:30rpx;
+}
+.stgMsnArea input{
+  color:#333;
+  font-size:30rpx;
+}
+.storeInfo > .content{
+  position: relative;
+  width: 650rpx;
+  margin:0 auto;
+}
+.storeInfo > .content .nextIcon{
+    background: url(http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/next.png);
+    background-size: 100% 100%;
+    width: 16rpx;
+    height:30rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -15rpx;
+}
+.storeInfo > .content > .noContent{
+  color:#333;
+  font-size:30rpx;
+  font-weight: bold;
+}
+.storeInfo > .content > .yesContent > text{
+  padding-right:20rpx;
+  display: block;
+  color:#333;
+  font-size:30rpx;
+  font-weight: bold;
+}
+.storeInfo > .content > .yesContent > .address{
+  font-size:26rpx;
+  font-weight: normal;
+  margin-top: 19rpx;
+}
+.stgMsnArea input{
+  padding-left:69rpx;
+  color:#333;
+  font-size:26rpx;
+}
+.stgPhone input{
+  padding-left:10rpx;
+  color:#333;
+  font-size:26rpx;
+}

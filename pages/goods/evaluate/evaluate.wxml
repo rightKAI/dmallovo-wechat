@@ -1,0 +1,40 @@
+<!--pages/goods/evaluate/evaluate.wxml-->
+<view id="app">
+    <view class="header">
+      <view class="tab">
+        <text id="goods" class="{{goods}}" bindtap="clickTab">商品</text>
+        <text id="detail" class="{{detail}}" bindtap="clickTab">详情</text>
+        <text id="eva" class="{{eva}}" bindtap="clickTab">评论</text>
+      </view>
+    </view>
+    <view class="content" hidden="{{hideContent}}">
+      <view class="CSTemplate" wx:for="{{edata}}" wx:key="id">
+          <view class="headName">
+            <view class="userPic">
+              <image src="{{item.avatar}}"></image>
+            </view>
+            <view class="userInfo">
+              <text class="name">{{item.nickName}}</text>
+              <view class="userStar clearBoth">
+                <text wx:for="{{item.starList}}" wx:key="id" class="{{item}}"></text>
+              </view>
+            </view>
+          </view>
+          <view class="CScontent">
+            <view class="CSData">
+              <view class="text">{{item.context}}</view>
+                <view class="userImagePic clearBoth">
+                  <view wx:for="{{item.imgsList}}" wx:key="id">
+                    <image src="{{item}}"></image>
+                  </view>
+                </view>
+                <view class="time">{{item.createTime}}</view>
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class="noContent" hidden="{{noContent}}">
+          <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/icon_wushoucang.png"></image>
+          <view class="notext">空空如也~</view>
+    </view>
+</view>

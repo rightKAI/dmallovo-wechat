@@ -1,0 +1,46 @@
+.textEng {
+  text-align: center;
+  background: #f6f8fe;
+  /*padding: 60rpx 0;*/
+  position: relative;
+  height: 340rpx;
+}
+.textEng::after,
+.textEng::before{
+  content: "";
+  clear: both;
+  display: block;
+  position: absolute;
+  width: 750rpx;
+  background: #001A88;
+}
+.textEng::after{
+  height: 2rpx;
+  top: 0;
+}
+.textEng::before{
+  height: 4rpx;
+  top: 6rpx;
+}
+.textEng > view {
+  padding-top: 80rpx;
+}
+.textEng > view > .liInfo {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #001A88;
+  padding: 0 20rpx;
+  position: relative;
+}
+.textEng > view > .liInfo > i {
+  display: inline-block;
+  width: 1rpx;
+  height: 24rpx;
+  background-color: #001A88;
+  position: absolute;
+  right: 0rpx;
+  top: 5rpx;
+}
+.textEng > view > .liInfo:last-child i{
+  display: none;
+}

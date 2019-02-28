@@ -1,0 +1,152 @@
+<!--pages/me/me.wxml-->
+<import src="/utils/fixMenu.wxml"/>
+<view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+<view class="main">
+    <!-- 头部 -->
+    <view class="top">
+      <view class="topContent">
+        <!-- 头像 -->
+          <view class="topPic">
+              <image src="{{iconUrl}}" bindtap='updateShow'/>
+          </view>
+          <!-- 名字 -->
+          <view class="name">
+            <view>{{name}}</view>
+          </view>
+          <!-- 底部 -->
+          <view class="topOther">
+            <view class="toItem">
+              <view class="toiCon" bindtap='goMyCollect'>
+                <view class="count">{{collectCount}}</view>
+                <view>收藏</view>
+              </view>
+            </view>
+            <view class="toItem">
+              <view class="toiCon" bindtap='goShopCar'>
+                <view class="count">{{shoppingCartCount}}</view>
+                <view>购物车</view>
+              </view>
+            </view>
+            <view class="toItem">
+              <view class="toiCon" bindtap='goUserYuYue'>
+                <view class="count">{{appointmentCount}}</view>
+                <view>预约</view>
+              </view>
+            </view>
+          </view>
+          <!--预约进店按钮-->
+          <view class="bookStoreBtn" bindtap='goUserjindian'>预约进店</view>
+      </view>
+    </view>
+
+    <!-- 中间，我的订单 -->
+    <view class="myOrder">
+        <view class="header">
+            <text>我的订单</text>
+            <view class="allOrder" bindtap="goALLOrder">全部订单
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/icon_next.png" />
+            </view>
+        </view>
+        <view class="body">
+            <view class="orderInfo" wx:for="{{orderAll}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goOder">
+            <view class="count" wx:if="{{item.id!=4 && item.count}}"></view>
+            <block wx:if="{{item.id=='4'}}">
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:80rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:120rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:40rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:80rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:120rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:40rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:80rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:120rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:40rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:80rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:120rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:40rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:80rpx;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:120rpx;opacity: 0;"></contact-button></block>
+                <image src="{{item.imgUrl}}" />
+                <view class="name">{{item.name}}</view>
+            </view>
+        </view>
+         <!-- <view class="logistics">
+            <view class="newDay">
+              <view>最新物流</view>
+              <text>07-02</text>
+            </view>
+            <view class="newCondition">
+              <view class="newInfo">
+                <i></i>
+                运输中
+              </view>
+              <text class="xinxi">包裹正在运输中</text>
+            </view>
+        </view>  -->
+    </view>
+    <!-- 客服 -->
+    <view class="kefu">
+        <!-- <view class="left" style="position:relative">
+            <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0;"></contact-button>
+            <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0;"></contact-button>
+            <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:80rpx;opacity: 0;"></contact-button>
+            <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:120rpx;opacity: 0;"></contact-button> 
+             <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:160rpx;opacity: 0;"></contact-button>   
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/kefu.png" />
+            <view class="name">在线客服</view>
+        </view>
+        <view class="right">
+            <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/me/phone.png" />
+            <view class="name" bindtap="onTel" data-tel="400-076-1902">400-677-1901</view>
+        </view> -->
+    </view>
+
+    <view class="myOath" wx:if="{{existsPromise=='1'}}">
+        <image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/mycenter/shiyan.png"></image>
+        <view class='a' bindtap="oath" href="javascriot:;">我的《爱的卖身契》{{isExistsPromise}}</view>
+    </view>
+
+    <view class="kefu"> </view>
+    <!-- 其他杂七杂八的 -->
+    <view class="otherHeader"><text>我的服务</text></view> 
+    <view class="other">
+        <view class="otherInfo" wx:for="{{otherAll}}" wx:key="{{index}}" bindtap="userClick" data-index="{{index}}">
+        <block wx:if="{{item.name=='在线客服'}}">
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:0;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:40rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:80rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:0rpx;left:120rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:0;opacity: 0;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:40rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:80rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:40rpx;left:120rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:0;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:40rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:80rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:80rpx;left:120rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:0;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:40rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:80rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:120rpx;left:120rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:0;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:40rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:80rpx;opacity: 0; z-index:3;"></contact-button>
+                <contact-button class="contact" type="default-light" size="12" session-from="weapp" style="position:absolute;top:160rpx;left:120rpx;opacity: 0; z-index:3;"></contact-button></block>
+            <image src="{{item.imgUrl}}" />
+            <view class="name">{{item.name}}</view>
+        </view>
+    </view>
+    <!-- 切换账号 -->
+    <!-- <view class="changUserInfo">
+        <view class="info" bindtap="cutAccount">
+            切换账号
+        </view>
+    </view> -->
+</view>
+<!--菜单-->
+<template is="menu" data="{{Mmys}}"></template>

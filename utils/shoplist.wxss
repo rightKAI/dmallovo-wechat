@@ -1,0 +1,19 @@
+#shop{
+  width: 486rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 30rpx auto 0 auto;
+  display: flex;
+  border: solid 1px #BDBDBD;
+  text-align: center;
+}
+ .listTitle{
+  flex: 1;
+  font-size: 26rpx;
+  color: #333;
+  border-right: solid 1rpx #BDBDBD;
+}
+ .listTitle:last-child{
+  border: none;
+}
+.red{background: #001A88; text-align:center;color:#fff;flex:1;border-right:1px solid #BDBDBD;font-weight:bold;font-size:26rpx; padding: 0 52rpx;}

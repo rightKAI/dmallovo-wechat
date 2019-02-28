@@ -1,0 +1,273 @@
+/* pages/store/baguette/baguette.wxss */
+.headImg {
+    width: 750rpx;
+    /* height: 420rpx; */
+}
+.headBox{
+  position: relative;
+  height: 420rpx;
+  overflow: hidden;
+}
+.headBox::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 420rpx;
+  background:rgba(0, 0, 0, 0.3);
+}
+.hredText{
+  position: absolute;
+  bottom: 30rpx;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+}
+.headBox .litle {
+    font-size: 42rpx;
+    flex: 1;
+    color: #fff;
+    font-weight: bold;
+}
+.icon_titme{
+  width: 25rpx;
+  height: 25rpx;
+  display: inline-block;
+  margin-right: 7rpx;
+  vertical-align: middle;
+}
+.ltext{
+
+}
+.ltext text{
+  display: inline-block;
+  color: #fff;
+  font-size:26rpx;
+}
+.ltext text:first-child{
+  margin-right: 18rpx;
+}
+
+
+.list {
+    background: #fff;
+    /* padding: 0 30rpx 50rpx; */
+    margin-top: 52rpx;
+    overflow: hidden;
+    text-align: center;
+}
+
+.list .headTitle {
+    font-size: 32rpx;
+    color: #333;
+    margin-top: 60rpx;
+    display: block;
+}
+
+.list .bague-top {
+    padding-top: 20rpx;
+    display: flex;
+    display: -webkit-flex;
+}
+
+
+ .litle{
+   text-align: center;
+ }
+ .litle .changer {
+    border-bottom: solid 1px #001a88;
+    font-weight: normal;
+    color: #001a88;
+    font-size: 28rpx;
+}
+
+
+/* 内容 */
+.formDate {
+    padding: 0 50rpx;
+    margin-bottom:152rpx;
+  }
+  .formDate > .userPho {
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: solid 1px #e8e8e8;
+    /* margin-top: 30rpx; */
+    border-radius: 6px;
+    display: flex;
+    position: relative;
+    padding-left: 24rpx;
+    overflow: hidden;
+  }
+  .formDate > .userPho > .Gart {
+    display: flex;
+    -webkit-box-align: center;
+    color: #333;
+    font-size: 30rpx;
+    white-space: nowrap;
+  }
+  .formDate > .userPho > .Gart > .guojia {
+    margin: 38rpx 7rpx 0 0;
+    width: 48rpx;
+    height: 32rpx;
+    top: 0;
+  }
+  .formDate > .userPho > .Gart > .xiala {
+    margin: 50rpx 10rpx 0 10rpx;
+    width: 12rpx;
+    height: 6rpx;
+  }
+  .formDate > .userPho > input {
+    width: 100%;
+    min-height: 100rpx;
+    color: #525252;
+    text-align: left;
+    font-size: 26rpx;
+    padding-right: 24rpx;
+  }
+  .formDate > .userTime {
+    /* margin-top: 30rpx; */
+    /* min-height: 230rpx; */
+    line-height: 100rpx;
+    overflow: hidden;
+    clear: both;
+  }
+  .formDate > .userTime > text {
+    display: block;
+    font-size: 30rpx;
+  }
+  .formDate > .userTime > .datePink {
+    float: left;
+    padding-left: 30rpx;
+    width:100%;
+    height: 100rpx;
+    border-bottom: solid 1px #e8e8e8;
+    border-radius: 6px;
+    min-height: 100rpx;
+    font-size:26rpx;
+  }
+  .formDate > .userTime > .timePink {
+    float: left;
+    margin-left: 70rpx;
+    padding-left: 30rpx;
+    width:40%;
+    height: 100rpx;
+    border-bottom: solid 1px #e8e8e8;
+    border-radius: 6px;
+    min-height: 100rpx;
+    font-size:26rpx;
+  }
+  .formDate > .textMore {
+    color: #999;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    position: relative;
+  }
+  .formDate > .textMore > image {
+    vertical-align: middle;
+    width: 22rpx;
+    height: 12rpx;
+    margin-left: 20rpx;
+  }
+.userName {
+    height: 100rpx;
+    color: #525252;
+    font-size: 26rpx;
+    border-bottom: solid 1px #e8e8e8;
+    /* margin-top: 0.3rem; */
+    border-radius: 6px;
+    position: relative;
+  }
+ .userName > input {
+    height: 100rpx;
+    line-height: 100rpx;
+  }
+  .userName text{
+    position: relative;
+    left: 25rpx;
+    top: 30rpx;
+    font-size:30rpx;
+    color: #333;
+    float: left;
+    margin-right: 60rpx;
+  }
+  .formDate > .userTextInfo {
+    margin-top: 30rpx;
+    border: solid 1px #e8e8e8;
+    border-radius: 6px;
+  }
+  .formDate > .userTextInfo > textarea {
+    padding: 20rpx 30rpx 20rpx 30rpx;
+    width: 90%;
+    height: 118rpx;
+    font-size: 30rpx;
+    color: #525252;
+  }
+  .formDate > .goYuYue {
+    width: 100%;
+    height: 90rpx;
+    background: #001a88;
+    font-size: 32rpx;
+    color: #fff;
+    line-height: 90rpx;
+    text-align: center;
+    display: inline-block;
+    border-radius: 10px;
+    margin-top:61rpx;
+    margin-bottom:60rpx;
+  }
+  .picker text{
+    display: inline-block;
+    margin-right: 50rpx;
+  }
+  .bagfooter{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 98rpx;
+    border-top: solid 1px #CDCDCD;
+    padding: 0 50rpx;
+    background:#fff;
+  }
+  .flex_list{
+    width: 20%;
+    float: left;
+    font-size: 24rpx;
+    color: #001A88;
+    margin-top: 18rpx;
+    position: relative;
+    text-align: center;
+  }
+
+  .flex_list_phone::after{
+    content: "";
+    position: absolute;
+    top: 3rpx;
+    right: 0rpx;
+    width: 1rpx;
+    height: 66rpx;
+    background: #E8E8E8;
+  }
+    .flex_list:first-child{
+      width: 50%;
+      font-size: 30rpx;
+      font-weight: bold;
+      color: #333;
+      line-height: 100rpx;
+      margin-top: 0;
+      text-align: left;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    .flex_list image{
+      width: 32rpx;
+      height: 32rpx;
+      display: block;
+      margin-left: 60rpx;
+      margin-bottom: 5rpx;
+    }

@@ -1,0 +1,26 @@
+<view>
+<view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+  <view class="mainWith">
+      <view class="banner">
+        <image src="{{imgArray}}" class="img"/>
+        <text>已有 {{appointmentCount.appointmentCount}} 人预约</text>
+      </view>
+      <!--门面-->
+      <view class="listBox">
+          <view class="list">
+              <view class="goYuyue" bindtap='goYuYue'>预约进店</view>
+              <view class="site"><image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/make/dizhi.png"></image>{{storeDetail.address}}</view>
+            <view class="footer">
+                <!-- 电话 -->
+                <view class="phomake">
+                  <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/make/icon_dianhua.png"></image>
+                  <text bindtap="onTel" data-tel="{{storeDetail.tel}}">{{storeDetail.tel}}</text>
+                </view>
+                <!-- 时间 -->
+                <view class="openTime"><image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/make/icon_time.png"></image>{{storeDetail.openTime}}-{{storeDetail.closeTime}} <em wx:if="{{storeDetail.holidayOpen==1}}">(节假日正常营业)</em><em wx:if="{{storeDetail.holidayOpen==2}}">(节假日暂不营业)</em></view>
+            </view>
+          </view>
+      </view>
+      <map markers="{{markers}}" longitude="{{storeDetail.lng}}" latitude="{{storeDetail.lat}}" style="width:100%; height:300px"></map>
+  </view>
+</view>

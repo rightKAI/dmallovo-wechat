@@ -1,0 +1,155 @@
+<!--index.wxml-->
+<import src="/utils/fixMenu.wxml"/>
+<import src="/utils/fixKeFu.wxml"/>
+<import src="/utils/footer.wxml"/>
+<view style='overflow-y: hidden;'>
+     <view class="" style="height:0;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+    <!--轮播图-->
+    <swiper indicator-dots="true" circular="true" autoplay="false"  duration="500" class="shopSwipe" indicator-color="rgba(189,189,189,.4)" indicator-active-color='#BDBDBD'>
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}" circular="{{circular}}">
+            <swiper-item class="shopSwipeInfo" data-id="{{index}}" data-link="{{item.link}}" bindtap="goSwpie">
+                <image src="{{item.imgurl}}" data-link="{{item.link}}" bindtap="banImgClick" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!--商品列表-->
+    <!-- <view class="shopListInfo">
+        <view wx:for="{{shopIcon}}" bindtap="goShopList" wx:key="index" data-id="{{item.shopListId}}">
+            <image src="{{item.img}}" />
+            <view class="one">{{item.oneName}}</view>
+            <view class="two">{{item.twoName}}</view>
+        </view>
+    </view> -->
+    <view class='shopList'>
+        <view class='imga' wx:for="{{hotShop}}"  data-sid='{{item.id}}' wx:key='{{index}}' data-link="{{item.link}}" bindtap="xileiClick">
+            <image src='{{item.imgurl}}'></image>
+            <view class='advrTitle'>
+               <view>{{item.title}}</view><text>{{item.subTitle}}</text>
+            </view>
+        </view>
+    </view>
+    <!--店铺-->
+    <!-- <view class="shopStore">
+        <view class="storeBackgroun">
+            <view class="title">进店试戴</view>
+            <view class="shopName">
+                <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/placeIcon.png" />
+                <text>{{shopStoreName}}（附近的店）</text>
+            </view>
+            <view class="goYuyue" bindtap="goYyueShop">预约进店</view>
+        </view>
+    </view> -->
+    <view class="indexStore">
+          <view class='store_title'>
+              <view class='store_title_top'>Dmallovo实体店</view>
+              <view class='store_title_span'>推荐离您最近门店，预约进店试戴，挑选心仪款式</view>
+              <text class='store_title_text' bindtap='goStoreDetail'>{{shopStoreName}}</text>
+          </view>
+          <image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/index/index_store.png'></image>
+          <view class='store_form'>
+              <input bindinput='bindPho' focus="{{focus}}" value="{{phonePho}}"  type='number' maxlength='11' placeholder='输入您的手机号码' adjust-position="true"></input>
+              <view bindtap="makeShop">预约进店</view>
+          </view>
+    </view>
+    <!--本周推荐-->
+    <!-- <view class="weiDay">
+        <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/icon-xian.png" class="iconXian"/>
+        <view class="title">本周精品推荐</view>
+        <view class="{{index == 0 ? 'firstShopInfo':'ShopInfo'}}" wx:for="{{bottomAD}}" bindtap="goInfoList" data-link="{{item.link}}" wx:key="index">
+            <image src="{{item.imgurl}}" />
+            <view class="textInfo">
+                <view class="headTxT"><text>丨</text>{{item.title}}</view>
+                <view class="textInfo">{{item.subTitle}}</view>
+            </view>
+        </view>
+        <image src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/icon-xian.png" class="iconXianDown"/>
+    </view> -->
+    <view class='bgindex'></view>
+    <view class='adverBox'>
+        <view class='adver_header'>
+            <view>推荐系列</view>
+            <text>浪漫心选  铭刻真挚爱恋</text>
+        </view>
+        <view>
+            <view bindtap='recommendShop' wx:for="{{bottomAD}}" data-url="{{item.link}}" class='advertisementList'>
+              <image class='adv_image' src='{{item.imgurl}}'></image>
+              <view class='adv_title'>{{item.title}}</view>
+              <view class='adv_text'>{{item.subTitle}}</view>
+            </view>
+        </view>
+    </view>
+    <view class='bgindex'></view>
+    <view class='hotShop'>
+        <view class='hot_title'>热销推荐</view>
+        <view class='host_box_list2'>
+              <image bindtap='footerClick' wx:for='{{footerList}}' data-link='{{item.link}}' src='{{item.imgurl}}'></image>
+        </view>
+        <!-- <view class='bgindex' style='height:11rpx;'></view>
+        <view class='host_box_list'>
+            <view class='hotList' bindtap='footerClick' wx:for='{{footerList}}' data-link='{{item.link}}'>
+                <image src='{{item.imgurl}}'></image>
+                <view class='moneyText'>{{item.title}}</view>
+                <view class='nameText'>{{item.subTitle}}</view>
+            </view>
+        </view> -->
+    </view>
+    <view class='bgindex' style='height:11rpx;'></view>
+    <view class='adbanner'>
+       <image bindtap='pingpaiClick' data-url='{{pingpai[0].link}}' src='{{pingpai[0].imgurl}}'></image>
+    </view>
+    <!-- 认证7句话 -->
+    <!-- <view class="textEng">
+      <view>
+        <view class="liInfo">专业认证<i></i></view>
+        <view class="liInfo">一钻双证<i></i></view>
+        <view class="liInfo">终身保养<i></i></view>
+        <view class="liInfo">全程保险<i></i></view>
+        <view class="liInfo">30天退换<i></i></view>
+        <view class="liInfo">全国免运费<i></i></view>
+        <view class="liInfo">免费刻字<i></i></view>
+      </view>
+    </view> -->
+    <!-- 尾巴 -->
+    <!-- <view class="footerOpen">
+        <view class="hexian"></view>
+        <text>到底啦～</text>
+    </view> -->
+    <!--底部-->
+
+    <!-- 弹窗 -->
+      <!-- <view class="pop_box" catchtouchmove='true' wx:if="{{dialog}}">
+          <view class="pop_bg" bindtap='closeBtn' ></view>
+          <view class="pop_con">
+              <view class="popborder">
+                <view class="pop_text">
+                    <!-- <image class="closeBtn" bindtap='closeBtn' src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/close.png"></image> -->
+                    <!-- <view class="logo"><image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/logo.png"></image></view>
+                    <view class="title"><image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/te.png"></image></view>
+                    <view class="shop"><image src='https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/6f2e.png'></image></view>
+                    <view class="cs"><image src="https://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-M/pop/cs.png"></image></view>
+                    <view class="tex">
+                      <view>你是否愿意放弃自己的</view>
+                      <view>人身权、财产权、话语权</view>
+                      <view>无条件包容、爱护您的爱人？</view>
+                    </view>
+                    <view class="btn">
+                       <text bindtap='yesBtn'>YES</text>
+                       <text bindtap='noBtn'>NO</text> 
+                    </view>
+                </view>
+                <view class="two_pop_text" wx-if="{{twoDialog}}">
+                    <view class="tipH">温馨提示</view>
+                    <view class="tipP">您真的要放弃收获真爱的机会吗？</view>
+                    <view class="two_back" bindtap='backBtn'>点错了 返回</view>
+                    <view class="two_close" bindtap='closeBackBtn'>放弃，坚持退出</view>
+                </view>
+              </view>
+          </view>
+      </view> -->
+
+<template is="ditu"></template>
+<!--菜单-->
+<template is="menu" data="{{Mindexs}}"></template>
+<!--客服-->
+<template is="KeFu"></template>
+</view>

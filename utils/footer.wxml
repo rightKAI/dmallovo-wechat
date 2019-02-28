@@ -1,0 +1,14 @@
+ <!-- 认证7句话 -->
+ <template name="ditu">
+    <view class="textEng">
+      <view>
+        <view bindtap='approveUrl' data-id='160' class="liInfo">专业认证<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='161'>一钻双证<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='162'>终身保养<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='163'>全程保险<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='36'>30天退换<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='165'>全国免运费<i></i></view>
+        <view bindtap='approveUrl' class="liInfo" data-id='166'>免费刻字<i></i></view>
+      </view>
+    </view>
+    </template>

@@ -1,0 +1,7 @@
+<template name="shopList">
+  <view id="shop">
+      <view class="{{shopOn?'red':'listTitle'}}"  bindtap='qiuhun'>求婚钻戒</view>
+      <view class="{{selected?'red':'listTitle'}}"  bindtap='jiehun'>结婚戒指</view>
+      <view class="{{selected?'red':'listTitle'}}"  bindtap='shishang'>时尚饰品</view>
+  </view>
+</template>

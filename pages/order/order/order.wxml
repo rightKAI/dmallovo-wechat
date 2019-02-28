@@ -1,0 +1,110 @@
+  <!--pages/order/order/order.wxml-->
+<import src="/utils/step.wxml" />
+<view id="app">
+  <view style="height:0;background:#e8e8e8;width: 100%;border-bottom:1rpx solid #e8e8e8;position: fixed;top: 0;z-index:9999"></view>
+  <view class="tabType">
+    <view class="content">
+        <text class="logistics {{lgActive}}" data-type="logistics" bindtap='tabTypeClick'>顺丰包邮</text>
+        <text class="storeGet {{stActive}}" data-type="storeGet"  bindtap='tabTypeClick'>门店自提</text>
+    </view>
+  </view>
+  <!--门店自提-->
+   <view class="storeInfo" bindtap="storeInfoClick" hidden="{{storeGet}}">
+      <view class="content">
+        <view class="yesContent" hidden="{{yesContent}}">
+          <text class="name">{{stgText}}</text>
+          <text class="address">{{stgAddress}}</text>
+        </view>
+        <text class="noContent" hidden="{{!yesContent}}">选择自提门店</text>
+        <view class="nextIcon"></view>
+      </view>
+  </view>
+  <view class="stgMsnArea clearBoth" hidden="{{storeGet}}">
+        <text>提货人:</text><input class='order_phone' type="text" placeholder-style="font-size:26rpx;color:#999;"  bindinput="stgNameEvent" value="{{stgName}}" placeholder="请输入提货人姓名" />
+      </view>
+      <view class="stgPhone clearBoth" hidden="{{storeGet}}">
+        <text>提货人手机:</text><input type="text" maxlength="11" bindinput="stgPhoneEvent" placeholder-style="font-size:26rpx;color:#999" value="{{stgPhone}}" placeholder="请输入提货人手机号码"/>
+      </view>
+  <!--联系人-->
+  <view hidden="{{!storeGet}}">
+    <view class="addressArea" hidden="{{addressArea}}">
+    <view class="address-tittle clearBoth" bindtap="addressClick">
+      <view class="addr-text">{{addrData.userName}} {{addrData.phone}}</view>
+      <view class="addr-info">{{addrData.provinceName}} {{addrData.cityName}} {{addrData.address}}</view> 
+    </view> 
+    <view class="nextIcon"></view>
+  </view>
+  <!--无联系人显示-->
+  <view class="noAddressArea" hidden="{{noAddressArea}}">
+    <view class="noAAItem" bindtap="goAddUser">
+      <text class="noText">添加收货地址</text>
+      <text class="nextIcon"></text>
+    </view>
+  </view>
+  </view>
+  <!--发货通知和订单备注-->
+  <view class="msnOrRemarkArea" hidden='{{!storeGet}}'>
+    <view class="msnOrRemark">
+      <view class="msnArea clearBoth">
+        <text class="{{mcheckbox}}" bindtap="msnCheckEvent"></text>
+        <text style='width:112rpx;'>发货通知:</text><input class='order_phone' type="text" placeholder-style="font-size:26rpx;color:#999;" maxlength="11" bindinput="sendPhone" value="{{phone}}" placeholder="默认填入收货地址的手机号码" />
+      </view>
+      <view class="remark">
+        <text style='width:112rpx;position:relative;top:5rpx;'>订单备注:</text><input type="text" maxlength="40" bindinput="remark" placeholder-style="font-size:26rpx;color:#999" value="{{remark}}" placeholder="特殊要求请留言,客服会第一时间联系您"/>
+      </view>
+    </view>
+  </view>
+  <!--商品区域-->
+  <view class="collText">
+    <view class="card" wx:for="{{orderData}}" wx:key="id">
+      <view class="card-thumb">
+        <image src="{{item.imgurl}}"/>
+      </view>
+      <view class="card-content">
+        <view class="name">{{item.goodsName}}</view>
+        <view class="sizeOrparam clearBoth">
+          <view class="left">
+            <text class="classify">{{item.goldClassify}}</text> 
+            <text class="fcParam" wx:for="{{item.params}}" wx:key="id" wx-if="{{item && item != '--'}}">{{item}}</text>
+          </view>
+        </view>
+        <view class="letter">
+          <text class="letterText" wx:if="{{item.lettering != null && item.lettering}}">刻字:{{item.lettering}}</text>
+          <text class="right" wx:if="{{item.size}}">尺寸:{{item.size}}</text>
+        </view>
+        <view class="footer clearBoth">
+          <view class="blockPrice">￥{{item.sumPrice}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--总计-->
+  <view class="totalArea">
+    <view class="total-goods">
+      <view class="tgItem"><text>应付总额</text><text class="price">￥{{sumPrice}}</text></view>
+      <view class="tgItem"><text>商品总价</text><text class="blockPrice">￥{{sumPrice}}</text></view>
+      <view class="tgItem"><text>运费</text><text class="blockPrice">￥0.0</text></view>
+    </view>
+  </view>
+  <!--底部合计及提交订单区域-->
+  <view class="pay-bottom clearBoth">
+    <view class="text">
+      <view class="payPrice">合计: ￥{{sumPrice}}</view>
+    </view>
+    <view class="pay" bindtap="createOrder">去支付</view>
+  </view>
+  <!--支付弹窗-->
+  <view class="payModal" hidden="{{hasPayModal}}" bindtap="hidePayModal">
+    <view class="payContent clearBoth">
+      <view class="payHead clearBoth"><text class="close" catchtap="hidePayModal"></text></view>
+      <view class="payType">
+          <view class="payItem clearBoth" catchtap="wxPayClick">
+              <image class="wx" src="http://img-dmallovo.oss-cn-shenzhen.aliyuncs.com/icon/ICON-WebChar/icon-wechat.png"/>
+              <text class="typeName">微信支付</text>
+              <text class="check checked"></text>
+          </view>
+      </view>
+      <view class="paySave"><text catchtap="paySaveEvent">确认支付</text></view>
+    </view>
+  </view> 
+</view>
